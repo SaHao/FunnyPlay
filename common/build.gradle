@@ -1,0 +1,52 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'com.iejnnnmokkk.common'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api libs.core.ktx
+    api libs.squareup.retrofit
+    api libs.squareup.converter.gson
+    api libs.squareup.adapter.rxjava2
+    api libs.com.squareup.okhttp3.okhttp2
+    api libs.logging.interceptor
+    api libs.com.google.code.gson.gson
+//    RxJava
+    api libs.reactivex.rxjava
+    api libs.rxandroid
+//    刷新 加载更多
+    api libs.refresh.layout.kernel
+    api libs.github.refresh.header.material
+    api libs.github.refresh.footer.classics
+
+    api libs.appcompat
+    api libs.material
+    api libs.activity
+    api libs.constraintlayout
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

@@ -15,7 +15,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    viewBinding {
+        enable = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -29,7 +31,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":common"))
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
