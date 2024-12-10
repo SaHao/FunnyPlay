@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#1F1616"
+    android:background="#201616"
     android:orientation="vertical">
 
     <FrameLayout

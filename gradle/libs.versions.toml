@@ -2,8 +2,10 @@
 agp = "8.3.0"
 butterknifeCompiler = "10.2.3"
 butterknife = "10.2.3"
+compilerVersion = "4.15.1"
 comSquareupOkhttp3Okhttp = "4.12.0"
 coreKtx = "1.10.1"
+glideVersion = "4.15.1"
 googleGson = "2.10.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -29,6 +31,8 @@ butterknife = { module = "com.jakewharton:butterknife", version.ref = "butterkni
 com-google-code-gson-gson = { module = "com.google.code.gson:gson", version.ref = "googleGson" }
 com-squareup-okhttp3-okhttp2 = { module = "com.squareup.okhttp3:okhttp", version.ref = "comSquareupOkhttp3Okhttp" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+github-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compilerVersion" }
 io-github-scwang90-refresh-footer-classics2 = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "githubRefreshLayoutKernelVersion" }
 io-github-scwang90-refresh-header-material2 = { module = "io.github.scwang90:refresh-header-material", version.ref = "githubRefreshLayoutKernelVersion" }
 io-github-scwang90-refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "githubRefreshLayoutKernelVersion" }

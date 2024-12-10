@@ -44,6 +44,8 @@ dependencies {
     annotationProcessor libs.butterknife.compiler
     implementation libs.navigation.ui.ktx
     implementation libs.navigation.fragment.ktx
+    implementation libs.github.glide
+    annotationProcessor libs.glide.compiler
     implementation(project(":common"))
 
 //    testImplementation libs.junit
