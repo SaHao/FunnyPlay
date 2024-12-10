@@ -16,6 +16,7 @@ navigationFragmentKtx = "2.5.3"
 navigationUiKtx = "2.5.3"
 reactivexRxjava = "2.2.21"
 rxandroid = "2.1.1"
+rxeasyhttp = "2.1.5"
 rxpermissions = "0.11"
 squareupAdapterRxjava2 = "2.9.0"
 squareupConverterGson = "2.11.0"
@@ -43,6 +44,7 @@ navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-kt
 navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 reactivex-rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "reactivexRxjava" }
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxandroid" }
+rxeasyhttp = { module = "com.zhouyou:rxeasyhttp", version.ref = "rxeasyhttp" }
 rxpermissions = { module = "com.github.tbruyelle:rxpermissions", version.ref = "rxpermissions" }
 squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "squareupRetrofit" }
 squareup-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "squareupConverterGson" }

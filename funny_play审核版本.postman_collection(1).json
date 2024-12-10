@@ -1,0 +1,1288 @@
+{
+	"info": {
+		"_postman_id": "fc8f93aa-1ee0-4004-a45c-e0479ead24e2",
+		"name": "Offer审核版本",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29675312",
+		"_collection_link": "https://warped-comet-59972.postman.co/workspace/Offer%E5%AE%A1%E6%A0%B8%E7%89%88%E6%9C%AC~f8eba4ad-9538-4334-9027-0f1a7d602549/collection/29675312-fc8f93aa-1ee0-4004-a45c-e0479ead24e2?action=share&source=collection_link&creator=29675312"
+	},
+	"item": [
+		{
+			"name": "获取用户信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "49c60a9a63d508627d8f96f5c9d065ef",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"description": "布尔类型是否开启VPN，true：开启，false：未开启",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "3f40a9a3-8a0b-4b72-b56a-7d6fa9ca9264",
+							"description": "google广告id",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "MiniPlay",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "fields",
+							"value": "",
+							"description": "new_user_local_money：新用户奖励转化成当地货币,balance：余额,money：货币,area：地区,new_user_reward_flag：新手礼包领取状态（1：已领取）,first_jf：,first_money：,first_pay_ad_flag：首次提现是否看广告,my_task_count：进行中的任务个数,welfare_complete_sum：完成的福利任务个数,welfare_5_star_reward：五星好评奖励",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.0",
+							"description": "版本号",
+							"type": "text"
+						},
+						{
+							"key": "deviceId",
+							"value": "43986f266f02e67f",
+							"description": "设备id",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.qnpt.xyz/funny_play/user_info",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qnpt",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"user_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "领取新用户奖励",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_send_new_user_coins",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_send_new_user_coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户广告弹窗奖励数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "b9720697dae87eff0f02d3aedae175ce",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "daily_reward",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_video_reward",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_video_reward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "签到数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/dayli_list",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"dayli_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户签到",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/new_daily",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"new_daily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "我的任务列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_my_task_list_v1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_my_task_list_v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "任务列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "f818d58682402e63666ad41d43a2f761",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"is_vpn\":false,\"gaid\":\"b7aac619-b971-411b-9e87-759f1ae0c80b\",\"limit\":20,\"channel\":\"jfq_2_offer\",\"randomUUID\":\"\",\"page\":1,\"version\":\"1.0.3\",\"deviceId\":\"a5187c328ec3ea3f\",\"versionCode\":4,\"game_flag\":\"0\",\"API_URI\":\"api.keepad.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_task_list",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_task_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "任务详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "e359c800efc587036e1e2749e465d605",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "funny_play",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.0",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "20",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "no",
+							"value": "241202162550379181",
+							"description": "任务流水号",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/daily_offer_info",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"daily_offer_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "领取任务",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "776f548f933512a70af0efb0d69c9567",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "20",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "no",
+							"value": "240629121003995996",
+							"description": "任务流水号",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_task_start",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_task_start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "问卷调查详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "776f548f933512a70af0efb0d69c9567",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "20",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "no",
+							"value": "240606111229363798",
+							"description": "任务流水号",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_wjdc_info",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_wjdc_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "游戏cpl详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "776f548f933512a70af0efb0d69c9567",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "20",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "no",
+							"value": "240629121003995996",
+							"description": "任务流水号",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_gamecpl_task_info",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_gamecpl_task_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "上报游戏cpl详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "776f548f933512a70af0efb0d69c9567",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"event1\":\"0\",\"no\":\"202405071626432934\",\"is_vpn\":false,\"gaid\":\"bde3076d-4fb0-46af-94d1-3094ed73a022\",\"sign\":\"1f9ccc5f0f5f442a5b99d391e5cec3dc\",\"channel\":\"jfq_2_offer\",\"randomUUID\":\"\",\"version\":\"1.0.3\",\"deviceId\":\"55e5060c2a9505e4\",\"versionCode\":4,\"event2\":\"6\",\"timestamp\":1720752612,\"API_URI\":\"api.keepad.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_task_game_event",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_task_game_event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提交问卷调查",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "776f548f933512a70af0efb0d69c9567",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"no\":\"240606111229363798\",\"is_vpn\":false,\"data\":\"[{\\\"answers\\\":\\\"2458\\\",\\\"id\\\":527,\\\"type\\\":1}]\",\"gaid\":\"b8bab3f0-5baa-4340-b6f1-0b684b106ea4\",\"channel\":\"jfq_2_offer\",\"randomUUID\":\"\",\"version\":\"1.0.3\",\"deviceId\":\"42ef637789fce5fe\",\"versionCode\":4,\"API_URI\":\"api.keepad.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/daily_new_submit",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"daily_new_submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "宝箱数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "197b2c64c766bc95c8d431cb730d287b",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "funny_play",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/daily_new_user_package",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"daily_new_user_package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "我的提现记录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "funny_play",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "20",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_pay_my_bank_request",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_pay_my_bank_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "abedc73fca397ae45c68a5adc7d248bd",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"is_vpn\":false,\"gaid\":\"123\",\"channel\":\"MiniPlay\",\"randomUUID\":\"b90713eb-1185-4a3b-b8fe-58e40f5756d9\",\"version\":\"1.0.8\",\"deviceId\":\"123\",\"versionCode\":8,\"token\":\"abedc73fca397ae45c68a5adc7d248bd\",\"API_URI\":\"ht.jbtls.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/pay_withdrawal_list",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"pay_withdrawal_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现详情页数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "2ae0d18e4c3ca4f769bc242c148c9847",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"is_vpn\":false,\"wallet_id\":\"PAGBANK\",\"money\":\"0.2\",\"gaid\":\"5de00940-5bbe-4b5f-9beb-955fc721adbd\",\"channel\":\"jfq_2_offer\",\"pay_type\":4,\"randomUUID\":\"\",\"version\":\"1.0.3\",\"deviceId\":\"48411e3a81d885e7\",\"versionCode\":4,\"API_URI\":\"api.keepad.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/backmoney_index",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"backmoney_index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现申请",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "12df6e599da2142a58da1a00a4c72b43",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"payee_documentType\":\"\",\"payee_documentType2\":\"\",\"real_name\":\"GIANG CHIN MIN\",\"pay_account\":\"8207205053356\",\"money\":\"50000\",\"payee_documentId\":\"\",\"payee_documentId2\":\"\",\"id\":\"7\",\"jf\":\"500000\",\"bank\":\"Agribank\",\"channel\":\"web\",\"version\":\"1.0.1\",\"API_URI\":\"api.cxbwm.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/pay_tixian_v1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"pay_tixian_v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "完成福利任务",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "145",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/offer_complete_welfare",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"offer_complete_welfare"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "福利任务列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eadf88b406a99bec40ec54711f6d3959",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"is_vpn\":false,\"gaid\":\"123\",\"channel\":\"MiniPlay\",\"randomUUID\":\"506441e2-0da9-40c2-b3a3-89e32efc6055\",\"version\":\"1.0.7\",\"deviceId\":\"123\",\"versionCode\":7,\"token\":\"eadf88b406a99bec40ec54711f6d3959\",\"API_URI\":\"ht.jbtls.xyz\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/welfare_new_welfare_index_v1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"welfare_new_welfare_index_v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "福利任务领奖",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "145",
+							"description": "福利任务id",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/daily_welfare_reward",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"daily_welfare_reward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户登陆接口",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "proxy_invite",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.0",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "deviceId",
+							"value": "d2203031a5e3d0cd",
+							"description": "福利任务id",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "en",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/funny_play/daily_login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"funny_play",
+						"daily_login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

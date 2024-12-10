@@ -48,6 +48,7 @@ dependencies {
     api libs.io.github.scwang90.refresh.footer.classics2
 //    权限
     api libs.rxpermissions
+    api libs.rxeasyhttp
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

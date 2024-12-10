@@ -2,6 +2,9 @@ package com.iejnnnmokkk.common.http;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.LogUtils;
 
@@ -57,10 +60,20 @@ public class PostRequest<T> implements RequestStrategy {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.code() == 200) {
                     String jsonResponse = response.body().string();
-                    T parsedResponse = GsonUtils.fromJson(jsonResponse, clazz);
-                    callback.onSuccess(parsedResponse, jsonResponse);
+                    try {
+                        JsonObject jsonObject = new JsonParser().parse(jsonResponse).getAsJsonObject();
+                        int responseCode = jsonObject.get("code").getAsInt();
+                        if (responseCode == 200) {
+                            T parsedResponse = GsonUtils.fromJson(jsonResponse, clazz);
+                            callback.onSuccess(parsedResponse, jsonResponse);
+                        } else {
+                            callback.onFailure("请求失败，返回的 code 是：" + responseCode + "，错误信息：" + jsonObject.get("message").getAsString());
+                        }
+                    } catch (JsonSyntaxException e) {
+                        callback.onFailure("响应解析错误: " + e.getMessage());
+                    }
                 } else {
                     callback.onFailure("请求失败，返回错误码：" + response.code() + "，错误信息：" + response.message());
                 }

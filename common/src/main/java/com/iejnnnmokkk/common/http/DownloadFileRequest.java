@@ -68,7 +68,7 @@ public class DownloadFileRequest implements RequestStrategy {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.code() == 200) {
                     try (InputStream inputStream = response.body().byteStream();
                          FileOutputStream fileOutputStream = new FileOutputStream(new File(destFilePath))) {
 

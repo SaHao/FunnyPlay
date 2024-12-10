@@ -43,8 +43,8 @@ public class SharedPreferencesUtil {
      * @param defaultUsername 默认值
      * @return 用户名
      */
-    public String getValue(String key, String defaultUsername) {
-        return sharedPreferences.getString(key, defaultUsername);
+    public String getValue(String key) {
+        return sharedPreferences.getString(key, "");
     }
 
     /**

@@ -2,6 +2,9 @@ package com.iejnnnmokkk.common.http;
 
 import androidx.annotation.NonNull;
 
+import com.iejnnnmokkk.common.utils.AppContext;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -26,7 +29,7 @@ public class TokenInterceptor implements Interceptor {
                 throw new IOException("401: Token missing or expired.");
             }
             Request newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer " + token)
+                    .addHeader("token", SharedPreferencesUtil.getInstance(AppContext.getContext()).getValue("username"))
                     .build();
             return chain.proceed(newRequest);
         } else {

@@ -1,5 +1,10 @@
 package com.iejnnnmokkk.common.http;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+import com.iejnnnmokkk.common.utils.GsonUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -64,8 +69,19 @@ public class UploadFileRequest implements RequestStrategy {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    callback.onSuccess(null, response.body().string());
+                if (response.isSuccessful() && response.code() == 200) {
+                    String jsonResponse = response.body().string();
+                    try {
+                        JsonObject jsonObject = new JsonParser().parse(jsonResponse).getAsJsonObject();
+                        int responseCode = jsonObject.get("code").getAsInt();
+                        if (responseCode == 200) {
+                            callback.onSuccess(null, response.body().string());
+                        } else {
+                            callback.onFailure("请求失败，返回的 code 是：" + responseCode + "，错误信息：" + jsonObject.get("message").getAsString());
+                        }
+                    } catch (JsonSyntaxException e) {
+                        callback.onFailure("响应解析错误: " + e.getMessage());
+                    }
                 } else {
                     callback.onFailure("上传失败，返回错误码：" + response.code());
                 }
