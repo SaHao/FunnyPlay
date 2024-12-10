@@ -42,7 +42,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        inflater = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context);
         sharedPreferencesUtil = SharedPreferencesUtil.getInstance(context);
         return onInitView(container, savedInstanceState);
     }
