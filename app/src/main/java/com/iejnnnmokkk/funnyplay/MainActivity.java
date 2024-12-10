@@ -37,7 +37,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     private List<Fragment> fragments;
 
-
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
