@@ -27,32 +27,32 @@ public class SharedPreferencesUtil {
     }
 
     /**
-     * 存储用户名
+     * 存储
      *
      * @param username 用户名
      */
-    public void saveUsername(String key, String username) {
+    public void saveValue(String key, String username) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, username);
         editor.apply();
     }
 
     /**
-     * 获取用户名
+     * 获取
      *
      * @param defaultUsername 默认值
      * @return 用户名
      */
-    public String getUsername(String key, String defaultUsername) {
+    public String getValue(String key, String defaultUsername) {
         return sharedPreferences.getString(key, defaultUsername);
     }
 
     /**
      * 清除数据
      */
-    public void clearSp() {
+    public void clearAll() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("username");
+        editor.clear();
         editor.apply();
     }
 

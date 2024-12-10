@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.iejnnnmokkk.common.utils.PermissionUtils;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.MaterialHeader;
@@ -28,6 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Context context;
     protected Activity activity;
     protected SmartRefreshLayout refreshLayout;
+    protected SharedPreferencesUtil sharedPreferencesUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,8 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         context = activity = this;
         EdgeToEdge.enable(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        sharedPreferencesUtil = SharedPreferencesUtil.getInstance(context);
         onInitView(savedInstanceState);
         initData();
     }

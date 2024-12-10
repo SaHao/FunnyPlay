@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+
 /**
  * @author Sun
  * @Demo class BaseActivity
@@ -23,6 +25,7 @@ public abstract class BaseFragment extends Fragment {
     protected Context context;
     protected Activity activity;
     protected LayoutInflater inflater;
+    protected SharedPreferencesUtil sharedPreferencesUtil;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -40,6 +43,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         inflater = LayoutInflater.from(context);
+        sharedPreferencesUtil = SharedPreferencesUtil.getInstance(context);
         return onInitView(container, savedInstanceState);
     }
 
