@@ -20,6 +20,7 @@ import com.iejnnnmokkk.funnyplay.shop.ShopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +43,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         ButterKnife.bind(this);
         rbGame.setSelected(true);
         rgMenu.setOnCheckedChangeListener(this);
+//        UUID.randomUUID().toString()
     }
 
     @Override
