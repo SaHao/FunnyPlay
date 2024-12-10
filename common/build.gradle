@@ -26,6 +26,12 @@ android {
 }
 
 dependencies {
+//    核心库
+    api libs.appcompat
+    api libs.material
+    api libs.activity
+    api libs.constraintlayout
+//    第三方
     api libs.core.ktx
     api libs.squareup.retrofit
     api libs.squareup.converter.gson
@@ -40,11 +46,8 @@ dependencies {
     api libs.io.github.scwang90.refresh.layout.kernel
     api libs.io.github.scwang90.refresh.header.material2
     api libs.io.github.scwang90.refresh.footer.classics2
-
-    api libs.appcompat
-    api libs.material
-    api libs.activity
-    api libs.constraintlayout
+//    权限
+    api libs.rxpermissions
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

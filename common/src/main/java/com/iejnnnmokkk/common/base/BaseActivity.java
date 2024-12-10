@@ -1,14 +1,18 @@
 package com.iejnnnmokkk.common.base;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.iejnnnmokkk.common.utils.PermissionUtils;
+import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.MaterialHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -38,6 +42,25 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void onInitView(@Nullable Bundle savedInstanceState);
 
     protected abstract void initData();
+
+    protected void initPermission(String... params) {
+        PermissionUtils.requestPermissions(this, params, new PermissionUtils.PermissionCallback() {
+            @Override
+            public void onPermissionGranted(String permission) {
+                ToastUtils.showShort(context, "权限被授予");
+            }
+
+            @Override
+            public void onPermissionDenied(String permission) {
+                ToastUtils.showShort(context, "权限已被拒绝");
+            }
+
+            @Override
+            public void onPermissionDeniedForever(String permission) {
+                ToastUtils.showShort(context, "权限被拒绝，请到设置页面进行操作");
+            }
+        });
+    }
 
     protected void initSmartRefreshLayout() {
         refreshLayout.setDisableContentWhenRefresh(true);
