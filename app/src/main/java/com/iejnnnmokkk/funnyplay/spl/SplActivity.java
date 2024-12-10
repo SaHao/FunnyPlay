@@ -82,6 +82,8 @@ public class SplActivity extends BaseActivity implements SplView {
         LoadingUtil.hideLoading();
         ToastUtils.showShort(context, "领取成功");
         sharedPreferencesUtil.saveValue("agree", "1");
+        startActivity(new Intent(context, MainActivity.class));
+        finish();
     }
 
     @Override
