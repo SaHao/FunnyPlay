@@ -27,7 +27,7 @@ import com.scwang.smart.refresh.layout.constant.SpinnerStyle;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected Context context;
-    protected Activity activity;
+    protected AppCompatActivity activity;
     protected SmartRefreshLayout refreshLayout;
     protected SharedPreferencesUtil sharedPreferencesUtil;
 
@@ -35,7 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = activity = this;
-        EdgeToEdge.enable(this);
+        EdgeToEdge.enable(activity);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         sharedPreferencesUtil = SharedPreferencesUtil.getInstance(context);
@@ -48,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initData();
 
     protected void initPermission(String... params) {
-        PermissionUtils.requestPermissions(this, params, new PermissionUtils.PermissionCallback() {
+        PermissionUtils.requestPermissions(activity, params, new PermissionUtils.PermissionCallback() {
             @Override
             public void onPermissionGranted(String permission) {
                 ToastUtils.showShort(context, "权限被授予");
@@ -66,11 +66,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
+    protected void initRefreshLayout(SmartRefreshLayout refreshLayout) {
+        this.refreshLayout = refreshLayout;
+    }
+
     protected void initSmartRefreshLayout() {
         refreshLayout.setDisableContentWhenRefresh(true);
         refreshLayout.setDisableContentWhenLoading(true);
-        refreshLayout.setRefreshHeader(new MaterialHeader(this));
-        refreshLayout.setRefreshFooter(new ClassicsFooter(this).setSpinnerStyle(SpinnerStyle.Scale));
+        refreshLayout.setRefreshHeader(new MaterialHeader(context));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Scale));
         refreshLayout.setNoMoreData(false);
     }
 

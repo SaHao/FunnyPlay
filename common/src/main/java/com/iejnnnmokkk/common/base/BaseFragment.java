@@ -10,9 +10,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.iejnnnmokkk.common.utils.PermissionUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+import com.iejnnnmokkk.common.utils.ToastUtils;
+import com.scwang.smart.refresh.footer.ClassicsFooter;
+import com.scwang.smart.refresh.header.MaterialHeader;
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.constant.SpinnerStyle;
 
 /**
  * @author Sun
@@ -26,6 +33,7 @@ public abstract class BaseFragment extends Fragment {
     protected Activity activity;
     protected LayoutInflater inflater;
     protected SharedPreferencesUtil sharedPreferencesUtil;
+    protected SmartRefreshLayout refreshLayout;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -51,11 +59,42 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void initData();
 
+    protected void initRefreshLayout(SmartRefreshLayout refreshLayout) {
+        this.refreshLayout = refreshLayout;
+    }
+
+    protected void initSmartRefreshLayout() {
+        refreshLayout.setDisableContentWhenRefresh(true);
+        refreshLayout.setDisableContentWhenLoading(true);
+        refreshLayout.setRefreshHeader(new MaterialHeader(context));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Scale));
+        refreshLayout.setNoMoreData(false);
+    }
+
+    protected void setLoadingListener(BaseActivity.OnLoadingClickListener listener) {
+        refreshLayout.setOnRefreshListener(refreshLayout -> {
+            listener.onRefreshData();
+//            if (refreshLayout != null) {
+//                refreshLayout.finishRefresh(true);
+//            }
+        });
+
+        refreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            listener.onLoadMoreData();
+//            if (refreshLayout != null) {
+//                refreshLayout.finishLoadMoreWithNoMoreData();
+//            }
+        });
+    }
+
     protected String getNull(String content) {
-        if (!TextUtils.isEmpty(content)) {
-            return content;
-        }
-        return "";
+        return !TextUtils.isEmpty(content) ? content : "";
+    }
+
+    protected interface OnLoadingClickListener {
+        void onRefreshData();
+
+        void onLoadMoreData();
     }
 
 }
