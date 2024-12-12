@@ -19,6 +19,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView
+            android:id="@+id/cp_task"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_photo" />
+
         <ImageView
             android:id="@+id/iv_photo"
             android:layout_width="70dp"
@@ -49,9 +58,9 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="大家啊李开复"
-            android:textColor="#C1B3B2"
+            android:textColor="@color/white"
             android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cp_task"
             app:layout_constraintStart_toEndOf="@+id/iv_photo"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />
 
@@ -61,6 +70,7 @@
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
             android:src="@mipmap/icon_blue_diamond"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
