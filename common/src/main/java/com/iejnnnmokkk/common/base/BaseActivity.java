@@ -68,9 +68,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initRefreshLayout(SmartRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;
+        initSmartRefreshLayout();
     }
 
-    protected void initSmartRefreshLayout() {
+    private void initSmartRefreshLayout() {
         refreshLayout.setDisableContentWhenRefresh(true);
         refreshLayout.setDisableContentWhenLoading(true);
         refreshLayout.setRefreshHeader(new MaterialHeader(context));

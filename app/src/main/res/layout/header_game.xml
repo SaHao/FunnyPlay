@@ -28,6 +28,32 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />
 
+        <LinearLayout
+            android:id="@+id/ll_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-12dp"
+            android:background="@drawable/shape_game_task_back"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cp_task"
+            app:layout_constraintEnd_toEndOf="@+id/cp_task"
+            app:layout_constraintStart_toStartOf="@+id/cp_task">
+
+            <TextView
+                android:id="@+id/tv_taskNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="2000"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/iv_photo"
             android:layout_width="70dp"
@@ -70,7 +96,6 @@
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
             android:src="@mipmap/icon_blue_diamond"
-            app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
@@ -251,9 +276,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL"
+            android:text="ALL>>"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="13sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView0"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -289,9 +314,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL"
+            android:text="ALL>>"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="13sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView1"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -326,9 +351,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL"
+            android:text="ALL>>"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="13sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

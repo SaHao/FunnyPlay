@@ -61,9 +61,10 @@ public abstract class BaseFragment extends Fragment {
 
     protected void initRefreshLayout(SmartRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;
+        initSmartRefreshLayout();
     }
 
-    protected void initSmartRefreshLayout() {
+    private void initSmartRefreshLayout() {
         refreshLayout.setDisableContentWhenRefresh(true);
         refreshLayout.setDisableContentWhenLoading(true);
         refreshLayout.setRefreshHeader(new MaterialHeader(context));
@@ -71,19 +72,13 @@ public abstract class BaseFragment extends Fragment {
         refreshLayout.setNoMoreData(false);
     }
 
-    protected void setLoadingListener(BaseActivity.OnLoadingClickListener listener) {
+    protected void setLoadingListener(OnLoadingClickListener listener) {
         refreshLayout.setOnRefreshListener(refreshLayout -> {
             listener.onRefreshData();
-//            if (refreshLayout != null) {
-//                refreshLayout.finishRefresh(true);
-//            }
         });
 
         refreshLayout.setOnLoadMoreListener(refreshLayout -> {
             listener.onLoadMoreData();
-//            if (refreshLayout != null) {
-//                refreshLayout.finishLoadMoreWithNoMoreData();
-//            }
         });
     }
 
