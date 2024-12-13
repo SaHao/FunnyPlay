@@ -61,7 +61,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         presenter.getFavourite(pageNum, 26);
         presenter.getMost(pageNum, 27);
         presenter.getNew(pageNum, 28);
-        presenter.getUserInfo();
+        presenter.getUserInfo(context);
 
         setLoadingListener(new OnLoadingClickListener() {
             @Override

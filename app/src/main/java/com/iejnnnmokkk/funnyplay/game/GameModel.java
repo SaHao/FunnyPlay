@@ -1,8 +1,11 @@
 package com.iejnnnmokkk.funnyplay.game;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.spl.LoginBean;
@@ -55,7 +58,7 @@ public class GameModel {
                 });
     }
 
-    public void getUserInfo(BaseNetworkCallback<UserInfoBean> callback) {
+    public void getUserInfo(Context context, BaseNetworkCallback<UserInfoBean> callback) {
         String url = "https://api.qnpt.xyz/funny_play/user_info";
         Map<String, String> formDataMap = new HashMap<>();
         formDataMap.put("is_vpn", "false");
@@ -75,6 +78,7 @@ public class GameModel {
 
                     @Override
                     public void onSuccess(String response) {
+                        SharedPreferencesUtil.getInstance(context).saveValue("user", response);
                         callback.onSuccess(GsonUtils.fromJson(response, UserInfoBean.class));
                     }
                 });

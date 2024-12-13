@@ -1,5 +1,7 @@
 package com.iejnnnmokkk.funnyplay.game;
 
+import android.content.Context;
+
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
@@ -66,8 +68,8 @@ public class GamePresenter {
         });
     }
 
-    public void getUserInfo() {
-        model.getUserInfo( new BaseNetworkCallback<UserInfoBean>() {
+    public void getUserInfo(Context context) {
+        model.getUserInfo(context, new BaseNetworkCallback<UserInfoBean>() {
             @Override
             public void onSuccess(UserInfoBean bean) {
                 view.getUserInfo(bean);
