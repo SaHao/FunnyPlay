@@ -77,6 +77,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
+
+            setProgressBar(((HeaderViewHolder) holder).cpTask, 10);
         }
     }
 
@@ -168,12 +170,12 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         }
     }
 
-    private void setProgressBar(CircleWaveProgressView progressView) {
+    private void setProgressBar(CircleWaveProgressView progressView, int progress) {
         progressView.setCircleColor(context.getResources().getColor(R.color.progressCircle))
                 .setWaveColor(context.getResources().getColor(R.color.progressCircle))
                 .setTextColor(Color.WHITE)
-                .setTextSize(40f)
-                .setProgress(50)
+                .setTextSize(10f)
+                .setProgress(progress)
                 .startAnimation();
     }
 }
