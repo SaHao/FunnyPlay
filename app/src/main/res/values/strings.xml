@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">FunnyPlay</string>
+
+    <string name="splTile">Complete simple tasks and get generous rewards</string>
+    <string name="Great">Great</string>
+    <string name="splContent1">By continuing, you accept our </string>
+    <string name="splContent2">privacy policy</string>
+
+    <string name="FavoriteGames">Favorite Games</string>
+    <string name="TheMostRewarding">The Most Rewarding</string>
+    <string name="NewlyLaunched">Newly launched</string>
+    <string name="ALL">ALL>></string>
+    <string name="Play">Play</string>
 </resources>

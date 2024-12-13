@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.game;
 
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 
 /**
  * @author Sun
@@ -10,6 +11,9 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
  */
 public interface IGameView {
 
-    void getData(GameBean bean);
+    void getFavourite(GameBean bean);
+    void getMost(GameBean bean);
+    void getNew(GameBean bean);
+    void getUserInfo(UserInfoBean bean);
     void onFailed(String msg);
 }

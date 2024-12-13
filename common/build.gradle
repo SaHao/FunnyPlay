@@ -49,6 +49,8 @@ dependencies {
 //    权限
     api libs.rxpermissions
     api libs.rxeasyhttp
+//    圆角
+    api libs.com.makeramen.roundedimageview
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

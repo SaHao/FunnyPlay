@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,7 +12,7 @@
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:scaleType="fitXY"
             android:src="@mipmap/icon_game_title"
             app:layout_constraintEnd_toEndOf="parent"
@@ -21,9 +21,9 @@
 
         <com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView
             android:id="@+id/cp_task"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="37dp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />
@@ -32,14 +32,14 @@
             android:id="@+id/ll_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-12dp"
+            android:layout_marginBottom="-11dp"
             android:background="@drawable/shape_game_task_back"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingTop="3dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="3dp"
+            android:paddingStart="6dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/cp_task"
             app:layout_constraintEnd_toEndOf="@+id/cp_task"
             app:layout_constraintStart_toStartOf="@+id/cp_task">
@@ -48,7 +48,6 @@
                 android:id="@+id/tv_taskNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
                 android:text="2000"
                 android:textColor="@color/white"
                 android:textSize="10sp" />
@@ -56,8 +55,8 @@
 
         <ImageView
             android:id="@+id/iv_photo"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
             android:src="@mipmap/icon_game"
             app:layout_constraintBottom_toBottomOf="@+id/iv_photoBack"
             app:layout_constraintEnd_toEndOf="@+id/iv_photoBack"
@@ -66,9 +65,9 @@
 
         <ImageView
             android:id="@+id/iv_photoBack"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="30dp"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:src="@mipmap/icon_game"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +85,7 @@
             android:text="大家啊李开复"
             android:textColor="@color/white"
             android:textSize="13sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/cp_task"
             app:layout_constraintStart_toEndOf="@+id/iv_photo"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />
@@ -94,15 +94,16 @@
             android:id="@+id/imageView0"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
             android:src="@mipmap/icon_blue_diamond"
-            app:layout_constraintStart_toStartOf="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_photoBack"
+            app:layout_constraintStart_toEndOf="@+id/iv_photoBack"
+            app:layout_constraintTop_toTopOf="@+id/iv_photoBack" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="11dp"
             android:text="200"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -112,10 +113,10 @@
 
         <ImageView
             android:id="@+id/iv_sgnIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_sign_in"
@@ -124,8 +125,8 @@
 
         <ImageView
             android:id="@+id/iv_game"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_game"
@@ -136,8 +137,8 @@
 
         <ImageView
             android:id="@+id/iv_shop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_shop"
@@ -148,9 +149,9 @@
 
         <ImageView
             android:id="@+id/iv_personal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="29dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_add_friend"
@@ -180,7 +181,7 @@
             android:id="@+id/ll_signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-12dp"
+            android:layout_marginBottom="-8dp"
             android:background="@drawable/shape_game_blue_num"
             android:gravity="center"
             android:orientation="horizontal"
@@ -193,29 +194,28 @@
             app:layout_constraintStart_toStartOf="@+id/iv_sgnIn">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
                 android:src="@mipmap/icon_blue_diamond" />
 
             <TextView
                 android:id="@+id/tv_signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="2dp"
                 android:text="2000"
                 android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_gameNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-10dp"
-            android:layout_marginEnd="-10dp"
-            android:layout_marginBottom="-12dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="-6dp"
+            android:layout_marginEnd="-11dp"
             android:background="@drawable/shape_game_num_back"
-            android:padding="5dp"
+            android:gravity="center"
             android:text="99+"
             android:textColor="@color/white"
             android:textSize="10sp"
@@ -226,7 +226,7 @@
             android:id="@+id/ll_addFriends"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-12dp"
+            android:layout_marginBottom="-8dp"
             android:background="@drawable/shape_game_blue_num"
             android:gravity="center"
             android:orientation="horizontal"
@@ -239,17 +239,17 @@
             app:layout_constraintStart_toStartOf="@+id/iv_personal">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
                 android:src="@mipmap/icon_blue_diamond" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="2dp"
                 android:text="2000"
                 android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -257,16 +257,17 @@
         android:id="@+id/cl_favourite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="22dp">
 
         <TextView
             android:id="@+id/textView0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="Favorite Games"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/arial_black"
+            android:text="@string/FavoriteGames"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -276,35 +277,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL>>"
+            android:text="@string/ALL"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView0"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favourite"
             android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_most"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="The Most Rewarding"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/arial_black"
+            android:text="@string/TheMostRewarding"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -314,34 +316,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL>>"
+            android:text="@string/ALL"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView1"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_most"
             android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="Newly launched"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/arial_black"
+            android:text="@string/NewlyLaunched"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -351,9 +354,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="ALL>>"
+            android:text="@string/ALL"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

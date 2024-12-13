@@ -34,10 +34,11 @@ public class BaseApplication extends Application {
 
         HttpParams params = new HttpParams();
         params.put("is_vpn", "false");
-        params.put("channel", "proxy_invite");
+        params.put("channel", "funny_play");
         params.put("version", "1.0.0");
         params.put("gaid", "");
-        params.put("versionCode", "");
+        params.put("fields", "");
+        params.put("versionCode", "1");
         params.put("deviceId", "d2203031a5e3d0cd");
         params.put("language", "en");
         EasyHttp.getInstance()

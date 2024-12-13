@@ -10,15 +10,21 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
-import com.iejnnnmokkk.funnyplay.view.CircleImageView;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
+import com.makeramen.roundedimageview.RoundedImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,13 +35,16 @@ import butterknife.ButterKnife;
  * @Description TODO
  * @date 2024/12/12 16:42
  */
-public class GameAdapter extends BaseAdapter<GameBean, RecyclerView.ViewHolder> {
+public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.ViewHolder> {
 
     private static final int HEADER = 0;
     private static final int CONTENT = 1;
 
-    private FavouriteAdapter favouriteAdapter;
-    private MostGameAdapter mostGameAdapter;
+    private final FavouriteAdapter favouriteAdapter;
+    private final MostGameAdapter mostGameAdapter;
+
+    private List<GameBean.DataBean> favouriteData = new ArrayList<>();
+    private List<GameBean.DataBean> mostData = new ArrayList<>();
 
     public GameAdapter(Context context) {
         super(context);
@@ -53,7 +62,22 @@ public class GameAdapter extends BaseAdapter<GameBean, RecyclerView.ViewHolder> 
 
     @Override
     protected void onBindHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (getItemViewType(position) == CONTENT && holder instanceof ViewHolder) {
+            ((ViewHolder) holder).tvName.setText(getNull(data.get(position - 1).getName()));
+            ((ViewHolder) holder).tvNum.setText(getNull(data.get(position - 1).getPay_money()));
+            Glide.with(context).load(getNull(data.get(position - 1).getRecomm_img())).into(((ViewHolder) holder).ivLogo);
+        } else if (getItemViewType(position) == HEADER && holder instanceof HeaderViewHolder) {
+            LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+            ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(layoutManager);
+            ((HeaderViewHolder) holder).rvFavourite.setAdapter(favouriteAdapter);
 
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false);
+            ((HeaderViewHolder) holder).rvMost.setLayoutManager(gridLayoutManager);
+            ((HeaderViewHolder) holder).rvMost.setAdapter(mostGameAdapter);
+
+            ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
+            ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
+        }
     }
 
     @Override
@@ -64,6 +88,16 @@ public class GameAdapter extends BaseAdapter<GameBean, RecyclerView.ViewHolder> 
     @Override
     public int getItemCount() {
         return data.size() + 1;
+    }
+
+    public void setFavouriteData(List<GameBean.DataBean> favouriteData) {
+        this.favouriteData = favouriteData;
+        favouriteAdapter.setData(favouriteData, true);
+    }
+
+    public void setMostData(List<GameBean.DataBean> mostData) {
+        this.mostData = mostData;
+        mostGameAdapter.setData(mostData, true);
     }
 
     public class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -108,6 +142,10 @@ public class GameAdapter extends BaseAdapter<GameBean, RecyclerView.ViewHolder> 
         public ConstraintLayout clMost;
         @BindView(R.id.tv_newAll)
         public TextView tvNewAll;
+        @BindView(R.id.rv_favourite)
+        public RecyclerView rvFavourite;
+        @BindView(R.id.rv_most)
+        public RecyclerView rvMost;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,7 +156,7 @@ public class GameAdapter extends BaseAdapter<GameBean, RecyclerView.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.iv_logo)
-        public CircleImageView ivLogo;
+        public RoundedImageView ivLogo;
         @BindView(R.id.tv_name)
         public TextView tvName;
         @BindView(R.id.tv_num)

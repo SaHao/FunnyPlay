@@ -2,6 +2,7 @@ package com.iejnnnmokkk.funnyplay.game;
 
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.spl.LoginBean;
 import com.iejnnnmokkk.funnyplay.spl.SplBean;
 import com.iejnnnmokkk.funnyplay.spl.SplModel;
@@ -23,11 +24,53 @@ public class GamePresenter {
 
     private GameModel model = new GameModel();
 
-    public void achieve(int pageNum) {
-        model.getData(pageNum, new BaseNetworkCallback<GameBean>() {
+    public void getFavourite(int pageNum, int type) {
+        model.getData(pageNum, type, new BaseNetworkCallback<GameBean>() {
             @Override
             public void onSuccess(GameBean bean) {
-                view.getData(bean);
+                view.getFavourite(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getMost(int pageNum, int type) {
+        model.getData(pageNum, type, new BaseNetworkCallback<GameBean>() {
+            @Override
+            public void onSuccess(GameBean bean) {
+                view.getMost(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getNew(int pageNum, int type) {
+        model.getData(pageNum, type, new BaseNetworkCallback<GameBean>() {
+            @Override
+            public void onSuccess(GameBean bean) {
+                view.getNew(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getUserInfo() {
+        model.getUserInfo( new BaseNetworkCallback<UserInfoBean>() {
+            @Override
+            public void onSuccess(UserInfoBean bean) {
+                view.getUserInfo(bean);
             }
 
             @Override
