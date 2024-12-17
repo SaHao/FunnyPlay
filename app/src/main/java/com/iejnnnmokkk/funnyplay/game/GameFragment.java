@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iejnnnmokkk.common.base.BaseFragment;
+import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
@@ -119,6 +120,7 @@ public class GameFragment extends BaseFragment implements IGameView {
 
     @Override
     public void onFailed(String msg) {
+        ToastUtils.showShort(context, msg);
         LoadingUtil.hideLoading();
         if (refreshLayout != null) {
             if (pageNum == 1) {

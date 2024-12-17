@@ -174,7 +174,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         progressView.setCircleColor(context.getResources().getColor(R.color.progressCircle))
                 .setWaveColor(context.getResources().getColor(R.color.progressCircle))
                 .setTextColor(Color.WHITE)
-                .setTextSize(10f)
+                .setTextSize(40f)
                 .setProgress(progress)
                 .startAnimation();
     }
