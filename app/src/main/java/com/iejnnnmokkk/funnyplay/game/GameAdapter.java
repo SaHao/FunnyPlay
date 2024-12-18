@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
@@ -45,6 +46,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     private List<GameBean.DataBean> favouriteData = new ArrayList<>();
     private List<GameBean.DataBean> mostData = new ArrayList<>();
+    private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
 
     public GameAdapter(Context context) {
         super(context);
@@ -78,7 +80,15 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
 
-            setProgressBar(((HeaderViewHolder) holder).cpTask, 10);
+            ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
+
+
+            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
+            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
+            Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
+            Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
+            ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
+
         }
     }
 
@@ -102,16 +112,23 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         mostGameAdapter.setData(mostData, true);
     }
 
+    public void setUserInfo(UserInfoBean.DataBean userInfo) {
+        this.userInfo = userInfo;
+        notifyDataSetChanged();
+    }
+
     public class HeaderViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.cp_task)
         public CircleWaveProgressView cpTask;
         @BindView(R.id.tv_taskNum)
         public TextView tvTaskNum;
+        @BindView(R.id.tv_money)
+        public TextView tvMoney;
         @BindView(R.id.ll_task)
         public LinearLayout llTask;
         @BindView(R.id.iv_photo)
-        public ImageView ivPhoto;
+        public RoundedImageView ivPhoto;
         @BindView(R.id.iv_photoBack)
         public ImageView ivPhotoBack;
         @BindView(R.id.tv_name)
@@ -170,12 +187,20 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         }
     }
 
-    private void setProgressBar(CircleWaveProgressView progressView, int progress) {
+    private void setProgressBar(CircleWaveProgressView progressView, int progress, int max) {
         progressView.setCircleColor(context.getResources().getColor(R.color.progressCircle))
                 .setWaveColor(context.getResources().getColor(R.color.progressCircle))
                 .setTextColor(Color.WHITE)
                 .setTextSize(40f)
-                .setProgress(progress)
+                .setProgress(progress, max)
                 .startAnimation();
+    }
+
+    private String setPercent(int numerator, int denominator) {
+        if (denominator == 0) {
+            return "0%";
+        }
+        int percentage = numerator * 100 / denominator;
+        return percentage + "%";
     }
 }

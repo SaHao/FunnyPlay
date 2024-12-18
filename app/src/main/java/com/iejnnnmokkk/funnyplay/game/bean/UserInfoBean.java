@@ -11,7 +11,7 @@ import com.iejnnnmokkk.common.http.bean.BaseBean;
 public class UserInfoBean extends BaseBean {
 
     private DataBean data;
-    private int count;
+    private String count;
 
     public DataBean getData() {
         return data;
@@ -21,52 +21,52 @@ public class UserInfoBean extends BaseBean {
         this.data = data;
     }
 
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 
     public static class DataBean {
-        private int type;
+        private String type;
         private String nickname;
-        private int uuid;
-        private int uid;
-        private int prxoy_num;
+        private String uuid;
+        private String uid;
+        private String prxoy_num;
         private String touxiang;
-        private int check_flag;
-        private int risk_flag;
-        private int new_user_guide;
-        private int new_user_reward_status;
-        private int new_task_sum;
-        private int is_video_flag;
-        private int video_down_time;
-        private int new_userreward_down_time;
-        private int task_unlock;
-        private int user_small_pay_flag;
-        private int new_task_flag;
-        private int small_expire_time;
-        private int small_pay_flag;
-        private int small_withdrawal_flag;
-        private int withdrawal_flag;
-        private int is_first_small_pay;
-        private int in_tx;
-        private int invite_reward;
+        private String check_flag;
+        private String risk_flag;
+        private String new_user_guide;
+        private String new_user_reward_status;
+        private String new_task_sum;
+        private String is_video_flag;
+        private String video_down_time;
+        private String new_userreward_down_time;
+        private String task_unlock;
+        private String user_small_pay_flag;
+        private String new_task_flag;
+        private String small_expire_time;
+        private String small_pay_flag;
+        private String small_withdrawal_flag;
+        private String withdrawal_flag;
+        private String is_first_small_pay;
+        private String in_tx;
+        private String invite_reward;
         private String invite_reward_v1;
-        private int first_pay_ad_flag;
+        private String first_pay_ad_flag;
         private String review_timeout;
         private BankExampleBean bank_example;
         private WalletExampleBean wallet_example;
         private String google_url;
         private String download_url;
         private RankingDataBean ranking_data;
-        private int task_ad_reward;
+        private String task_ad_reward;
         private String phone;
         private String area_code;
         private double pic_rate;
-        private int pic_flag;
+        private String pic_flag;
         private PayBankVerificationBean pay_bank_verification;
         private PayWalletVerificationBean pay_wallet_verification;
         private String share_jf;
@@ -75,8 +75,8 @@ public class UserInfoBean extends BaseBean {
         private String money_fuhao_res;
         private String sdk_total;
         private String task_empty_msg;
-        private int pangle_flag;
-        private int banner_ads_type;
+        private String pangle_flag;
+        private String banner_ads_type;
         private String banner_ads_img_url;
         private String banner_ads_url;
         private String yeahmobi_sdk_flag;
@@ -88,7 +88,7 @@ public class UserInfoBean extends BaseBean {
         private String okspin_sdk_flag;
         private String adfly_flag;
         private String tapjoy_flag;
-        private int check_version_flag;
+        private String check_version_flag;
         private String auto_reward_num;
         private String bind_google_reward;
         private String youtobe_url;
@@ -97,97 +97,97 @@ public class UserInfoBean extends BaseBean {
         private String task_start_rewards;
         private String cps_url;
         private String new_reward;
-        private String recommend_interval;
+        private String recommend_Stringerval;
         private String recommend_count;
-        private int video_reward;
+        private String video_reward;
         private String video_reward_pertukaran;
         private String video_url;
         private String play_time_text;
         private String task_download_text;
         private String game4_play_time_text;
         private String game4_task_download_text;
-        private int small_pay_task_flag;
+        private String small_pay_task_flag;
         private String cpr_flag;
         private String small_pay_txt_v1;
         private String small_pay_txt_v2;
-        private int ping_flag;
+        private String ping_flag;
         private String small_pay_countdown;
         private String small_pay_area_flag;
-        private int game_plate_flag;
-        private int game_plate_money;
+        private String game_plate_flag;
+        private String game_plate_money;
         private String game_plate_text;
         private String game4_small_pay_condition_flag;
         private String share_url;
-        private int ad_task_reward_flag;
+        private String ad_task_reward_flag;
         private String auditing_flag;
         private String money_jiancheng;
-        private int fly_flag;
+        private String fly_flag;
         private String pertukaran;
-        private int welfare_status;
-        private int task_api_type;
+        private String welfare_status;
+        private String task_api_type;
         private String app_version;
-        private int sumsung_pay_rate_flag;
-        private int sumsung_check_version_flag;
-        private int is_proxy;
+        private String sumsung_pay_rate_flag;
+        private String sumsung_check_version_flag;
+        private String is_proxy;
         private String proxy_group_url;
         private String proxy_group_money;
-        private int status;
+        private String status;
         private String app_luck_img;
-        private int link_type;
-        private int new_user_reward_flag;
+        private String link_type;
+        private String new_user_reward_flag;
         private String proxy_username;
-        private int proxy_uid;
-        private int is_bind_proxy;
-        private int balance;
+        private String proxy_uid;
+        private String is_bind_proxy;
+        private String balance;
         private String pertukaran_balance;
-        private int pending_balance;
-        private int lucky_coin;
+        private String pending_balance;
+        private String lucky_coin;
         private double money;
         private String yesterday_total_money;
-        private int yesterday_total_reward;
-        private int no_balance;
-        private int is_new_user;
+        private String yesterday_total_reward;
+        private String no_balance;
+        private String is_new_user;
         private String h5_adimg_url;
-        private int msg_dot;
-        private int msg_is_read;
+        private String msg_dot;
+        private String msg_is_read;
         private String first_jf;
         private String first_money;
-        private int first_jifen;
-        private int first_money1;
+        private String first_jifen;
+        private String first_money1;
         private String symbol;
-        private int wjdc_reward;
-        private int reg_flag;
+        private String wjdc_reward;
+        private String reg_flag;
         private String button1;
         private String button2;
-        private int device_warning_flag;
+        private String device_warning_flag;
         private MjbBean mjb;
-        private int five_star_task_num;
-        private int my_task_count;
-        private int smail_reward;
+        private String five_star_task_num;
+        private String my_task_count;
+        private String smail_reward;
         private String new_user_coin_reward;
-        private int smail_pay_flag;
+        private String smail_pay_flag;
         private String remain_task_no;
-        private int remain_task_type;
-        private int remain_task_reward;
-        private int welfare_num_reward;
+        private String remain_task_type;
+        private String remain_task_reward;
+        private String welfare_num_reward;
         private int welfare_complete_sum;
         private int welfare_5_star_reward;
-        private int welfare_5_star_id;
-        private int area;
-        private int has_review_task;
-        private int five_star_reward;
-        private int wish_invite_total_reward;
+        private String welfare_5_star_id;
+        private String area;
+        private String has_review_task;
+        private String five_star_reward;
+        private String wish_invite_total_reward;
         private String cash_group_url;
         private String avatar;
         private String frame;
-        private int complete_exp;
-        private int pay_config_max_money;
+        private String complete_exp;
+        private String pay_config_max_money;
 
-        public int getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(int type) {
+        public void setType(String type) {
             this.type = type;
         }
 
@@ -199,27 +199,27 @@ public class UserInfoBean extends BaseBean {
             this.nickname = nickname;
         }
 
-        public int getUuid() {
+        public String getUuid() {
             return uuid;
         }
 
-        public void setUuid(int uuid) {
+        public void setUuid(String uuid) {
             this.uuid = uuid;
         }
 
-        public int getUid() {
+        public String getUid() {
             return uid;
         }
 
-        public void setUid(int uid) {
+        public void setUid(String uid) {
             this.uid = uid;
         }
 
-        public int getPrxoy_num() {
+        public String getPrxoy_num() {
             return prxoy_num;
         }
 
-        public void setPrxoy_num(int prxoy_num) {
+        public void setPrxoy_num(String prxoy_num) {
             this.prxoy_num = prxoy_num;
         }
 
@@ -231,147 +231,147 @@ public class UserInfoBean extends BaseBean {
             this.touxiang = touxiang;
         }
 
-        public int getCheck_flag() {
+        public String getCheck_flag() {
             return check_flag;
         }
 
-        public void setCheck_flag(int check_flag) {
+        public void setCheck_flag(String check_flag) {
             this.check_flag = check_flag;
         }
 
-        public int getRisk_flag() {
+        public String getRisk_flag() {
             return risk_flag;
         }
 
-        public void setRisk_flag(int risk_flag) {
+        public void setRisk_flag(String risk_flag) {
             this.risk_flag = risk_flag;
         }
 
-        public int getNew_user_guide() {
+        public String getNew_user_guide() {
             return new_user_guide;
         }
 
-        public void setNew_user_guide(int new_user_guide) {
+        public void setNew_user_guide(String new_user_guide) {
             this.new_user_guide = new_user_guide;
         }
 
-        public int getNew_user_reward_status() {
+        public String getNew_user_reward_status() {
             return new_user_reward_status;
         }
 
-        public void setNew_user_reward_status(int new_user_reward_status) {
+        public void setNew_user_reward_status(String new_user_reward_status) {
             this.new_user_reward_status = new_user_reward_status;
         }
 
-        public int getNew_task_sum() {
+        public String getNew_task_sum() {
             return new_task_sum;
         }
 
-        public void setNew_task_sum(int new_task_sum) {
+        public void setNew_task_sum(String new_task_sum) {
             this.new_task_sum = new_task_sum;
         }
 
-        public int getIs_video_flag() {
+        public String getIs_video_flag() {
             return is_video_flag;
         }
 
-        public void setIs_video_flag(int is_video_flag) {
+        public void setIs_video_flag(String is_video_flag) {
             this.is_video_flag = is_video_flag;
         }
 
-        public int getVideo_down_time() {
+        public String getVideo_down_time() {
             return video_down_time;
         }
 
-        public void setVideo_down_time(int video_down_time) {
+        public void setVideo_down_time(String video_down_time) {
             this.video_down_time = video_down_time;
         }
 
-        public int getNew_userreward_down_time() {
+        public String getNew_userreward_down_time() {
             return new_userreward_down_time;
         }
 
-        public void setNew_userreward_down_time(int new_userreward_down_time) {
+        public void setNew_userreward_down_time(String new_userreward_down_time) {
             this.new_userreward_down_time = new_userreward_down_time;
         }
 
-        public int getTask_unlock() {
+        public String getTask_unlock() {
             return task_unlock;
         }
 
-        public void setTask_unlock(int task_unlock) {
+        public void setTask_unlock(String task_unlock) {
             this.task_unlock = task_unlock;
         }
 
-        public int getUser_small_pay_flag() {
+        public String getUser_small_pay_flag() {
             return user_small_pay_flag;
         }
 
-        public void setUser_small_pay_flag(int user_small_pay_flag) {
+        public void setUser_small_pay_flag(String user_small_pay_flag) {
             this.user_small_pay_flag = user_small_pay_flag;
         }
 
-        public int getNew_task_flag() {
+        public String getNew_task_flag() {
             return new_task_flag;
         }
 
-        public void setNew_task_flag(int new_task_flag) {
+        public void setNew_task_flag(String new_task_flag) {
             this.new_task_flag = new_task_flag;
         }
 
-        public int getSmall_expire_time() {
+        public String getSmall_expire_time() {
             return small_expire_time;
         }
 
-        public void setSmall_expire_time(int small_expire_time) {
+        public void setSmall_expire_time(String small_expire_time) {
             this.small_expire_time = small_expire_time;
         }
 
-        public int getSmall_pay_flag() {
+        public String getSmall_pay_flag() {
             return small_pay_flag;
         }
 
-        public void setSmall_pay_flag(int small_pay_flag) {
+        public void setSmall_pay_flag(String small_pay_flag) {
             this.small_pay_flag = small_pay_flag;
         }
 
-        public int getSmall_withdrawal_flag() {
+        public String getSmall_withdrawal_flag() {
             return small_withdrawal_flag;
         }
 
-        public void setSmall_withdrawal_flag(int small_withdrawal_flag) {
+        public void setSmall_withdrawal_flag(String small_withdrawal_flag) {
             this.small_withdrawal_flag = small_withdrawal_flag;
         }
 
-        public int getWithdrawal_flag() {
+        public String getWithdrawal_flag() {
             return withdrawal_flag;
         }
 
-        public void setWithdrawal_flag(int withdrawal_flag) {
+        public void setWithdrawal_flag(String withdrawal_flag) {
             this.withdrawal_flag = withdrawal_flag;
         }
 
-        public int getIs_first_small_pay() {
+        public String getIs_first_small_pay() {
             return is_first_small_pay;
         }
 
-        public void setIs_first_small_pay(int is_first_small_pay) {
+        public void setIs_first_small_pay(String is_first_small_pay) {
             this.is_first_small_pay = is_first_small_pay;
         }
 
-        public int getIn_tx() {
+        public String getIn_tx() {
             return in_tx;
         }
 
-        public void setIn_tx(int in_tx) {
+        public void setIn_tx(String in_tx) {
             this.in_tx = in_tx;
         }
 
-        public int getInvite_reward() {
+        public String getInvite_reward() {
             return invite_reward;
         }
 
-        public void setInvite_reward(int invite_reward) {
+        public void setInvite_reward(String invite_reward) {
             this.invite_reward = invite_reward;
         }
 
@@ -383,11 +383,11 @@ public class UserInfoBean extends BaseBean {
             this.invite_reward_v1 = invite_reward_v1;
         }
 
-        public int getFirst_pay_ad_flag() {
+        public String getFirst_pay_ad_flag() {
             return first_pay_ad_flag;
         }
 
-        public void setFirst_pay_ad_flag(int first_pay_ad_flag) {
+        public void setFirst_pay_ad_flag(String first_pay_ad_flag) {
             this.first_pay_ad_flag = first_pay_ad_flag;
         }
 
@@ -439,11 +439,11 @@ public class UserInfoBean extends BaseBean {
             this.ranking_data = ranking_data;
         }
 
-        public int getTask_ad_reward() {
+        public String getTask_ad_reward() {
             return task_ad_reward;
         }
 
-        public void setTask_ad_reward(int task_ad_reward) {
+        public void setTask_ad_reward(String task_ad_reward) {
             this.task_ad_reward = task_ad_reward;
         }
 
@@ -471,11 +471,11 @@ public class UserInfoBean extends BaseBean {
             this.pic_rate = pic_rate;
         }
 
-        public int getPic_flag() {
+        public String getPic_flag() {
             return pic_flag;
         }
 
-        public void setPic_flag(int pic_flag) {
+        public void setPic_flag(String pic_flag) {
             this.pic_flag = pic_flag;
         }
 
@@ -543,19 +543,19 @@ public class UserInfoBean extends BaseBean {
             this.task_empty_msg = task_empty_msg;
         }
 
-        public int getPangle_flag() {
+        public String getPangle_flag() {
             return pangle_flag;
         }
 
-        public void setPangle_flag(int pangle_flag) {
+        public void setPangle_flag(String pangle_flag) {
             this.pangle_flag = pangle_flag;
         }
 
-        public int getBanner_ads_type() {
+        public String getBanner_ads_type() {
             return banner_ads_type;
         }
 
-        public void setBanner_ads_type(int banner_ads_type) {
+        public void setBanner_ads_type(String banner_ads_type) {
             this.banner_ads_type = banner_ads_type;
         }
 
@@ -647,11 +647,11 @@ public class UserInfoBean extends BaseBean {
             this.tapjoy_flag = tapjoy_flag;
         }
 
-        public int getCheck_version_flag() {
+        public String getCheck_version_flag() {
             return check_version_flag;
         }
 
-        public void setCheck_version_flag(int check_version_flag) {
+        public void setCheck_version_flag(String check_version_flag) {
             this.check_version_flag = check_version_flag;
         }
 
@@ -719,12 +719,12 @@ public class UserInfoBean extends BaseBean {
             this.new_reward = new_reward;
         }
 
-        public String getRecommend_interval() {
-            return recommend_interval;
+        public String getRecommend_Stringerval() {
+            return recommend_Stringerval;
         }
 
-        public void setRecommend_interval(String recommend_interval) {
-            this.recommend_interval = recommend_interval;
+        public void setRecommend_Stringerval(String recommend_Stringerval) {
+            this.recommend_Stringerval = recommend_Stringerval;
         }
 
         public String getRecommend_count() {
@@ -735,11 +735,11 @@ public class UserInfoBean extends BaseBean {
             this.recommend_count = recommend_count;
         }
 
-        public int getVideo_reward() {
+        public String getVideo_reward() {
             return video_reward;
         }
 
-        public void setVideo_reward(int video_reward) {
+        public void setVideo_reward(String video_reward) {
             this.video_reward = video_reward;
         }
 
@@ -791,11 +791,11 @@ public class UserInfoBean extends BaseBean {
             this.game4_task_download_text = game4_task_download_text;
         }
 
-        public int getSmall_pay_task_flag() {
+        public String getSmall_pay_task_flag() {
             return small_pay_task_flag;
         }
 
-        public void setSmall_pay_task_flag(int small_pay_task_flag) {
+        public void setSmall_pay_task_flag(String small_pay_task_flag) {
             this.small_pay_task_flag = small_pay_task_flag;
         }
 
@@ -823,11 +823,11 @@ public class UserInfoBean extends BaseBean {
             this.small_pay_txt_v2 = small_pay_txt_v2;
         }
 
-        public int getPing_flag() {
+        public String getPing_flag() {
             return ping_flag;
         }
 
-        public void setPing_flag(int ping_flag) {
+        public void setPing_flag(String ping_flag) {
             this.ping_flag = ping_flag;
         }
 
@@ -847,19 +847,19 @@ public class UserInfoBean extends BaseBean {
             this.small_pay_area_flag = small_pay_area_flag;
         }
 
-        public int getGame_plate_flag() {
+        public String getGame_plate_flag() {
             return game_plate_flag;
         }
 
-        public void setGame_plate_flag(int game_plate_flag) {
+        public void setGame_plate_flag(String game_plate_flag) {
             this.game_plate_flag = game_plate_flag;
         }
 
-        public int getGame_plate_money() {
+        public String getGame_plate_money() {
             return game_plate_money;
         }
 
-        public void setGame_plate_money(int game_plate_money) {
+        public void setGame_plate_money(String game_plate_money) {
             this.game_plate_money = game_plate_money;
         }
 
@@ -887,11 +887,11 @@ public class UserInfoBean extends BaseBean {
             this.share_url = share_url;
         }
 
-        public int getAd_task_reward_flag() {
+        public String getAd_task_reward_flag() {
             return ad_task_reward_flag;
         }
 
-        public void setAd_task_reward_flag(int ad_task_reward_flag) {
+        public void setAd_task_reward_flag(String ad_task_reward_flag) {
             this.ad_task_reward_flag = ad_task_reward_flag;
         }
 
@@ -911,11 +911,11 @@ public class UserInfoBean extends BaseBean {
             this.money_jiancheng = money_jiancheng;
         }
 
-        public int getFly_flag() {
+        public String getFly_flag() {
             return fly_flag;
         }
 
-        public void setFly_flag(int fly_flag) {
+        public void setFly_flag(String fly_flag) {
             this.fly_flag = fly_flag;
         }
 
@@ -927,19 +927,19 @@ public class UserInfoBean extends BaseBean {
             this.pertukaran = pertukaran;
         }
 
-        public int getWelfare_status() {
+        public String getWelfare_status() {
             return welfare_status;
         }
 
-        public void setWelfare_status(int welfare_status) {
+        public void setWelfare_status(String welfare_status) {
             this.welfare_status = welfare_status;
         }
 
-        public int getTask_api_type() {
+        public String getTask_api_type() {
             return task_api_type;
         }
 
-        public void setTask_api_type(int task_api_type) {
+        public void setTask_api_type(String task_api_type) {
             this.task_api_type = task_api_type;
         }
 
@@ -951,27 +951,27 @@ public class UserInfoBean extends BaseBean {
             this.app_version = app_version;
         }
 
-        public int getSumsung_pay_rate_flag() {
+        public String getSumsung_pay_rate_flag() {
             return sumsung_pay_rate_flag;
         }
 
-        public void setSumsung_pay_rate_flag(int sumsung_pay_rate_flag) {
+        public void setSumsung_pay_rate_flag(String sumsung_pay_rate_flag) {
             this.sumsung_pay_rate_flag = sumsung_pay_rate_flag;
         }
 
-        public int getSumsung_check_version_flag() {
+        public String getSumsung_check_version_flag() {
             return sumsung_check_version_flag;
         }
 
-        public void setSumsung_check_version_flag(int sumsung_check_version_flag) {
+        public void setSumsung_check_version_flag(String sumsung_check_version_flag) {
             this.sumsung_check_version_flag = sumsung_check_version_flag;
         }
 
-        public int getIs_proxy() {
+        public String getIs_proxy() {
             return is_proxy;
         }
 
-        public void setIs_proxy(int is_proxy) {
+        public void setIs_proxy(String is_proxy) {
             this.is_proxy = is_proxy;
         }
 
@@ -991,11 +991,11 @@ public class UserInfoBean extends BaseBean {
             this.proxy_group_money = proxy_group_money;
         }
 
-        public int getStatus() {
+        public String getStatus() {
             return status;
         }
 
-        public void setStatus(int status) {
+        public void setStatus(String status) {
             this.status = status;
         }
 
@@ -1007,19 +1007,19 @@ public class UserInfoBean extends BaseBean {
             this.app_luck_img = app_luck_img;
         }
 
-        public int getLink_type() {
+        public String getLink_type() {
             return link_type;
         }
 
-        public void setLink_type(int link_type) {
+        public void setLink_type(String link_type) {
             this.link_type = link_type;
         }
 
-        public int getNew_user_reward_flag() {
+        public String getNew_user_reward_flag() {
             return new_user_reward_flag;
         }
 
-        public void setNew_user_reward_flag(int new_user_reward_flag) {
+        public void setNew_user_reward_flag(String new_user_reward_flag) {
             this.new_user_reward_flag = new_user_reward_flag;
         }
 
@@ -1031,27 +1031,27 @@ public class UserInfoBean extends BaseBean {
             this.proxy_username = proxy_username;
         }
 
-        public int getProxy_uid() {
+        public String getProxy_uid() {
             return proxy_uid;
         }
 
-        public void setProxy_uid(int proxy_uid) {
+        public void setProxy_uid(String proxy_uid) {
             this.proxy_uid = proxy_uid;
         }
 
-        public int getIs_bind_proxy() {
+        public String getIs_bind_proxy() {
             return is_bind_proxy;
         }
 
-        public void setIs_bind_proxy(int is_bind_proxy) {
+        public void setIs_bind_proxy(String is_bind_proxy) {
             this.is_bind_proxy = is_bind_proxy;
         }
 
-        public int getBalance() {
+        public String getBalance() {
             return balance;
         }
 
-        public void setBalance(int balance) {
+        public void setBalance(String balance) {
             this.balance = balance;
         }
 
@@ -1063,19 +1063,19 @@ public class UserInfoBean extends BaseBean {
             this.pertukaran_balance = pertukaran_balance;
         }
 
-        public int getPending_balance() {
+        public String getPending_balance() {
             return pending_balance;
         }
 
-        public void setPending_balance(int pending_balance) {
+        public void setPending_balance(String pending_balance) {
             this.pending_balance = pending_balance;
         }
 
-        public int getLucky_coin() {
+        public String getLucky_coin() {
             return lucky_coin;
         }
 
-        public void setLucky_coin(int lucky_coin) {
+        public void setLucky_coin(String lucky_coin) {
             this.lucky_coin = lucky_coin;
         }
 
@@ -1095,27 +1095,27 @@ public class UserInfoBean extends BaseBean {
             this.yesterday_total_money = yesterday_total_money;
         }
 
-        public int getYesterday_total_reward() {
+        public String getYesterday_total_reward() {
             return yesterday_total_reward;
         }
 
-        public void setYesterday_total_reward(int yesterday_total_reward) {
+        public void setYesterday_total_reward(String yesterday_total_reward) {
             this.yesterday_total_reward = yesterday_total_reward;
         }
 
-        public int getNo_balance() {
+        public String getNo_balance() {
             return no_balance;
         }
 
-        public void setNo_balance(int no_balance) {
+        public void setNo_balance(String no_balance) {
             this.no_balance = no_balance;
         }
 
-        public int getIs_new_user() {
+        public String getIs_new_user() {
             return is_new_user;
         }
 
-        public void setIs_new_user(int is_new_user) {
+        public void setIs_new_user(String is_new_user) {
             this.is_new_user = is_new_user;
         }
 
@@ -1127,19 +1127,19 @@ public class UserInfoBean extends BaseBean {
             this.h5_adimg_url = h5_adimg_url;
         }
 
-        public int getMsg_dot() {
+        public String getMsg_dot() {
             return msg_dot;
         }
 
-        public void setMsg_dot(int msg_dot) {
+        public void setMsg_dot(String msg_dot) {
             this.msg_dot = msg_dot;
         }
 
-        public int getMsg_is_read() {
+        public String getMsg_is_read() {
             return msg_is_read;
         }
 
-        public void setMsg_is_read(int msg_is_read) {
+        public void setMsg_is_read(String msg_is_read) {
             this.msg_is_read = msg_is_read;
         }
 
@@ -1159,19 +1159,19 @@ public class UserInfoBean extends BaseBean {
             this.first_money = first_money;
         }
 
-        public int getFirst_jifen() {
+        public String getFirst_jifen() {
             return first_jifen;
         }
 
-        public void setFirst_jifen(int first_jifen) {
+        public void setFirst_jifen(String first_jifen) {
             this.first_jifen = first_jifen;
         }
 
-        public int getFirst_money1() {
+        public String getFirst_money1() {
             return first_money1;
         }
 
-        public void setFirst_money1(int first_money1) {
+        public void setFirst_money1(String first_money1) {
             this.first_money1 = first_money1;
         }
 
@@ -1183,19 +1183,19 @@ public class UserInfoBean extends BaseBean {
             this.symbol = symbol;
         }
 
-        public int getWjdc_reward() {
+        public String getWjdc_reward() {
             return wjdc_reward;
         }
 
-        public void setWjdc_reward(int wjdc_reward) {
+        public void setWjdc_reward(String wjdc_reward) {
             this.wjdc_reward = wjdc_reward;
         }
 
-        public int getReg_flag() {
+        public String getReg_flag() {
             return reg_flag;
         }
 
-        public void setReg_flag(int reg_flag) {
+        public void setReg_flag(String reg_flag) {
             this.reg_flag = reg_flag;
         }
 
@@ -1215,11 +1215,11 @@ public class UserInfoBean extends BaseBean {
             this.button2 = button2;
         }
 
-        public int getDevice_warning_flag() {
+        public String getDevice_warning_flag() {
             return device_warning_flag;
         }
 
-        public void setDevice_warning_flag(int device_warning_flag) {
+        public void setDevice_warning_flag(String device_warning_flag) {
             this.device_warning_flag = device_warning_flag;
         }
 
@@ -1231,27 +1231,27 @@ public class UserInfoBean extends BaseBean {
             this.mjb = mjb;
         }
 
-        public int getFive_star_task_num() {
+        public String getFive_star_task_num() {
             return five_star_task_num;
         }
 
-        public void setFive_star_task_num(int five_star_task_num) {
+        public void setFive_star_task_num(String five_star_task_num) {
             this.five_star_task_num = five_star_task_num;
         }
 
-        public int getMy_task_count() {
+        public String getMy_task_count() {
             return my_task_count;
         }
 
-        public void setMy_task_count(int my_task_count) {
+        public void setMy_task_count(String my_task_count) {
             this.my_task_count = my_task_count;
         }
 
-        public int getSmail_reward() {
+        public String getSmail_reward() {
             return smail_reward;
         }
 
-        public void setSmail_reward(int smail_reward) {
+        public void setSmail_reward(String smail_reward) {
             this.smail_reward = smail_reward;
         }
 
@@ -1263,11 +1263,11 @@ public class UserInfoBean extends BaseBean {
             this.new_user_coin_reward = new_user_coin_reward;
         }
 
-        public int getSmail_pay_flag() {
+        public String getSmail_pay_flag() {
             return smail_pay_flag;
         }
 
-        public void setSmail_pay_flag(int smail_pay_flag) {
+        public void setSmail_pay_flag(String smail_pay_flag) {
             this.smail_pay_flag = smail_pay_flag;
         }
 
@@ -1279,27 +1279,27 @@ public class UserInfoBean extends BaseBean {
             this.remain_task_no = remain_task_no;
         }
 
-        public int getRemain_task_type() {
+        public String getRemain_task_type() {
             return remain_task_type;
         }
 
-        public void setRemain_task_type(int remain_task_type) {
+        public void setRemain_task_type(String remain_task_type) {
             this.remain_task_type = remain_task_type;
         }
 
-        public int getRemain_task_reward() {
+        public String getRemain_task_reward() {
             return remain_task_reward;
         }
 
-        public void setRemain_task_reward(int remain_task_reward) {
+        public void setRemain_task_reward(String remain_task_reward) {
             this.remain_task_reward = remain_task_reward;
         }
 
-        public int getWelfare_num_reward() {
+        public String getWelfare_num_reward() {
             return welfare_num_reward;
         }
 
-        public void setWelfare_num_reward(int welfare_num_reward) {
+        public void setWelfare_num_reward(String welfare_num_reward) {
             this.welfare_num_reward = welfare_num_reward;
         }
 
@@ -1319,43 +1319,43 @@ public class UserInfoBean extends BaseBean {
             this.welfare_5_star_reward = welfare_5_star_reward;
         }
 
-        public int getWelfare_5_star_id() {
+        public String getWelfare_5_star_id() {
             return welfare_5_star_id;
         }
 
-        public void setWelfare_5_star_id(int welfare_5_star_id) {
+        public void setWelfare_5_star_id(String welfare_5_star_id) {
             this.welfare_5_star_id = welfare_5_star_id;
         }
 
-        public int getArea() {
+        public String getArea() {
             return area;
         }
 
-        public void setArea(int area) {
+        public void setArea(String area) {
             this.area = area;
         }
 
-        public int getHas_review_task() {
+        public String getHas_review_task() {
             return has_review_task;
         }
 
-        public void setHas_review_task(int has_review_task) {
+        public void setHas_review_task(String has_review_task) {
             this.has_review_task = has_review_task;
         }
 
-        public int getFive_star_reward() {
+        public String getFive_star_reward() {
             return five_star_reward;
         }
 
-        public void setFive_star_reward(int five_star_reward) {
+        public void setFive_star_reward(String five_star_reward) {
             this.five_star_reward = five_star_reward;
         }
 
-        public int getWish_invite_total_reward() {
+        public String getWish_invite_total_reward() {
             return wish_invite_total_reward;
         }
 
-        public void setWish_invite_total_reward(int wish_invite_total_reward) {
+        public void setWish_invite_total_reward(String wish_invite_total_reward) {
             this.wish_invite_total_reward = wish_invite_total_reward;
         }
 
@@ -1383,19 +1383,19 @@ public class UserInfoBean extends BaseBean {
             this.frame = frame;
         }
 
-        public int getComplete_exp() {
+        public String getComplete_exp() {
             return complete_exp;
         }
 
-        public void setComplete_exp(int complete_exp) {
+        public void setComplete_exp(String complete_exp) {
             this.complete_exp = complete_exp;
         }
 
-        public int getPay_config_max_money() {
+        public String getPay_config_max_money() {
             return pay_config_max_money;
         }
 
-        public void setPay_config_max_money(int pay_config_max_money) {
+        public void setPay_config_max_money(String pay_config_max_money) {
             this.pay_config_max_money = pay_config_max_money;
         }
 
@@ -1442,15 +1442,15 @@ public class UserInfoBean extends BaseBean {
         }
 
         public static class RankingDataBean {
-            private int type;
+            private String type;
             private String ranking;
-            private int reward;
+            private String reward;
 
-            public int getType() {
+            public String getType() {
                 return type;
             }
 
-            public void setType(int type) {
+            public void setType(String type) {
                 this.type = type;
             }
 
@@ -1462,102 +1462,102 @@ public class UserInfoBean extends BaseBean {
                 this.ranking = ranking;
             }
 
-            public int getReward() {
+            public String getReward() {
                 return reward;
             }
 
-            public void setReward(int reward) {
+            public void setReward(String reward) {
                 this.reward = reward;
             }
         }
 
         public static class PayBankVerificationBean {
-            private int type;
-            private int size;
+            private String type;
+            private String size;
 
-            public int getType() {
+            public String getType() {
                 return type;
             }
 
-            public void setType(int type) {
+            public void setType(String type) {
                 this.type = type;
             }
 
-            public int getSize() {
+            public String getSize() {
                 return size;
             }
 
-            public void setSize(int size) {
+            public void setSize(String size) {
                 this.size = size;
             }
         }
 
         public static class PayWalletVerificationBean {
-            private int type;
-            private int size;
+            private String type;
+            private String size;
 
-            public int getType() {
+            public String getType() {
                 return type;
             }
 
-            public void setType(int type) {
+            public void setType(String type) {
                 this.type = type;
             }
 
-            public int getSize() {
+            public String getSize() {
                 return size;
             }
 
-            public void setSize(int size) {
+            public void setSize(String size) {
                 this.size = size;
             }
         }
 
         public static class MjbBean {
-            private int mjb_tixian_flag;
-            private int device_warning_flag;
-            private int mjb_tixian_status;
-            private int first_mjb_tixian_flag;
-            private int task_num;
+            private String mjb_tixian_flag;
+            private String device_warning_flag;
+            private String mjb_tixian_status;
+            private String first_mjb_tixian_flag;
+            private String task_num;
             private String tixian_num;
 
-            public int getMjb_tixian_flag() {
+            public String getMjb_tixian_flag() {
                 return mjb_tixian_flag;
             }
 
-            public void setMjb_tixian_flag(int mjb_tixian_flag) {
+            public void setMjb_tixian_flag(String mjb_tixian_flag) {
                 this.mjb_tixian_flag = mjb_tixian_flag;
             }
 
-            public int getDevice_warning_flag() {
+            public String getDevice_warning_flag() {
                 return device_warning_flag;
             }
 
-            public void setDevice_warning_flag(int device_warning_flag) {
+            public void setDevice_warning_flag(String device_warning_flag) {
                 this.device_warning_flag = device_warning_flag;
             }
 
-            public int getMjb_tixian_status() {
+            public String getMjb_tixian_status() {
                 return mjb_tixian_status;
             }
 
-            public void setMjb_tixian_status(int mjb_tixian_status) {
+            public void setMjb_tixian_status(String mjb_tixian_status) {
                 this.mjb_tixian_status = mjb_tixian_status;
             }
 
-            public int getFirst_mjb_tixian_flag() {
+            public String getFirst_mjb_tixian_flag() {
                 return first_mjb_tixian_flag;
             }
 
-            public void setFirst_mjb_tixian_flag(int first_mjb_tixian_flag) {
+            public void setFirst_mjb_tixian_flag(String first_mjb_tixian_flag) {
                 this.first_mjb_tixian_flag = first_mjb_tixian_flag;
             }
 
-            public int getTask_num() {
+            public String getTask_num() {
                 return task_num;
             }
 
-            public void setTask_num(int task_num) {
+            public void setTask_num(String task_num) {
                 this.task_num = task_num;
             }
 

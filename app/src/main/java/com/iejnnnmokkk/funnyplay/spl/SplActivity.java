@@ -62,8 +62,8 @@ public class SplActivity extends BaseActivity implements SplView {
                     LoadingUtil.showLoading(activity);
                     presenter.login();
                 } else {
-                    LoadingUtil.showLoading(activity);
-                    presenter.achieve();
+                    startActivity(new Intent(context, MainActivity.class));
+                    finish();
                 }
                 break;
         }
@@ -74,6 +74,8 @@ public class SplActivity extends BaseActivity implements SplView {
         LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
             sharedPreferencesUtil.saveValue("token", getNull(bean.getData().getToken()));
+            LoadingUtil.showLoading(activity);
+            presenter.achieve();
         }
     }
 
@@ -82,8 +84,7 @@ public class SplActivity extends BaseActivity implements SplView {
         LoadingUtil.hideLoading();
         ToastUtils.showShort(context, "领取成功");
         sharedPreferencesUtil.saveValue("agree", "1");
-        startActivity(new Intent(context, MainActivity.class));
-        finish();
+
     }
 
     @Override

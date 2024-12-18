@@ -143,8 +143,8 @@ public class CircleWaveProgressView extends View {
     }
 
     // 设置进度值
-    public CircleWaveProgressView setProgress(int progress) {
-        this.progress = Math.min(100, Math.max(0, progress));
+    public CircleWaveProgressView setProgress(int progress, int max) {
+        this.progress = Math.min(max, Math.max(0, progress));
         invalidate();
         return this;
     }

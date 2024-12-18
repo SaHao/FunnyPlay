@@ -114,7 +114,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     public void getUserInfo(UserInfoBean bean) {
         LoadingUtil.hideLoading();
         if(bean != null) {
-
+            adapter.setUserInfo(bean.getData());
         }
     }
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -42,6 +43,8 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
     ConstraintLayout clCollect;
     @BindView(R.id.cl_policy)
     ConstraintLayout clPolicy;
+    @BindView(R.id.ll_task)
+    LinearLayout llTask;
 
     private PersonalPresenter presenter;
     private PersonalAdapter adapter;
@@ -82,6 +85,8 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         LoadingUtil.hideLoading();
         if(bean != null) {
 
+        } else {
+            llTask.setVisibility(View.GONE);
         }
     }
 

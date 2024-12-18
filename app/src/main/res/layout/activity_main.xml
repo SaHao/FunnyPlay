@@ -36,6 +36,7 @@
         <RadioButton
             android:id="@+id/rb_gift"
             android:layout_width="0dp"
+            android:visibility="gone"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/sel_menu_back"
