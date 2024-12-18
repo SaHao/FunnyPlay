@@ -1,6 +1,10 @@
 package com.iejnnnmokkk.funnyplay.personal;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -12,9 +16,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseFragment;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 
 import butterknife.BindView;
@@ -37,12 +43,6 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
     TextView tvName;
     @BindView(R.id.rv_task)
     RecyclerView rvTask;
-    @BindView(R.id.cl_faq)
-    ConstraintLayout clFaq;
-    @BindView(R.id.cl_collect)
-    ConstraintLayout clCollect;
-    @BindView(R.id.cl_policy)
-    ConstraintLayout clPolicy;
     @BindView(R.id.ll_task)
     LinearLayout llTask;
 
@@ -66,14 +66,23 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         presenter = new PersonalPresenter(this);
         LoadingUtil.showLoading(activity);
         presenter.getData();
+
+        String user = sharedPreferencesUtil.getValue("user");
+        if (!TextUtils.isEmpty(user)) {
+            UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
+            if (bean != null && bean.getData() != null) {
+                tvName.setText(getNull(bean.getData().getNickname()));
+            }
+        }
     }
 
-    @OnClick({R.id.cl_faq, R.id.cl_collect, R.id.cl_policy})
+    @OnClick({R.id.cl_faq, R.id.cl_score, R.id.cl_policy})
     public void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.cl_faq:
                 break;
-            case R.id.cl_collect:
+            case R.id.cl_score:
+                openGooglePlay();
                 break;
             case R.id.cl_policy:
                 break;
@@ -83,7 +92,7 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
     @Override
     public void getData(PersonalBean bean) {
         LoadingUtil.hideLoading();
-        if(bean != null) {
+        if (bean != null) {
 
         } else {
             llTask.setVisibility(View.GONE);
@@ -95,4 +104,20 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         LoadingUtil.hideLoading();
         ToastUtils.showShort(context, msg);
     }
+
+    public void openGooglePlay() {
+        try {
+            Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.android.vending");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+
 }
