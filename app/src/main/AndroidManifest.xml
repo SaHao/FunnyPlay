@@ -41,6 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.iejnnnmokkk.funnyplay.MainActivity" />
+        <activity android:name="com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity" />
     </application>
 
 </manifest>

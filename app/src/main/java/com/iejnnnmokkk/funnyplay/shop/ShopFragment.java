@@ -1,5 +1,6 @@
 package com.iejnnnmokkk.funnyplay.shop;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.GameAdapter;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.iejnnnmokkk.funnyplay.view.WarningDialog;
@@ -90,6 +92,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
                 tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
                 Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
+                tvMoney.setText(bean.getData().getBalance());
             }
         }
 
@@ -119,6 +122,10 @@ public class ShopFragment extends BaseFragment implements IShopView {
                     }
                 });
             }
+        });
+
+        tvMoney.setOnClickListener(v -> {
+            startActivity(new Intent(context, HistoryActivity.class));
         });
     }
 
@@ -168,6 +175,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
             tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
             Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
             Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
+            tvMoney.setText(bean.getData().getBalance());
         }
     }
 

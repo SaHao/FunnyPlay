@@ -28,4 +28,7 @@
     <string name="redeem">to redeem this item</string>
     <string name="cancel">cancel</string>
     <string name="change">change</string>
+
+<!--    提现记录-->
+    <string name="Diamonds">Diamonds</string>
 </resources>

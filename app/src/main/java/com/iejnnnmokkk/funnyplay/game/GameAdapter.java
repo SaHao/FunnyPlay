@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.game;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
+import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -81,7 +83,6 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
-
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
 
 
@@ -96,6 +97,10 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
                 listener.onShopClick();
+            });
+
+            ((HeaderViewHolder) holder).tvMoney.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, HistoryActivity.class));
             });
 
         }
