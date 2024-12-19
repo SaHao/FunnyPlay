@@ -22,4 +22,10 @@
     <string name="FAQ">FAQ</string>
     <string name="GiveUsScore">Give us score</string>
     <string name="PrivacyPolicy">Privacy Policy</string>
+
+    <string name="warning">warning</string>
+    <string name="confirm">Confirm spending</string>
+    <string name="redeem">to redeem this item</string>
+    <string name="cancel">cancel</string>
+    <string name="change">change</string>
 </resources>

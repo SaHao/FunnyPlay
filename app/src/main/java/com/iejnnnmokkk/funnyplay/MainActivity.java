@@ -26,7 +26,7 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, GameFragment.OnShoppingClickListener {
 
     @BindView(R.id.rb_game)
     public RadioButton rbGame;
@@ -104,4 +104,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public void onShoppingClick() {
+        rgMenu.check(R.id.rb_shop);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_content, fragments.get(2));
+        transaction.commit();
+    }
 }

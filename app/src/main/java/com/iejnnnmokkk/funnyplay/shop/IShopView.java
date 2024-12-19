@@ -1,7 +1,5 @@
 package com.iejnnnmokkk.funnyplay.shop;
 
-import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
-
 /**
  * @author Sun
  * @Demo class IShopView
@@ -10,7 +8,11 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
  */
 public interface IShopView {
 
-    void getData(GameBean bean);
+    void getData(ShopBean bean);
+
+    void buy(ShopBean bean);
+
+    void use(ShopBean bean);
 
     void onFailed(String msg);
 }

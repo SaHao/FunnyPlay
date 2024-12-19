@@ -41,6 +41,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private static final int HEADER = 0;
     private static final int CONTENT = 1;
 
+    private OnShopClickListener listener;
+
     private final FavouriteAdapter favouriteAdapter;
     private final MostGameAdapter mostGameAdapter;
 
@@ -88,6 +90,13 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
+            ((HeaderViewHolder) holder).tvTaskNum.setText(userInfo.getWelfare_5_star_reward() + "");
+            ((HeaderViewHolder) holder).tvTaskNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+
+
+            ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
+                listener.onShopClick();
+            });
 
         }
     }
@@ -115,6 +124,10 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     public void setUserInfo(UserInfoBean.DataBean userInfo) {
         this.userInfo = userInfo;
         notifyDataSetChanged();
+    }
+
+    public void setListener(OnShopClickListener listener) {
+        this.listener = listener;
     }
 
     public class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -202,5 +215,9 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         }
         int percentage = numerator * 100 / denominator;
         return percentage + "%";
+    }
+
+    public interface OnShopClickListener {
+        void onShopClick();
     }
 }

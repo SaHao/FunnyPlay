@@ -3,6 +3,7 @@ package com.iejnnnmokkk.funnyplay.tools;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.iejnnnmokkk.funnyplay.R;
 
@@ -28,9 +29,9 @@ public class LoadingUtil {
 
         if (loadingDialog == null) {
             LayoutInflater inflater = activity.getLayoutInflater();
-            android.view.View layout = inflater.inflate(R.layout.view_loading, null);
+            View layout = inflater.inflate(R.layout.view_loading, null);
             loadingDialog = new AlertDialog.Builder(activity)
-                    .setCancelable(false)
+                    .setCancelable(true)
                     .setView(layout)
                     .create();
         }

@@ -1,9 +1,11 @@
 package com.iejnnnmokkk.funnyplay.game;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +38,16 @@ public class GameFragment extends BaseFragment implements IGameView {
     private GamePresenter presenter;
     private int pageNum = 1;
 
+    private OnShoppingClickListener listener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof OnShoppingClickListener) {
+            listener = (OnShoppingClickListener) context;
+        }
+    }
+
     @Override
     protected View onInitView(@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, null);
@@ -52,6 +64,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         });
         rvGame.setLayoutManager(layoutManager);
         rvGame.setAdapter(adapter);
+        adapter.setListener(() -> listener.onShoppingClick());
         initData();
         return view;
     }
@@ -82,7 +95,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     @Override
     public void getFavourite(GameBean bean) {
         LoadingUtil.hideLoading();
-        if(bean != null && bean.getData() != null) {
+        if (bean != null && bean.getData() != null) {
             adapter.setFavouriteData(bean.getData());
         }
     }
@@ -90,7 +103,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     @Override
     public void getMost(GameBean bean) {
         LoadingUtil.hideLoading();
-        if(bean != null && bean.getData() != null) {
+        if (bean != null && bean.getData() != null) {
             adapter.setMostData(bean.getData());
         }
     }
@@ -105,7 +118,7 @@ public class GameFragment extends BaseFragment implements IGameView {
                 refreshLayout.finishLoadMoreWithNoMoreData();
             }
         }
-        if(bean != null && bean.getData() != null) {
+        if (bean != null && bean.getData() != null) {
             adapter.setData(bean.getData(), pageNum == 1);
         }
     }
@@ -113,7 +126,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     @Override
     public void getUserInfo(UserInfoBean bean) {
         LoadingUtil.hideLoading();
-        if(bean != null) {
+        if (bean != null) {
             adapter.setUserInfo(bean.getData());
         }
     }
@@ -129,5 +142,9 @@ public class GameFragment extends BaseFragment implements IGameView {
                 refreshLayout.finishLoadMoreWithNoMoreData();
             }
         }
+    }
+
+    public interface OnShoppingClickListener {
+        void onShoppingClick();
     }
 }
