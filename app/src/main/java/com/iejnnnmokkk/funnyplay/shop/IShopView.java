@@ -1,5 +1,7 @@
 package com.iejnnnmokkk.funnyplay.shop;
 
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+
 /**
  * @author Sun
  * @Demo class IShopView
@@ -13,6 +15,8 @@ public interface IShopView {
     void buy(ShopBean bean);
 
     void use(ShopBean bean);
+
+    void getUserInfo(UserInfoBean bean);
 
     void onFailed(String msg);
 }
