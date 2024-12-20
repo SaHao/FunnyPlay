@@ -22,6 +22,7 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
+import com.iejnnnmokkk.funnyplay.library.GameLibraryActivity;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -101,6 +102,16 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
             ((HeaderViewHolder) holder).tvMoney.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, HistoryActivity.class));
+            });
+
+            ((HeaderViewHolder) holder).tvFavouriteAll.setOnClickListener(v ->  {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "26"));
+            });
+            ((HeaderViewHolder) holder).tvMostAll.setOnClickListener(v ->  {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "27"));
+            });
+            ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v ->  {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "28"));
             });
 
         }

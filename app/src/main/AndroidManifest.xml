@@ -42,6 +42,8 @@
         </activity>
         <activity android:name="com.iejnnnmokkk.funnyplay.MainActivity" />
         <activity android:name="com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity" />
+        <activity android:name="com.iejnnnmokkk.funnyplay.library.GameLibraryActivity" />
+        <activity android:name="com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity" />
     </application>
 
 </manifest>

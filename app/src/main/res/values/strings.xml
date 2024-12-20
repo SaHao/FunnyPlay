@@ -35,6 +35,15 @@
 <!--    签到-->
     <string name="checkIn">—— Check in ——</string>
 
+<!--    游戏中心-->
+    <string name="GameCenter">Game Center</string>
+    <string name="GameTitle">Game Title</string>
+    <string name="EarningRate">Earning Rate</string>
+    <string name="Speed">Speed</string>
+    <string name="Obtained">Obtained</string>
+    <string name="Rewards">Rewards</string>
+    <string name="PlayNow">Play Now</string>
+
 
 
 </resources>

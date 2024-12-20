@@ -13,14 +13,14 @@ import java.util.List;
  */
 public class GameLibraryBean extends BaseBean {
 
-    private List<GameBean.DataBean> data;
+    private List<DataBean> data;
     private int count;
 
-    public List<GameBean.DataBean> getData() {
+    public List<DataBean> getData() {
         return data;
     }
 
-    public void setData(List<GameBean.DataBean> data) {
+    public void setData(List<DataBean> data) {
         this.data = data;
     }
 
