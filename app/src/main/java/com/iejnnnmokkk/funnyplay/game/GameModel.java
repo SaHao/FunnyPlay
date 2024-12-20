@@ -25,6 +25,12 @@ import java.util.Map;
  */
 public class GameModel {
 
+    private Context context;
+
+    public GameModel(Context context) {
+        this.context = context;
+    }
+
     public void getData(int pageNum, int type, BaseNetworkCallback<GameBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_task_list";
         Map<String, Object> map = new HashMap<>();
@@ -45,6 +51,7 @@ public class GameModel {
         String json = new Gson().toJson(map);
         EasyHttp.post(url)
                 .upJson(json)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
@@ -70,6 +77,7 @@ public class GameModel {
         formDataMap.put("versionCode", "1");
         EasyHttp.post(url)
                 .params(formDataMap)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {

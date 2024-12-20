@@ -1,5 +1,7 @@
 package com.iejnnnmokkk.funnyplay.personal.history;
 
+import android.content.Context;
+
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 
@@ -12,8 +14,8 @@ public class HistoryPresenter {
         this.view = view;
     }
 
-    public void getData(int pageNum) {
-        model.getData(pageNum, new BaseNetworkCallback<HistoryBean>() {
+    public void getData(Context context, int pageNum) {
+        model.getData(context, pageNum, new BaseNetworkCallback<HistoryBean>() {
             @Override
             public void onSuccess(HistoryBean bean) {
                 view.getData(bean);

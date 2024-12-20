@@ -50,14 +50,14 @@ public class HistoryActivity extends BaseActivity implements IHistoryView {
     @Override
     protected void initData() {
         LoadingUtil.showLoading(activity);
-        presenter.getData(pageNum);
+        presenter.getData(context, pageNum);
 
         setLoadingListener(new OnLoadingClickListener() {
             @Override
             public void onRefreshData() {
                 refreshLayout.finishRefresh(true);
                 pageNum = 1;
-                presenter.getData(pageNum);
+                presenter.getData(context, pageNum);
             }
 
             @Override
@@ -67,7 +67,7 @@ public class HistoryActivity extends BaseActivity implements IHistoryView {
         });
 
         pageNum = 1;
-        presenter.getData(pageNum);
+        presenter.getData(context, pageNum);
     }
 
     @Override

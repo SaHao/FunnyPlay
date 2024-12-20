@@ -65,7 +65,7 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
     protected void initData() {
         presenter = new PersonalPresenter(this);
         LoadingUtil.showLoading(activity);
-        presenter.getData();
+        presenter.getData(context);
 
         String user = sharedPreferencesUtil.getValue("user");
         if (!TextUtils.isEmpty(user)) {

@@ -19,12 +19,12 @@ import com.iejnnnmokkk.funnyplay.spl.SplView;
 public class GamePresenter {
 
     private IGameView view;
+    private GameModel model;
 
-    public GamePresenter(IGameView view) {
+    public GamePresenter(Context context, IGameView view) {
         this.view = view;
+        model = new GameModel(context);
     }
-
-    private GameModel model = new GameModel();
 
     public void getFavourite(int pageNum, int type) {
         model.getData(pageNum, type, new BaseNetworkCallback<GameBean>() {

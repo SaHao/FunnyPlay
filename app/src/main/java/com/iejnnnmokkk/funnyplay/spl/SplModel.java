@@ -1,9 +1,12 @@
 package com.iejnnnmokkk.funnyplay.spl;
 
+import android.content.Context;
+
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.http.HttpUtils;
 import com.iejnnnmokkk.common.http.RequestCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -19,9 +22,10 @@ import java.util.Map;
  */
 public class SplModel {
 
-    public void achieve(BaseNetworkCallback<SplBean> callback) {
+    public void achieve(Context context, BaseNetworkCallback<SplBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_send_new_user_coins";
         EasyHttp.post(url)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {

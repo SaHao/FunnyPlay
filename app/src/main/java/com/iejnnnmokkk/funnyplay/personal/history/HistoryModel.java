@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class HistoryModel {
 
-    public void getData(int pageNum, BaseNetworkCallback<HistoryBean> callback) {
+    public void getData(Context context, int pageNum, BaseNetworkCallback<HistoryBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_pay_my_bank_request";
         Map<String, String> formDataMap = new HashMap<>();
         formDataMap.put("is_vpn", "false");
@@ -24,6 +25,7 @@ public class HistoryModel {
         formDataMap.put("version", "1.0.0");
         formDataMap.put("versionCode", "1");
         EasyHttp.post(url)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .params(formDataMap)
                 .execute(new SimpleCallBack<String>() {
                     @Override

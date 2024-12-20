@@ -67,7 +67,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
         ButterKnife.bind(this, view);
 
         dialog = new WarningDialog(context, R.style.myDialog);
-        presenter = new ShopPresenter(this);
+        presenter = new ShopPresenter(this, context);
         avatarAdapter = new AvatarAdapter(context);
         rvAvatar.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         rvAvatar.setAdapter(avatarAdapter);

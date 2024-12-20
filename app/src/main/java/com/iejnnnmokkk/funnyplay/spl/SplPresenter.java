@@ -1,5 +1,7 @@
 package com.iejnnnmokkk.funnyplay.spl;
 
+import android.content.Context;
+
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 
 /**
@@ -18,8 +20,8 @@ public class SplPresenter {
 
     private SplModel model = new SplModel();
 
-    public void achieve() {
-        model.achieve(new BaseNetworkCallback<SplBean>() {
+    public void achieve(Context context) {
+        model.achieve(context, new BaseNetworkCallback<SplBean>() {
             @Override
             public void onSuccess(SplBean bean) {
                 view.onAchieve(bean);

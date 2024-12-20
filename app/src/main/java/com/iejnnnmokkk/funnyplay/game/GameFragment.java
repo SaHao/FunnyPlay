@@ -52,7 +52,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     protected View onInitView(@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, null);
         ButterKnife.bind(this, view);
-        presenter = new GamePresenter(this);
+        presenter = new GamePresenter(context, this);
         initRefreshLayout(rlGame);
         adapter = new GameAdapter(context);
         GridLayoutManager layoutManager = new GridLayoutManager(context, 2);
@@ -82,12 +82,13 @@ public class GameFragment extends BaseFragment implements IGameView {
             public void onRefreshData() {
                 refreshLayout.finishRefresh(true);
                 pageNum = 1;
-                presenter.getFavourite(pageNum, 28);
+                presenter.getNew(pageNum, 28);
             }
 
             @Override
             public void onLoadMoreData() {
-                refreshLayout.finishLoadMoreWithNoMoreData();
+                pageNum += 1;
+                presenter.getNew(pageNum, 28);
             }
         });
     }

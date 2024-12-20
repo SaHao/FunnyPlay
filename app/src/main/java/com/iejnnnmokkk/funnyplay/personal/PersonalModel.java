@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class PersonalModel {
 
-    public void getData(BaseNetworkCallback<PersonalBean> callback) {
+    public void getData(Context context, BaseNetworkCallback<PersonalBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_my_task_list_v1";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", "false");
@@ -24,6 +24,7 @@ public class PersonalModel {
         map.put("gaid", "");
         map.put("versionCode", "");
         EasyHttp.post(url)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .params(map)
                 .execute(new SimpleCallBack<String>() {
                     @Override

@@ -119,11 +119,13 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     public void setFavouriteData(List<GameBean.DataBean> favouriteData) {
         this.favouriteData = favouriteData;
         favouriteAdapter.setData(favouriteData, true);
+        notifyDataSetChanged();
     }
 
     public void setMostData(List<GameBean.DataBean> mostData) {
         this.mostData = mostData;
         mostGameAdapter.setData(mostData, true);
+        notifyDataSetChanged();
     }
 
     public void setUserInfo(UserInfoBean.DataBean userInfo) {

@@ -24,9 +24,16 @@ import java.util.Objects;
  */
 public class ShopModel {
 
+    private Context context;
+
+    public ShopModel(Context context) {
+        this.context = context;
+    }
+
     public void getData(BaseNetworkCallback<ShopBean> callback) {
         String url = "https://api.keepad.xyz/MP/G_D_S";
         EasyHttp.post(url)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
@@ -55,6 +62,7 @@ public class ShopModel {
         map.put("API_URI", "ht.jbtls.xyz");
         EasyHttp.post(url)
                 .params(map)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
@@ -83,6 +91,7 @@ public class ShopModel {
         map.put("API_URI", "ht.jbtls.xyz");
         EasyHttp.post(url)
                 .params(map)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
@@ -108,6 +117,7 @@ public class ShopModel {
         formDataMap.put("versionCode", "1");
         EasyHttp.post(url)
                 .params(formDataMap)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {

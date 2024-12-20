@@ -1,5 +1,7 @@
 package com.iejnnnmokkk.funnyplay.personal;
 
+import android.content.Context;
+
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.GameModel;
 import com.iejnnnmokkk.funnyplay.game.IGameView;
@@ -15,8 +17,8 @@ public class PersonalPresenter {
 
     private PersonalModel model = new PersonalModel();
 
-    public void getData() {
-        model.getData(new BaseNetworkCallback<PersonalBean>() {
+    public void getData(Context context) {
+        model.getData(context, new BaseNetworkCallback<PersonalBean>() {
             @Override
             public void onSuccess(PersonalBean bean) {
                 view.getData(bean);

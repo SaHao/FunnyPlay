@@ -15,10 +15,11 @@ import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 public class ShopPresenter {
 
     private IShopView view;
-    private ShopModel model = new ShopModel();
+    private ShopModel model;
 
-    public ShopPresenter(IShopView view) {
+    public ShopPresenter(IShopView view, Context context) {
         this.view = view;
+        model = new ShopModel(context);
     }
 
     public void getData() {
