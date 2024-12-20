@@ -29,8 +29,6 @@ public class GameDetailActivity extends BaseActivity {
     TextView tvName;
     @BindView(R.id.tv_score)
     TextView tvScore;
-    @BindView(R.id.view0)
-    View view0;
     @BindView(R.id.tv_author)
     TextView tvAuthor;
     @BindView(R.id.ll_light)
