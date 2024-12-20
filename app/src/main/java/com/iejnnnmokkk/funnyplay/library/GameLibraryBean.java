@@ -1,20 +1,26 @@
-package com.iejnnnmokkk.funnyplay.personal;
+package com.iejnnnmokkk.funnyplay.library;
 
 import com.iejnnnmokkk.common.http.bean.BaseBean;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 
 import java.util.List;
 
-public class PersonalBean extends BaseBean {
+/**
+ * @author Sun
+ * @Demo class GameLibraryBean
+ * @Description TODO
+ * @date 2024/12/20 17:14
+ */
+public class GameLibraryBean extends BaseBean {
 
-    private List<DataBean> data;
+    private List<GameBean.DataBean> data;
     private int count;
 
-    public List<DataBean> getData() {
+    public List<GameBean.DataBean> getData() {
         return data;
     }
 
-    public void setData(List<DataBean> data) {
+    public void setData(List<GameBean.DataBean> data) {
         this.data = data;
     }
 

@@ -31,4 +31,10 @@
 
 <!--    提现记录-->
     <string name="Diamonds">Diamonds</string>
+
+<!--    签到-->
+    <string name="checkIn">—— Check in ——</string>
+
+
+
 </resources>

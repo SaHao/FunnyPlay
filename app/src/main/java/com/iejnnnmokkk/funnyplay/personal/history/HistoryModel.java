@@ -5,6 +5,7 @@ import android.content.Context;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class HistoryModel {
 
     public void getData(Context context, int pageNum, BaseNetworkCallback<HistoryBean> callback) {
-        String url = "https://api.keepad.xyz/daily_reward/daily_pay_my_bank_request";
+        String url = "https://api.keepad.xyz/funny_play/well_balance_index";
         Map<String, String> formDataMap = new HashMap<>();
         formDataMap.put("is_vpn", "false");
         formDataMap.put("gaid", "");
@@ -35,7 +36,11 @@ public class HistoryModel {
 
                     @Override
                     public void onSuccess(String response) {
-                        callback.onSuccess(GsonUtils.fromJson(response, HistoryBean.class));
+                        try {
+                            callback.onSuccess(GsonUtils.fromJson(response, HistoryBean.class));
+                        } catch (Exception e) {
+                            callback.onSuccess(new HistoryBean());
+                        }
                     }
                 });
     }

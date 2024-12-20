@@ -70,8 +70,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     protected void onBindHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == CONTENT && holder instanceof ViewHolder) {
             ((ViewHolder) holder).tvName.setText(getNull(data.get(position - 1).getName()));
-            ((ViewHolder) holder).tvNum.setText(getNull(data.get(position - 1).getPay_money()));
-            Glide.with(context).load(getNull(data.get(position - 1).getRecomm_img())).into(((ViewHolder) holder).ivLogo);
+            ((ViewHolder) holder).tvNum.setText(data.get(position - 1).getReward() + "");
+            Glide.with(context).load(getNull(data.get(position - 1).getIcon())).into(((ViewHolder) holder).ivLogo);
         } else if (getItemViewType(position) == HEADER && holder instanceof HeaderViewHolder) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(layoutManager);
@@ -86,8 +86,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
 
 
-            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
-            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
+//            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
+//            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
             Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());

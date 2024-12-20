@@ -60,7 +60,11 @@ public class GameModel {
 
                     @Override
                     public void onSuccess(String response) {
-                        callback.onSuccess(GsonUtils.fromJson(response, GameBean.class));
+                        try {
+                            callback.onSuccess(GsonUtils.fromJson(response, GameBean.class));
+                        } catch (Exception e) {
+                            callback.onSuccess(new GameBean());
+                        }
                     }
                 });
     }

@@ -16,12 +16,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseFragment;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +38,7 @@ import butterknife.OnClick;
 public class PersonalFragment extends BaseFragment implements IPersonalView {
 
     @BindView(R.id.iv_photo)
-    ImageView ivPhoto;
+    RoundedImageView ivPhoto;
     @BindView(R.id.iv_photoBack)
     ImageView ivPhotoBack;
     @BindView(R.id.tv_name)
@@ -71,6 +73,8 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         if (!TextUtils.isEmpty(user)) {
             UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
             if (bean != null && bean.getData() != null) {
+                Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
                 tvName.setText(getNull(bean.getData().getNickname()));
             }
         }
@@ -92,8 +96,8 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
     @Override
     public void getData(PersonalBean bean) {
         LoadingUtil.hideLoading();
-        if (bean != null) {
-
+        if (bean != null && bean.getData() != null) {
+            adapter.setData(bean.getData(), true);
         } else {
             llTask.setVisibility(View.GONE);
         }

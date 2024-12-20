@@ -16,7 +16,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PersonalAdapter extends BaseAdapter<PersonalBean, PersonalAdapter.ViewHolder> {
+public class PersonalAdapter extends BaseAdapter<PersonalBean.DataBean, PersonalAdapter.ViewHolder> {
 
     public PersonalAdapter(Context context) {
         super(context);
@@ -29,9 +29,9 @@ public class PersonalAdapter extends BaseAdapter<PersonalBean, PersonalAdapter.V
 
     @Override
     protected void onBindHolder(@NonNull PersonalAdapter.ViewHolder holder, int position) {
-//        holder.tvName.setText(getNull(data.get(position).getName()));
+        holder.tvName.setText(getNull(data.get(position).getName()));
 //        holder.tvTask.setText(getNull(data.get(position).getTask_label()));
-//        Glide.with(context).load(getNull(data.get(position).getRecomm_img())).into(holder.ivLogo);
+        Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

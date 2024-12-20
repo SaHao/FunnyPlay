@@ -1,14 +1,12 @@
-package com.iejnnnmokkk.funnyplay.personal.history;
+package com.iejnnnmokkk.funnyplay.library;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iejnnnmokkk.common.base.BaseActivity;
+import com.iejnnnmokkk.common.base.BaseFragment;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
@@ -16,64 +14,53 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class HistoryActivity extends BaseActivity implements IHistoryView {
-
-    @BindView(R.id.imageView0)
-    ImageView imageView0;
-    @BindView(R.id.imageView1)
-    ImageView imageView1;
-    @BindView(R.id.tv_money)
-    TextView tvMoney;
-    @BindView(R.id.textView0)
-    TextView textView0;
-    @BindView(R.id.rv_history)
-    RecyclerView rvHistory;
-    @BindView(R.id.rl_history)
-    SmartRefreshLayout rlHistory;
+/**
+ * @author Sun
+ * @Demo class GameLibraryActivity
+ * @Description TODO
+ * @date 2024/12/20 17:06
+ */
+public class GameLibraryActivity extends BaseActivity implements IGameLibraryView {
+    
+    @BindView(R.id.rv_game)
+    RecyclerView rvGame;
+    @BindView(R.id.rl_game)
+    SmartRefreshLayout rlGame;
 
     private int pageNum = 1;
-    private HistoryPresenter presenter;
-    private HistoryAdapter adapter;
+    private GameLibraryPresenter presenter;
 
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_game_library);
         ButterKnife.bind(this);
-        presenter = new HistoryPresenter(this);
-        adapter = new HistoryAdapter(context);
-        rvHistory.setAdapter(adapter);
 
-        initRefreshLayout(rlHistory);
+        presenter = new GameLibraryPresenter(context, this);
+        initRefreshLayout(rlGame);
     }
 
     @Override
     protected void initData() {
-        LoadingUtil.showLoading(activity);
-        presenter.getData(context, pageNum);
-
         setLoadingListener(new OnLoadingClickListener() {
             @Override
             public void onRefreshData() {
                 refreshLayout.finishRefresh(true);
                 pageNum = 1;
-                presenter.getData(context, pageNum);
+                presenter.getData(pageNum, 28);
             }
 
             @Override
             public void onLoadMoreData() {
                 pageNum += 1;
-                presenter.getData(context, pageNum);
+                presenter.getData(pageNum, 28);
             }
         });
-
-        pageNum = 1;
-        presenter.getData(context, pageNum);
+        
     }
 
     @Override
-    public void getData(HistoryBean bean) {
+    public void getData(GameLibraryBean bean) {
         LoadingUtil.hideLoading();
         if (refreshLayout != null) {
             if (pageNum == 1) {
@@ -83,7 +70,7 @@ public class HistoryActivity extends BaseActivity implements IHistoryView {
             }
         }
         if (bean != null && bean.getData() != null) {
-            adapter.setData(bean.getData(), pageNum == 1);
+//            adapter.setData(bean.getData(), pageNum == 1);
         }
     }
 
@@ -97,15 +84,6 @@ public class HistoryActivity extends BaseActivity implements IHistoryView {
             } else {
                 refreshLayout.finishLoadMoreWithNoMoreData();
             }
-        }
-    }
-
-    @OnClick({R.id.iv_back})
-    public void onBindClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                finish();
-                break;
         }
     }
 }

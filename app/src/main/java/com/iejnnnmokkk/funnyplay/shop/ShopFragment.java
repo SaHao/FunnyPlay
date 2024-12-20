@@ -26,6 +26,7 @@ import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.iejnnnmokkk.funnyplay.view.WarningDialog;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +46,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
     @BindView(R.id.ll_task)
     public LinearLayout llTask;
     @BindView(R.id.iv_photo)
-    public ImageView ivPhoto;
+    public RoundedImageView ivPhoto;
     @BindView(R.id.iv_photoBack)
     public ImageView ivPhotoBack;
     @BindView(R.id.tv_money)
@@ -88,8 +89,8 @@ public class ShopFragment extends BaseFragment implements IShopView {
         if (!TextUtils.isEmpty(user)) {
             UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
             if (bean != null && bean.getData() != null) {
-                setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
-                tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
+//                setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
+//                tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
                 Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
                 tvMoney.setText(bean.getData().getBalance());
@@ -167,8 +168,8 @@ public class ShopFragment extends BaseFragment implements IShopView {
     @Override
     public void getUserInfo(UserInfoBean bean) {
         if (bean != null && bean.getData() != null) {
-            setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
-            tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
+//            setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
+//            tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
             Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
             Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
             tvMoney.setText(bean.getData().getBalance());

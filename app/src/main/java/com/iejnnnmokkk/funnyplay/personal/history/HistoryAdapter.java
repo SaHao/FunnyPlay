@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iejnnnmokkk.common.base.BaseAdapter;
+import com.iejnnnmokkk.common.utils.DateUtils;
 import com.iejnnnmokkk.funnyplay.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HistoryAdapter extends BaseAdapter<HistoryBean, HistoryAdapter.ViewHolder> {
+public class HistoryAdapter extends BaseAdapter<HistoryBean.DataBean, HistoryAdapter.ViewHolder> {
 
     public HistoryAdapter(Context context) {
         super(context);
@@ -28,6 +29,10 @@ public class HistoryAdapter extends BaseAdapter<HistoryBean, HistoryAdapter.View
 
     @Override
     protected void onBindHolder(@NonNull HistoryAdapter.ViewHolder holder, int position) {
+        holder.tvName.setText(getNull(data.get(position).getSub_type_name()));
+        holder.tvContent.setText(getNull(data.get(position).getRemark()));
+        holder.tvMoney.setText(data.get(position).getBalance() + "");
+        holder.tvDate.setText(DateUtils.timestampToDate(data.get(position).getCreate_time(), "yyyy-MM-dd HH:mm"));
 
     }
 

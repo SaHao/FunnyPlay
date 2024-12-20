@@ -6,6 +6,7 @@ import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+import com.iejnnnmokkk.funnyplay.library.GameLibraryBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -34,7 +35,11 @@ public class PersonalModel {
 
                     @Override
                     public void onSuccess(String response) {
-                        callback.onSuccess(GsonUtils.fromJson(response, PersonalBean.class));
+                        try {
+                            callback.onSuccess(GsonUtils.fromJson(response, PersonalBean.class));
+                        } catch (Exception e) {
+                            callback.onSuccess(new PersonalBean());
+                        }
                     }
                 });
     }

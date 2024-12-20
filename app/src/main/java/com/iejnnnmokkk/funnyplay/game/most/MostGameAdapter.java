@@ -39,8 +39,8 @@ public class MostGameAdapter extends BaseAdapter<GameBean.DataBean, MostGameAdap
     @Override
     protected void onBindHolder(@NonNull ViewHolder holder, int position) {
         holder.tvName.setText(getNull(data.get(position).getName()));
-        holder.tvNum.setText(getNull(data.get(position).getPay_money()));
-        Glide.with(context).load(getNull(data.get(position).getRecomm_img())).into(holder.ivLogo);
+        holder.tvNum.setText(data.get(position).getReward() + "");
+        Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
         holder.tvPlay.setOnClickListener(v -> {
 
         });

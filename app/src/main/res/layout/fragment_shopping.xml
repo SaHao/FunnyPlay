@@ -19,6 +19,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="37dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iv_photo" />
@@ -35,6 +36,7 @@
         android:paddingTop="2dp"
         android:paddingEnd="6dp"
         android:paddingBottom="2dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cp_task"
         app:layout_constraintEnd_toEndOf="@+id/cp_task"
         app:layout_constraintStart_toStartOf="@+id/cp_task">
@@ -48,15 +50,19 @@
             android:textSize="10sp" />
     </LinearLayout>
 
-    <ImageView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/iv_photo"
         android:layout_width="58dp"
         android:layout_height="58dp"
-        android:src="@mipmap/icon_game"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photoBack"
         app:layout_constraintEnd_toEndOf="@+id/iv_photoBack"
         app:layout_constraintStart_toStartOf="@+id/iv_photoBack"
-        app:layout_constraintTop_toTopOf="@+id/iv_photoBack" />
+        app:layout_constraintTop_toTopOf="@+id/iv_photoBack"
+        app:riv_corner_radius="30dp"
+        app:riv_mutate_background="true"
+        app:riv_oval="false"
+        app:riv_tile_mode="clamp" />
 
     <ImageView
         android:id="@+id/iv_photoBack"
@@ -64,7 +70,6 @@
         android:layout_height="74dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:src="@mipmap/icon_game"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,7 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:text="200"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView0"
@@ -107,10 +111,10 @@
         android:id="@+id/rv_avatar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView0"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView0" />
 
     <TextView
         android:id="@+id/textView1"
@@ -129,9 +133,9 @@
         android:id="@+id/rv_frame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
