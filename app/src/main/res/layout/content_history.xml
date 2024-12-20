@@ -71,7 +71,7 @@
         android:src="@mipmap/icon_blue_diamond"
         app:layout_constraintBottom_toBottomOf="@+id/tv_money"
         app:layout_constraintEnd_toStartOf="@+id/tv_money"
-        app:layout_constraintTop_toTopOf="tv_money" />
+        app:layout_constraintTop_toTopOf="@+id/tv_money" />
 
     <View
         android:layout_width="0dp"

@@ -164,10 +164,6 @@ public class ShopFragment extends BaseFragment implements IShopView {
         }
     }
 
-    /**
-     * 用户信息
-     * @param bean
-     */
     @Override
     public void getUserInfo(UserInfoBean bean) {
         if (bean != null && bean.getData() != null) {
