@@ -84,7 +84,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
-
+            ((HeaderViewHolder) holder).tvTaskNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
 
 //            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
 //            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
@@ -92,8 +93,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
             ((HeaderViewHolder) holder).tvTaskNum.setText(userInfo.getWelfare_5_star_reward() + "");
-            ((HeaderViewHolder) holder).tvTaskNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
-
+            ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getWelfare_5_star_reward() + "");
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
                 listener.onShopClick();

@@ -42,6 +42,11 @@ public class AvatarAdapter extends BaseAdapter<ShopBean.DataBean.AvatarGoodsBean
         Glide.with(context).load(getNull(data.get(position).getUrl())).into(holder.ivLogo);
         holder.tvPrice.setText(data.get(position).getCoins() + "");
 
+        holder.clNotBuy.setVisibility(data.get(position).getStatus() == 0 ? View.VISIBLE : View.GONE);
+        holder.tvUse.setVisibility(data.get(position).getStatus() == 1 ? View.VISIBLE : View.GONE);
+        holder.tvInUse.setVisibility(data.get(position).getStatus() == 2 ? View.VISIBLE : View.GONE);
+        holder.ivSelect.setVisibility(data.get(position).getStatus() == 2 ? View.VISIBLE : View.GONE);
+
         holder.tvUse.setOnClickListener(v -> {
             listener.onClick(data.get(position), "use");
         });
