@@ -44,6 +44,7 @@ public class FrameAdapter extends BaseAdapter<ShopBean.DataBean.FrameGoodsBean, 
         holder.clNotBuy.setVisibility(data.get(position).getStatus() == 0 ? View.VISIBLE : View.GONE);
         holder.tvUse.setVisibility(data.get(position).getStatus() == 1 ? View.VISIBLE : View.GONE);
         holder.tvInUse.setVisibility(data.get(position).getStatus() == 2 ? View.VISIBLE : View.GONE);
+        holder.ivSelect.setVisibility(data.get(position).getStatus() == 2 ? View.VISIBLE : View.GONE);
 
         holder.tvUse.setOnClickListener(v -> {
             listener.onClick(data.get(position), "use");

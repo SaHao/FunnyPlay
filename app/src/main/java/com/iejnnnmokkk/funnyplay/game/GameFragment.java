@@ -72,6 +72,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     @Override
     protected void initData() {
         LoadingUtil.showLoading(activity);
+        pageNum = 1;
         presenter.getFavourite(pageNum, 26);
         presenter.getMost(pageNum, 27);
         presenter.getNew(pageNum, 28);

@@ -23,7 +23,9 @@ import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
 import com.iejnnnmokkk.funnyplay.library.GameLibraryActivity;
+import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
+import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -73,6 +75,9 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((ViewHolder) holder).tvName.setText(getNull(data.get(position - 1).getName()));
             ((ViewHolder) holder).tvNum.setText(data.get(position - 1).getReward() + "");
             Glide.with(context).load(getNull(data.get(position - 1).getIcon())).into(((ViewHolder) holder).ivLogo);
+            holder.itemView.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            });
         } else if (getItemViewType(position) == HEADER && holder instanceof HeaderViewHolder) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(layoutManager);
@@ -92,8 +97,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
-            ((HeaderViewHolder) holder).tvTaskNum.setText(userInfo.getWelfare_5_star_reward() + "");
-            ((HeaderViewHolder) holder).tvTaskNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+            ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getWelfare_5_star_reward() + "");
+            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
 
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
@@ -112,6 +117,9 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             });
             ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v ->  {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "28"));
+            });
+            ((HeaderViewHolder) holder).ivGame.setOnClickListener(v ->  {
+                context.startActivity(new Intent(context, MyGameActivity.class));
             });
 
         }

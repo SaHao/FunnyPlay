@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.game.most;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,9 +13,8 @@ import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
+import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +41,9 @@ public class MostGameAdapter extends BaseAdapter<GameBean.DataBean, MostGameAdap
         holder.tvName.setText(getNull(data.get(position).getName()));
         holder.tvNum.setText(data.get(position).getReward() + "");
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
+        holder.itemView.setOnClickListener(v -> {
+            context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+        });
         holder.tvPlay.setOnClickListener(v -> {
 
         });

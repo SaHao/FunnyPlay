@@ -141,6 +141,66 @@
 			"response": []
 		},
 		{
+			"name": "领取新用户奖励",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "3ec943c42a6351cc21c88b36940b3e15",
+						"description": "用户token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "is_vpn",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "channel",
+							"value": "jfq_2_offer",
+							"description": "渠道",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0.3",
+							"description": "版本",
+							"type": "text"
+						},
+						{
+							"key": "gaid",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "versionCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.keepad.xyz/daily_reward/daily_send_new_user_coins",
+					"protocol": "https",
+					"host": [
+						"api",
+						"keepad",
+						"xyz"
+					],
+					"path": [
+						"daily_reward",
+						"daily_send_new_user_coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "用户广告弹窗奖励数据",
 			"request": {
 				"method": "POST",

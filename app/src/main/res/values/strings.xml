@@ -44,6 +44,11 @@
     <string name="Rewards">Rewards</string>
     <string name="PlayNow">Play Now</string>
 
+<!--    我的任务-->
+    <string name="Review">Review</string>
+    <string name="Completed">Completed</string>
+    <string name="lnProgress">ln progress</string>
+
 
 
 </resources>
