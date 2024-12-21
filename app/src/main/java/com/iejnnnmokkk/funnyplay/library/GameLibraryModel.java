@@ -40,7 +40,7 @@ public class GameLibraryModel {
         map.put("token", "");
         map.put("task_type_conf_id", type);
         map.put("is_vpn", false);
-        map.put("task_type_id", "18");
+        map.put("task_type_id", "10,18,22");
         map.put("limit", "20");
         map.put("randomUUID", "e4b43db5-ddb6-4a09-9447-5beb7f5b73e5");
         map.put("page", pageNum);
