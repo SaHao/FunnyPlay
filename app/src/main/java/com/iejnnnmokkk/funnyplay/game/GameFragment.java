@@ -16,6 +16,7 @@ import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
@@ -54,7 +55,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         ButterKnife.bind(this, view);
         presenter = new GamePresenter(context, this);
         initRefreshLayout(rlGame);
-        adapter = new GameAdapter(context);
+        adapter = new GameAdapter(activity);
         GridLayoutManager layoutManager = new GridLayoutManager(context, 2);
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -77,6 +78,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         presenter.getMost(pageNum, 27);
         presenter.getNew(pageNum, 28);
         presenter.getUserInfo(context);
+        presenter.getSignInData();
 
         setLoadingListener(new OnLoadingClickListener() {
             @Override
@@ -131,6 +133,29 @@ public class GameFragment extends BaseFragment implements IGameView {
         if (bean != null) {
             adapter.setUserInfo(bean.getData());
         }
+    }
+
+    /**
+     * 签到数据
+     *
+     * @param bean
+     */
+    @Override
+    public void getSignInData(SignInBean bean) {
+        LoadingUtil.hideLoading();
+        if(bean != null) {
+            adapter.setSignInData(bean);
+        }
+    }
+
+    /**
+     * 签到
+     *
+     * @param bean
+     */
+    @Override
+    public void signIn(SignInBean bean) {
+        LoadingUtil.hideLoading();
     }
 
     @Override

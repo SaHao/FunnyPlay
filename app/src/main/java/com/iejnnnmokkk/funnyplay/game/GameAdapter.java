@@ -1,6 +1,6 @@
 package com.iejnnnmokkk.funnyplay.game;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
@@ -27,6 +27,8 @@ import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
+import com.iejnnnmokkk.funnyplay.view.SignInDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
@@ -54,11 +56,14 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private List<GameBean.DataBean> favouriteData = new ArrayList<>();
     private List<GameBean.DataBean> mostData = new ArrayList<>();
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
+    private SignInBean signInData = new SignInBean();
+    private SignInDialog dialog;
 
-    public GameAdapter(Context context) {
+    public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
+        dialog = new SignInDialog(context);
     }
 
     @Override
@@ -122,6 +127,10 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
                 context.startActivity(new Intent(context, MyGameActivity.class));
             });
 
+            ((HeaderViewHolder) holder).ivSgnIn.setOnClickListener(v -> {
+                dialog.show();
+                dialog.setData(signInData);
+            });
         }
     }
 
@@ -149,6 +158,11 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     public void setUserInfo(UserInfoBean.DataBean userInfo) {
         this.userInfo = userInfo;
+        notifyDataSetChanged();
+    }
+
+    public void setSignInData(SignInBean signInData) {
+        this.signInData = signInData;
         notifyDataSetChanged();
     }
 

@@ -5,10 +5,7 @@ import android.content.Context;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
-import com.iejnnnmokkk.funnyplay.spl.LoginBean;
-import com.iejnnnmokkk.funnyplay.spl.SplBean;
-import com.iejnnnmokkk.funnyplay.spl.SplModel;
-import com.iejnnnmokkk.funnyplay.spl.SplView;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
 
 /**
  * @author Sun
@@ -73,6 +70,34 @@ public class GamePresenter {
             @Override
             public void onSuccess(UserInfoBean bean) {
                 view.getUserInfo(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getSignInData() {
+        model.getSignInData(new BaseNetworkCallback<SignInBean>() {
+            @Override
+            public void onSuccess(SignInBean bean) {
+                view.getSignInData(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void signIn(String id) {
+        model.signIn(id, new BaseNetworkCallback<SignInBean>() {
+            @Override
+            public void onSuccess(SignInBean bean) {
+                view.signIn(bean);
             }
 
             @Override

@@ -48,7 +48,16 @@
     <string name="Review">Review</string>
     <string name="Completed">Completed</string>
     <string name="lnProgress">ln progress</string>
-
+    
+<!--    签到-->
+    <string name="day1">Day1</string>
+    <string name="day2">Day2</string>
+    <string name="day3">Day3</string>
+    <string name="day4">Day4</string>
+    <string name="day5">Day5</string>
+    <string name="day6">Day6</string>
+    <string name="day7">Day7</string>
+    <string name="WatchVideos">Watch videos</string>
 
 
 </resources>

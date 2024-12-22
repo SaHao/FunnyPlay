@@ -4,19 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.iejnnnmokkk.common.base.BaseActivity;
-import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.MainActivity;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
-
-import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,6 +69,7 @@ public class SplActivity extends BaseActivity implements SplView {
     public void onLogin(LoginBean bean) {
         LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
+            sharedPreferencesUtil.saveValue("isSignInFirst", "1");
             sharedPreferencesUtil.saveValue("token", getNull(bean.getData().getToken()));
         }
     }

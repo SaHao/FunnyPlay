@@ -8,8 +8,7 @@ import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
-import com.iejnnnmokkk.funnyplay.spl.LoginBean;
-import com.iejnnnmokkk.funnyplay.spl.SplBean;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -92,6 +91,54 @@ public class GameModel {
                     public void onSuccess(String response) {
                         SharedPreferencesUtil.getInstance(context).saveValue("user", response);
                         callback.onSuccess(GsonUtils.fromJson(response, UserInfoBean.class));
+                    }
+                });
+    }
+
+    public void getSignInData(BaseNetworkCallback<SignInBean> callback) {
+        String url = "https://api.keepad.xyz/daily_reward/dayli_list";
+        Map<String, String> map = new HashMap<>();
+        map.put("is_vpn", "false");
+        map.put("gaid", "");
+        map.put("channel", "funny_play");
+        map.put("version", "1.0.3");
+        map.put("versionCode", "");
+        EasyHttp.post(url)
+                .params(map)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
+                .execute(new SimpleCallBack<String>() {
+                    @Override
+                    public void onError(ApiException e) {
+                        callback.onFailure("获取失败");
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        callback.onSuccess(GsonUtils.fromJson(response, SignInBean.class));
+                    }
+                });
+    }
+
+    public void signIn(String id, BaseNetworkCallback<SignInBean> callback) {
+        String url = "https://api.keepad.xyz/daily_reward/new_daily";
+        Map<String, String> map = new HashMap<>();
+        map.put("is_vpn", "false");
+        map.put("gaid", id);
+        map.put("channel", "funny_play");
+        map.put("version", "1.0.0");
+        map.put("versionCode", "");
+        EasyHttp.post(url)
+                .params(map)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
+                .execute(new SimpleCallBack<String>() {
+                    @Override
+                    public void onError(ApiException e) {
+                        callback.onFailure("获取失败");
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        callback.onSuccess(GsonUtils.fromJson(response, SignInBean.class));
                     }
                 });
     }

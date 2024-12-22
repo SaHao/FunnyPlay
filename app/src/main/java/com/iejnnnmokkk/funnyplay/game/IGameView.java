@@ -2,6 +2,7 @@ package com.iejnnnmokkk.funnyplay.game;
 
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
 
 /**
  * @author Sun
@@ -15,5 +16,7 @@ public interface IGameView {
     void getMost(GameBean bean);
     void getNew(GameBean bean);
     void getUserInfo(UserInfoBean bean);
+    void getSignInData(SignInBean bean);
+    void signIn(SignInBean bean);
     void onFailed(String msg);
 }
