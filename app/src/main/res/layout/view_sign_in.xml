@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingBottom="40dp"
-    android:background="@mipmap/icon_sign_in">
+    android:background="@mipmap/icon_sign_in"
+    android:paddingBottom="40dp">
 
     <TextView
         android:id="@+id/textView0"
@@ -23,8 +23,8 @@
         android:id="@+id/cl_day1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
         android:layout_marginStart="23dp"
+        android:layout_marginTop="22dp"
         android:paddingBottom="14dp"
         app:layout_constraintEnd_toStartOf="@+id/cl_day2"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
@@ -157,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView8"
@@ -262,7 +262,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView11"
@@ -313,7 +313,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView13"
@@ -365,7 +365,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="44400"
+
             android:textColor="#FF4E42"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView15"

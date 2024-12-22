@@ -96,7 +96,7 @@ public class GameModel {
     }
 
     public void getSignInData(BaseNetworkCallback<SignInBean> callback) {
-        String url = "https://api.keepad.xyz/daily_reward/dayli_list";
+        String url = "https://api.keepad.xyz/api/dayli_index";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", "false");
         map.put("gaid", "");
@@ -120,7 +120,7 @@ public class GameModel {
     }
 
     public void signIn(String id, BaseNetworkCallback<SignInBean> callback) {
-        String url = "https://api.keepad.xyz/daily_reward/new_daily";
+        String url = "https://api.keepad.xyz/api/new_daily";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", "false");
         map.put("gaid", id);

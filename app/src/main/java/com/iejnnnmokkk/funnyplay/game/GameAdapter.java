@@ -56,14 +56,14 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private List<GameBean.DataBean> favouriteData = new ArrayList<>();
     private List<GameBean.DataBean> mostData = new ArrayList<>();
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
-    private SignInBean signInData = new SignInBean();
+    private SignInBean.DataBean signInData = new SignInBean.DataBean();
     private SignInDialog dialog;
 
     public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
-        dialog = new SignInDialog(context);
+        dialog = new SignInDialog(context, R.style.myDialog);
     }
 
     @Override
@@ -114,23 +114,65 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
                 context.startActivity(new Intent(context, HistoryActivity.class));
             });
 
-            ((HeaderViewHolder) holder).tvFavouriteAll.setOnClickListener(v ->  {
+            ((HeaderViewHolder) holder).tvFavouriteAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "26"));
             });
-            ((HeaderViewHolder) holder).tvMostAll.setOnClickListener(v ->  {
+            ((HeaderViewHolder) holder).tvMostAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "27"));
             });
-            ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v ->  {
+            ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "28"));
             });
-            ((HeaderViewHolder) holder).ivGame.setOnClickListener(v ->  {
+            ((HeaderViewHolder) holder).ivGame.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, MyGameActivity.class));
             });
 
             ((HeaderViewHolder) holder).ivSgnIn.setOnClickListener(v -> {
                 dialog.show();
                 dialog.setData(signInData);
+                dialog.setListener((id, money) -> {
+                    listener.onSignInClick(id, money);
+                });
             });
+
+            ((HeaderViewHolder) holder).llSignIn.setOnClickListener(v -> {
+                dialog.show();
+                dialog.setData(signInData);
+                dialog.setListener((id, money) -> {
+                    listener.onSignInClick(id, money);
+                });
+            });
+            if (signInData.getRes() != null) {
+                switch (signInData.getDayli_num()) {
+                    case 1:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_1() + "");
+                        break;
+                    case 2:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_2() + "");
+                        break;
+                    case 3:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_3() + "");
+                        break;
+                    case 4:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_4() + "");
+                        break;
+                    case 5:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_5() + "");
+                        break;
+                    case 6:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_6() + "");
+                        break;
+                    case 7:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_7() + "");
+                        break;
+                    default:
+                        break;
+                }
+                ((HeaderViewHolder) holder).llSignIn.setVisibility(signInData.getDayli_flag() == 0 ? View.VISIBLE : View.GONE);
+                ((HeaderViewHolder) holder).tvTomorrow.setVisibility(signInData.getDayli_flag() == 0 ? View.GONE : View.VISIBLE);
+
+            }
+
         }
     }
 
@@ -161,7 +203,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         notifyDataSetChanged();
     }
 
-    public void setSignInData(SignInBean signInData) {
+    public void setSignInData(SignInBean.DataBean signInData) {
         this.signInData = signInData;
         notifyDataSetChanged();
     }
@@ -259,5 +301,13 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     public interface OnShopClickListener {
         void onShopClick();
+
+        /**
+         * 签到
+         *
+         * @param id
+         * @param money
+         */
+        void onSignInClick(String id, int money);
     }
 }
