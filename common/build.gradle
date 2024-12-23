@@ -8,7 +8,8 @@ android {
 
     defaultConfig {
         minSdk 23
-
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -55,4 +56,10 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    api libs.sdk.adjust.android
+    api libs.android.installreferrer
+    api libs.sdk.adjust.android.webbridge
+    api libs.play.services.ads.identifier.v1820
+    api libs.sdk.adjust.android.meta.referrer
 }

@@ -8,15 +8,29 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.iejnnnmokkk.common.base.BaseActivity;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.MainActivity;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 
+import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * @author Sun
@@ -45,7 +59,21 @@ public class SplActivity extends BaseActivity implements SplView {
             finish();
         } else {
             LoadingUtil.showLoading(activity);
-            presenter.login();
+            Observable.create(new ObservableOnSubscribe<String>() {
+                        @Override
+                        public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                            String gaid = fetchAndStoreGAID();
+                            emitter.onNext(gaid);
+                        }
+                    }).observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String s) throws Exception {
+                            LoadingUtil.showLoading(activity);
+                            presenter.login(activity);
+                        }
+                    });
         }
     }
 
@@ -56,7 +84,7 @@ public class SplActivity extends BaseActivity implements SplView {
                 if (TextUtils.isEmpty(sharedPreferencesUtil.getValue("token"))) {
                     ToastUtils.showShort(context, "登录失败，正在重新登录...");
                     LoadingUtil.showLoading(activity);
-                    presenter.login();
+                    presenter.login(activity);
                 } else {
                     LoadingUtil.showLoading(activity);
                     presenter.achieve(context);
@@ -89,5 +117,24 @@ public class SplActivity extends BaseActivity implements SplView {
     public void onFailed(String msg) {
         LoadingUtil.hideLoading();
         ToastUtils.showShort(context, msg);
+    }
+    private String fetchAndStoreGAID() {
+        while (true) {
+            try {
+                AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(this);
+                String gaid = adInfo.getId();
+                if (gaid != null && !gaid.isEmpty()) {
+                    SharedPreferencesUtil.getInstance(getApplicationContext()).saveValue("gaid",gaid);
+                    return gaid;
+                }
+            } catch (IOException | GooglePlayServicesNotAvailableException |
+                     GooglePlayServicesRepairableException e) {
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException interruptedException) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
     }
 }

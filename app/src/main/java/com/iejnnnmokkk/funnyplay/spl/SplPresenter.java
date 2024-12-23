@@ -34,8 +34,8 @@ public class SplPresenter {
         });
     }
 
-    public void login() {
-        model.login(new BaseNetworkCallback<LoginBean>() {
+    public void login(Context context) {
+        model.login(context,new BaseNetworkCallback<LoginBean>() {
             @Override
             public void onSuccess(LoginBean bean) {
                 view.onLogin(bean);

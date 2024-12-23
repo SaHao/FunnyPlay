@@ -5,6 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
+import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
@@ -12,8 +13,10 @@ import com.iejnnnmokkk.funnyplay.view.SignInBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
+import com.zhouyou.http.model.HttpParams;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -121,14 +124,16 @@ public class GameModel {
 
     public void signIn(String id, BaseNetworkCallback<SignInBean> callback) {
         String url = "https://api.keepad.xyz/funny_play/new_daily";
-        Map<String, String> map = new HashMap<>();
-        map.put("is_vpn", "false");
-        map.put("gaid", id);
-        map.put("channel", "funny_play");
-        map.put("version", "1.0.0");
-        map.put("versionCode", "");
+        HttpParams params = new HttpParams();
+        params.put("is_vpn", ParamUtil.isVpn(context));
+        params.put("channel", "funny_play");
+        params.put("version", "1.0.0");
+        params.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
+        params.put("versionCode", "1");
+        params.put("deviceId", ParamUtil.getDeviceId(context));
+        params.put("language", Locale.getDefault().getLanguage());
         EasyHttp.post(url)
-                .params(map)
+                .params(params)
                 .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
                 .execute(new SimpleCallBack<String>() {
                     @Override

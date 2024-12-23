@@ -1,4 +1,5 @@
 [versions]
+adjustAndroidVersion = "5.0.0"
 agp = "8.3.0"
 butterknifeCompiler = "10.2.3"
 butterknife = "10.2.3"
@@ -7,6 +8,9 @@ comSquareupOkhttp3Okhttp = "4.12.0"
 coreKtx = "1.10.1"
 glideVersion = "4.15.1"
 googleGson = "2.10.1"
+googleGsonVersion = "2.8.6"
+iaa_sdk = "1.0.5"
+installreferrerVersion = "2.2"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -17,6 +21,8 @@ activity = "1.8.0"
 constraintlayout = "2.2.0"
 navigationFragmentKtx = "2.5.3"
 navigationUiKtx = "2.5.3"
+playServicesAdsIdentifier = "18.2.0"
+playServicesAdsIdentifierVersion = "18.0.1"
 reactivexRxjava = "2.2.21"
 rxandroid = "2.1.1"
 rxeasyhttp = "2.1.5"
@@ -27,14 +33,18 @@ squareupRetrofit = "2.11.0"
 githubRefreshLayoutKernelVersion = "3.0.0-alpha"
 
 [libraries]
+android-installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrerVersion" }
 butterknife-compiler = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknifeCompiler" }
 butterknife = { module = "com.jakewharton:butterknife", version.ref = "butterknife" }
 com-google-code-gson-gson = { module = "com.google.code.gson:gson", version.ref = "googleGson" }
+com-google-code-gson-gson-v286 = { module = "com.google.code.gson:gson", version.ref = "googleGsonVersion" }
 com-makeramen-roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "makeramenRoundedimageview" }
 com-squareup-okhttp3-okhttp2 = { module = "com.squareup.okhttp3:okhttp", version.ref = "comSquareupOkhttp3Okhttp" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 github-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compilerVersion" }
+gms-play-services-ads-identifier = { module = "com.google.android.gms:play-services-ads-identifier", version.ref = "playServicesAdsIdentifierVersion" }
+iaa_sdk = { module = "com.github.fyl8:IAA_SDK", version.ref = "iaa_sdk" }
 io-github-scwang90-refresh-footer-classics2 = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "githubRefreshLayoutKernelVersion" }
 io-github-scwang90-refresh-header-material2 = { module = "io.github.scwang90:refresh-header-material", version.ref = "githubRefreshLayoutKernelVersion" }
 io-github-scwang90-refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "githubRefreshLayoutKernelVersion" }
@@ -48,10 +58,14 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+play-services-ads-identifier-v1820 = { module = "com.google.android.gms:play-services-ads-identifier", version.ref = "playServicesAdsIdentifier" }
 reactivex-rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "reactivexRxjava" }
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxandroid" }
 rxeasyhttp = { module = "com.zhouyou:rxeasyhttp", version.ref = "rxeasyhttp" }
 rxpermissions = { module = "com.github.tbruyelle:rxpermissions", version.ref = "rxpermissions" }
+sdk-adjust-android = { module = "com.adjust.sdk:adjust-android", version.ref = "adjustAndroidVersion" }
+sdk-adjust-android-meta-referrer = { module = "com.adjust.sdk:adjust-android-meta-referrer", version.ref = "adjustAndroidVersion" }
+sdk-adjust-android-webbridge = { module = "com.adjust.sdk:adjust-android-webbridge", version.ref = "adjustAndroidVersion" }
 squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "squareupRetrofit" }
 squareup-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "squareupConverterGson" }
 squareup-adapter-rxjava2 = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "squareupAdapterRxjava2" }
