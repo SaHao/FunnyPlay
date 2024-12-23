@@ -16,6 +16,8 @@ import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
+import com.iejnnnmokkk.funnyplay.view.SignInSuccessDialog;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
@@ -37,8 +39,11 @@ public class GameFragment extends BaseFragment implements IGameView {
     private GameAdapter adapter;
     private GamePresenter presenter;
     private int pageNum = 1;
+    private int mMoney = 0;
 
+    private SignInSuccessDialog dialog;
     private OnShoppingClickListener listener;
+    private SignInBean.DataBean signData = new SignInBean.DataBean();
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -52,9 +57,11 @@ public class GameFragment extends BaseFragment implements IGameView {
     protected View onInitView(@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, null);
         ButterKnife.bind(this, view);
+
+        dialog = new SignInSuccessDialog(context, R.style.myDialog);
         presenter = new GamePresenter(context, this);
         initRefreshLayout(rlGame);
-        adapter = new GameAdapter(context);
+        adapter = new GameAdapter(activity);
         GridLayoutManager layoutManager = new GridLayoutManager(context, 2);
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -64,7 +71,19 @@ public class GameFragment extends BaseFragment implements IGameView {
         });
         rvGame.setLayoutManager(layoutManager);
         rvGame.setAdapter(adapter);
-        adapter.setListener(() -> listener.onShoppingClick());
+        adapter.setListener(new GameAdapter.OnShopClickListener() {
+            @Override
+            public void onShopClick() {
+                listener.onShoppingClick();
+            }
+
+            @Override
+            public void onSignInClick(String id, int money) {
+//                签到
+                mMoney = money;
+                presenter.signIn(id);
+            }
+        });
         initData();
         return view;
     }
@@ -72,10 +91,12 @@ public class GameFragment extends BaseFragment implements IGameView {
     @Override
     protected void initData() {
         LoadingUtil.showLoading(activity);
+        pageNum = 1;
         presenter.getFavourite(pageNum, 26);
         presenter.getMost(pageNum, 27);
         presenter.getNew(pageNum, 28);
         presenter.getUserInfo(context);
+        presenter.getSignInData();
 
         setLoadingListener(new OnLoadingClickListener() {
             @Override
@@ -129,6 +150,38 @@ public class GameFragment extends BaseFragment implements IGameView {
         LoadingUtil.hideLoading();
         if (bean != null) {
             adapter.setUserInfo(bean.getData());
+        }
+    }
+
+    /**
+     * 签到数据
+     *
+     * @param bean
+     */
+    @Override
+    public void getSignInData(SignInBean bean) {
+        LoadingUtil.hideLoading();
+        if (bean != null && bean.getData() != null) {
+            this.signData = bean.getData();
+            adapter.setSignInData(bean.getData());
+        }
+    }
+
+    /**
+     * 签到
+     *
+     * @param bean
+     */
+    @Override
+    public void signIn(SignInBean bean) {
+        LoadingUtil.hideLoading();
+        if (bean.getCode() == 200) {
+            dialog.show();
+            dialog.setMoney(mMoney);
+            signData.setDayli_flag(1);
+            adapter.notifyDataSetChanged();
+        } else {
+            ToastUtils.showShort(context, bean.getMsg());
         }
     }
 

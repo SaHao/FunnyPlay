@@ -1,8 +1,10 @@
 package com.iejnnnmokkk.funnyplay.library;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iejnnnmokkk.common.base.BaseActivity;
@@ -14,6 +16,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author Sun
@@ -29,7 +32,9 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
     SmartRefreshLayout rlGame;
 
     private int pageNum = 1;
+    private int type;
     private GameLibraryPresenter presenter;
+    private GameLibraryAdapter adapter;
 
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
@@ -38,6 +43,11 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
 
         presenter = new GameLibraryPresenter(context, this);
         initRefreshLayout(rlGame);
+        type = getIntent().getIntExtra("type", 0);
+
+        adapter = new GameLibraryAdapter(context);
+        rvGame.setLayoutManager(new GridLayoutManager(context, 3));
+        rvGame.setAdapter(adapter);
     }
 
     @Override
@@ -47,16 +57,18 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
             public void onRefreshData() {
                 refreshLayout.finishRefresh(true);
                 pageNum = 1;
-                presenter.getData(pageNum, 28);
+                presenter.getData(pageNum, type);
             }
 
             @Override
             public void onLoadMoreData() {
                 pageNum += 1;
-                presenter.getData(pageNum, 28);
+                presenter.getData(pageNum, type);
             }
         });
-        
+
+        pageNum = 1;
+        presenter.getData(pageNum, type);
     }
 
     @Override
@@ -70,7 +82,7 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
             }
         }
         if (bean != null && bean.getData() != null) {
-//            adapter.setData(bean.getData(), pageNum == 1);
+            adapter.setData(bean.getData(), pageNum == 1);
         }
     }
 
@@ -84,6 +96,15 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
             } else {
                 refreshLayout.finishLoadMoreWithNoMoreData();
             }
+        }
+    }
+
+    @OnClick({R.id.iv_back})
+    public void onBindClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_back:
+                finish();
+                break;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.iejnnnmokkk.funnyplay.game;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
@@ -22,8 +22,13 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
+import com.iejnnnmokkk.funnyplay.library.GameLibraryActivity;
+import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
+import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
+import com.iejnnnmokkk.funnyplay.view.SignInBean;
+import com.iejnnnmokkk.funnyplay.view.SignInDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
@@ -51,11 +56,14 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private List<GameBean.DataBean> favouriteData = new ArrayList<>();
     private List<GameBean.DataBean> mostData = new ArrayList<>();
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
+    private SignInBean.DataBean signInData = new SignInBean.DataBean();
+    private SignInDialog dialog;
 
-    public GameAdapter(Context context) {
+    public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
+        dialog = new SignInDialog(context, R.style.myDialog);
     }
 
     @Override
@@ -72,6 +80,9 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((ViewHolder) holder).tvName.setText(getNull(data.get(position - 1).getName()));
             ((ViewHolder) holder).tvNum.setText(data.get(position - 1).getReward() + "");
             Glide.with(context).load(getNull(data.get(position - 1).getIcon())).into(((ViewHolder) holder).ivLogo);
+            holder.itemView.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            });
         } else if (getItemViewType(position) == HEADER && holder instanceof HeaderViewHolder) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(layoutManager);
@@ -84,16 +95,16 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
-            ((HeaderViewHolder) holder).tvTaskNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
-            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+
 
 //            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
 //            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
             Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
-            ((HeaderViewHolder) holder).tvTaskNum.setText(userInfo.getWelfare_5_star_reward() + "");
             ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getWelfare_5_star_reward() + "");
+            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
                 listener.onShopClick();
@@ -102,6 +113,65 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).tvMoney.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, HistoryActivity.class));
             });
+
+            ((HeaderViewHolder) holder).tvFavouriteAll.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "26"));
+            });
+            ((HeaderViewHolder) holder).tvMostAll.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "27"));
+            });
+            ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "28"));
+            });
+            ((HeaderViewHolder) holder).ivGame.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, MyGameActivity.class));
+            });
+
+            ((HeaderViewHolder) holder).ivSgnIn.setOnClickListener(v -> {
+                dialog.show();
+                dialog.setData(signInData);
+                dialog.setListener((id, money) -> {
+                    listener.onSignInClick(id, money);
+                });
+            });
+
+            ((HeaderViewHolder) holder).llSignIn.setOnClickListener(v -> {
+                dialog.show();
+                dialog.setData(signInData);
+                dialog.setListener((id, money) -> {
+                    listener.onSignInClick(id, money);
+                });
+            });
+            if (signInData.getRes() != null) {
+                switch (signInData.getDayli_num()) {
+                    case 1:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_1() + "");
+                        break;
+                    case 2:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_2() + "");
+                        break;
+                    case 3:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_3() + "");
+                        break;
+                    case 4:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_4() + "");
+                        break;
+                    case 5:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_5() + "");
+                        break;
+                    case 6:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_6() + "");
+                        break;
+                    case 7:
+                        ((HeaderViewHolder) holder).tvSignIn.setText(signInData.getRes().getReward_7() + "");
+                        break;
+                    default:
+                        break;
+                }
+                ((HeaderViewHolder) holder).llSignIn.setVisibility(signInData.getDayli_flag() == 0 ? View.VISIBLE : View.GONE);
+                ((HeaderViewHolder) holder).tvTomorrow.setVisibility(signInData.getDayli_flag() == 0 ? View.GONE : View.VISIBLE);
+
+            }
 
         }
     }
@@ -130,6 +200,11 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     public void setUserInfo(UserInfoBean.DataBean userInfo) {
         this.userInfo = userInfo;
+        notifyDataSetChanged();
+    }
+
+    public void setSignInData(SignInBean.DataBean signInData) {
+        this.signInData = signInData;
         notifyDataSetChanged();
     }
 
@@ -226,5 +301,13 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     public interface OnShopClickListener {
         void onShopClick();
+
+        /**
+         * 签到
+         *
+         * @param id
+         * @param money
+         */
+        void onSignInClick(String id, int money);
     }
 }

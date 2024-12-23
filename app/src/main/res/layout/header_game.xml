@@ -175,7 +175,7 @@
             android:paddingTop="3dp"
             android:paddingEnd="6dp"
             android:paddingBottom="3dp"
-            android:text="Tomorrow"
+            android:text="@string/Tomorrow"
             android:textColor="#eee"
             android:textSize="10sp"
             android:visibility="gone"
@@ -209,7 +209,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="2000"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -252,7 +251,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="2000"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>

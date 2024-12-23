@@ -35,6 +35,32 @@
 <!--    签到-->
     <string name="checkIn">—— Check in ——</string>
 
+<!--    游戏中心-->
+    <string name="GameCenter">Game Center</string>
+    <string name="GameTitle">Game Title</string>
+    <string name="EarningRate">Earning Rate</string>
+    <string name="Speed">Speed</string>
+    <string name="Obtained">Obtained</string>
+    <string name="Rewards">Rewards</string>
+    <string name="PlayNow">Play Now</string>
+
+<!--    我的任务-->
+    <string name="Review">Review</string>
+    <string name="Completed">Completed</string>
+    <string name="lnProgress">ln progress</string>
+    
+<!--    签到-->
+    <string name="day1">Day1</string>
+    <string name="day2">Day2</string>
+    <string name="day3">Day3</string>
+    <string name="day4">Day4</string>
+    <string name="day5">Day5</string>
+    <string name="day6">Day6</string>
+    <string name="day7">Day7</string>
+    <string name="WatchVideos">Watch videos</string>
+    <string name="Tomorrow">Tomorrow</string>
+    <string name="RewardsArrive">Rewards arrive</string>
+    <string name="OK">OK</string>
 
 
 </resources>
