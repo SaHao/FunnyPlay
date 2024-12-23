@@ -28,7 +28,6 @@ import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
 import com.iejnnnmokkk.funnyplay.view.SignInBean;
-import com.iejnnnmokkk.funnyplay.view.SignInDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
@@ -133,6 +132,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).llSignIn.setOnClickListener(v -> {
                 listener.onSignInClick();
             });
+
             if (signInData.getRes() != null) {
                 switch (signInData.getDayli_num()) {
                     case 1:
