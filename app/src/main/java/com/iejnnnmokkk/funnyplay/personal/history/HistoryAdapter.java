@@ -1,7 +1,6 @@
 package com.iejnnnmokkk.funnyplay.personal.history;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.common.utils.DateUtils;
 import com.iejnnnmokkk.funnyplay.R;
-import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,10 +32,6 @@ public class HistoryAdapter extends BaseAdapter<HistoryBean.DataBean, HistoryAda
         holder.tvContent.setText(getNull(data.get(position).getRemark()));
         holder.tvMoney.setText(data.get(position).getBalance() + "");
         holder.tvDate.setText(DateUtils.timestampToDate(data.get(position).getCreate_time(), "yyyy-MM-dd HH:mm"));
-
-        holder.itemView.setOnClickListener(v -> {
-            context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getOrder_no())));
-        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -126,7 +126,7 @@ public class GameModel {
         map.put("gaid", id);
         map.put("channel", "funny_play");
         map.put("version", "1.0.0");
-        map.put("versionCode", "");
+        map.put("versionCode", "1");
         EasyHttp.post(url)
                 .params(map)
                 .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
