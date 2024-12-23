@@ -42,7 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/iv_signLogo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -58,7 +58,7 @@
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo1" />
 
         <TextView
             android:id="@+id/tv_day1Num"
@@ -102,7 +102,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/iv_signLogo2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -118,7 +118,7 @@
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo2" />
 
         <TextView
             android:id="@+id/tv_day2Num"
@@ -162,7 +162,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/iv_signLogo3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -178,7 +178,7 @@
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo3" />
 
         <TextView
             android:id="@+id/tv_day3Num"
@@ -223,7 +223,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/iv_signLogo4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -239,7 +239,7 @@
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo4" />
 
         <TextView
             android:id="@+id/tv_day4Num"
@@ -285,7 +285,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/iv_signLogo5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -294,14 +294,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/iv_signLogo11"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="11dp"
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo5" />
 
         <TextView
             android:id="@+id/tv_day5Num"
@@ -310,9 +310,9 @@
             android:layout_marginStart="4dp"
             android:textColor="#979797"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-            app:layout_constraintStart_toEndOf="@+id/imageView11"
-            app:layout_constraintTop_toTopOf="@+id/imageView11" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_signLogo11"
+            app:layout_constraintStart_toEndOf="@+id/iv_signLogo11"
+            app:layout_constraintTop_toTopOf="@+id/iv_signLogo11" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -322,7 +322,7 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -345,7 +345,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/iv_signLogo6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -354,14 +354,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView13"
+            android:id="@+id/iv_signLogo13"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="11dp"
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo6" />
 
         <TextView
             android:id="@+id/tv_day6Num"
@@ -370,9 +370,9 @@
             android:layout_marginStart="4dp"
             android:textColor="#979797"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
-            app:layout_constraintStart_toEndOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_signLogo13"
+            app:layout_constraintStart_toEndOf="@+id/iv_signLogo13"
+            app:layout_constraintTop_toTopOf="@+id/iv_signLogo13" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -382,7 +382,7 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo13" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -406,7 +406,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView14"
+            android:id="@+id/iv_signLogo7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_sign_in_not"
@@ -415,14 +415,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView15"
+            android:id="@+id/iv_signLogo15"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="11dp"
             android:layout_marginTop="9dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo7" />
 
         <TextView
             android:id="@+id/tv_day7Num"
@@ -431,9 +431,9 @@
             android:layout_marginStart="4dp"
             android:textColor="#979797"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView15"
-            app:layout_constraintStart_toEndOf="@+id/imageView15"
-            app:layout_constraintTop_toTopOf="@+id/imageView15" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_signLogo15"
+            app:layout_constraintStart_toEndOf="@+id/iv_signLogo15"
+            app:layout_constraintTop_toTopOf="@+id/iv_signLogo15" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -443,7 +443,7 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_signLogo15" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

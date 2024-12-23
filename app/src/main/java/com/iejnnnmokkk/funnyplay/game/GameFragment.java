@@ -18,7 +18,6 @@ import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.iejnnnmokkk.funnyplay.view.SignInBean;
 import com.iejnnnmokkk.funnyplay.view.SignInDialog;
-import com.iejnnnmokkk.funnyplay.view.SignInSuccessDialog;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
@@ -179,6 +178,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         LoadingUtil.hideLoading();
         if (bean.getCode() == 200) {
             dialog.dismiss();
+            sharedPreferencesUtil.saveValue("isSignInFirst", "0");
             signData.setDayli_flag(1);
             adapter.notifyDataSetChanged();
         } else {

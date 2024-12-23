@@ -2,7 +2,6 @@ package com.iejnnnmokkk.funnyplay.view;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -69,6 +68,20 @@ public class SignInDialog extends Dialog {
     ImageView ivDay6;
     @BindView(R.id.iv_day7)
     ImageView ivDay7;
+    @BindView(R.id.iv_signLogo1)
+    ImageView ivSignLogo1;
+    @BindView(R.id.iv_signLogo2)
+    ImageView ivSignLogo2;
+    @BindView(R.id.iv_signLogo3)
+    ImageView ivSignLogo3;
+    @BindView(R.id.iv_signLogo4)
+    ImageView ivSignLogo4;
+    @BindView(R.id.iv_signLogo5)
+    ImageView ivSignLogo5;
+    @BindView(R.id.iv_signLogo6)
+    ImageView ivSignLogo6;
+    @BindView(R.id.iv_signLogo7)
+    ImageView ivSignLogo7;
 
     private String id;
     private Activity context;
@@ -76,6 +89,7 @@ public class SignInDialog extends Dialog {
     private SignInBean.DataBean bean = new SignInBean.DataBean();
     private TextView[] textViews;
     private ImageView[] imageViews;
+    private ImageView[] logos;
 
     public SignInDialog(@NonNull Activity context) {
         super(context);
@@ -100,6 +114,7 @@ public class SignInDialog extends Dialog {
 
         textViews = new TextView[]{tvDay1Num, tvDay2Num, tvDay4Num, tvDay4Num, tvDay5Num, tvDay6Num, tvDay7Num};
         imageViews = new ImageView[]{ivDay1, ivDay2, ivDay3, ivDay4, ivDay5, ivDay6, ivDay7};
+        logos = new ImageView[]{ivSignLogo1, ivSignLogo2, ivSignLogo3, ivSignLogo4, ivSignLogo5, ivSignLogo6, ivSignLogo7};
 
         tvWatch.setVisibility(SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1") ? View.GONE : View.VISIBLE);
     }
@@ -181,9 +196,11 @@ public class SignInDialog extends Dialog {
             if (i < num) {
                 changeTextColors(textViews[i]);
                 changeImages(imageViews[i]);
+                changeLogos(logos[i]);
             } else {
                 resetTextColors(textViews[i]);
                 resetImages(imageViews[i]);
+                resetLogos(logos[i]);
             }
         }
     }
@@ -196,12 +213,20 @@ public class SignInDialog extends Dialog {
         view.setImageResource(R.mipmap.icon_sign_in_success_back);
     }
 
+    private void changeLogos(ImageView view) {
+        view.setImageResource(R.mipmap.icon_sign_in_success);
+    }
+
     private void resetTextColors(TextView view) {
         view.setTextColor(context.getResources().getColor(R.color.notSignIn));
     }
 
     private void resetImages(ImageView view) {
         view.setImageResource(R.mipmap.icon_sign_in_back);
+    }
+
+    private void resetLogos(ImageView view) {
+        view.setImageResource(R.mipmap.icon_sign_in_not);
     }
 
     public interface OnSignInClickListener {
