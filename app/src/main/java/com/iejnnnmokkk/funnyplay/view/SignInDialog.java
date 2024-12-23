@@ -2,8 +2,10 @@ package com.iejnnnmokkk.funnyplay.view;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,11 +55,27 @@ public class SignInDialog extends Dialog {
     ConstraintLayout clDay7;
     @BindView(R.id.tv_Watch)
     TextView tvWatch;
+    @BindView(R.id.iv_day1)
+    ImageView ivDay1;
+    @BindView(R.id.iv_day2)
+    ImageView ivDay2;
+    @BindView(R.id.iv_day3)
+    ImageView ivDay3;
+    @BindView(R.id.iv_day4)
+    ImageView ivDay4;
+    @BindView(R.id.iv_day5)
+    ImageView ivDay5;
+    @BindView(R.id.iv_day6)
+    ImageView ivDay6;
+    @BindView(R.id.iv_day7)
+    ImageView ivDay7;
 
     private String id;
     private Activity context;
     private OnSignInClickListener listener;
     private SignInBean.DataBean bean = new SignInBean.DataBean();
+    private TextView[] textViews;
+    private ImageView[] imageViews;
 
     public SignInDialog(@NonNull Activity context) {
         super(context);
@@ -80,6 +98,9 @@ public class SignInDialog extends Dialog {
         setContentView(R.layout.view_sign_in);
         ButterKnife.bind(this);
 
+        textViews = new TextView[]{tvDay1Num, tvDay2Num, tvDay4Num, tvDay4Num, tvDay5Num, tvDay6Num, tvDay7Num};
+        imageViews = new ImageView[]{ivDay1, ivDay2, ivDay3, ivDay4, ivDay5, ivDay6, ivDay7};
+
         tvWatch.setVisibility(SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1") ? View.GONE : View.VISIBLE);
     }
 
@@ -87,8 +108,8 @@ public class SignInDialog extends Dialog {
     public void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.cl_day1:
-                if(bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
-                    if(SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1")) {
+                if (bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
+                    if (SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1")) {
                         listener.onSignInClick(id, bean.getRes().getReward_1());
                     }
                 }
@@ -135,7 +156,7 @@ public class SignInDialog extends Dialog {
 
     public void setData(SignInBean.DataBean bean) {
         this.bean = bean;
-        if(bean.getRes() != null) {
+        if (bean.getRes() != null) {
             tvDay1Num.setText(bean.getRes().getReward_1() + "");
             tvDay2Num.setText(bean.getRes().getReward_2() + "");
             tvDay3Num.setText(bean.getRes().getReward_3() + "");
@@ -144,6 +165,43 @@ public class SignInDialog extends Dialog {
             tvDay6Num.setText(bean.getRes().getReward_6() + "");
             tvDay7Num.setText(bean.getRes().getReward_7() + "");
         }
+        if(bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
+            updateViews(0);
+        } else if(bean.getDayli_num() > 1 && bean.getDayli_flag() == 0) {
+            updateViews(bean.getDayli_num() - 1);
+        } else {
+            updateViews(bean.getDayli_num());
+        }
+    }
+
+    private void updateViews(int num) {
+        num = Math.min(num, textViews.length);
+
+        for (int i = 0; i < textViews.length; i++) {
+            if (i < num) {
+                changeTextColors(textViews[i]);
+                changeImages(imageViews[i]);
+            } else {
+                resetTextColors(textViews[i]);
+                resetImages(imageViews[i]);
+            }
+        }
+    }
+
+    private void changeTextColors(TextView view) {
+        view.setTextColor(context.getResources().getColor(R.color.signIn));
+    }
+
+    private void changeImages(ImageView view) {
+        view.setImageResource(R.mipmap.icon_sign_in_success_back);
+    }
+
+    private void resetTextColors(TextView view) {
+        view.setTextColor(context.getResources().getColor(R.color.notSignIn));
+    }
+
+    private void resetImages(ImageView view) {
+        view.setImageResource(R.mipmap.icon_sign_in_back);
     }
 
     public interface OnSignInClickListener {

@@ -57,13 +57,12 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private List<GameBean.DataBean> mostData = new ArrayList<>();
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
     private SignInBean.DataBean signInData = new SignInBean.DataBean();
-    private SignInDialog dialog;
 
     public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
-        dialog = new SignInDialog(context, R.style.myDialog);
+
     }
 
     @Override
@@ -128,19 +127,11 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             });
 
             ((HeaderViewHolder) holder).ivSgnIn.setOnClickListener(v -> {
-                dialog.show();
-                dialog.setData(signInData);
-                dialog.setListener((id, money) -> {
-                    listener.onSignInClick(id, money);
-                });
+                listener.onSignInClick();
             });
 
             ((HeaderViewHolder) holder).llSignIn.setOnClickListener(v -> {
-                dialog.show();
-                dialog.setData(signInData);
-                dialog.setListener((id, money) -> {
-                    listener.onSignInClick(id, money);
-                });
+                listener.onSignInClick();
             });
             if (signInData.getRes() != null) {
                 switch (signInData.getDayli_num()) {
@@ -304,10 +295,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
         /**
          * 签到
-         *
-         * @param id
-         * @param money
          */
-        void onSignInClick(String id, int money);
+        void onSignInClick();
     }
 }

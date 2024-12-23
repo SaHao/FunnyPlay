@@ -17,6 +17,7 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.iejnnnmokkk.funnyplay.view.SignInBean;
+import com.iejnnnmokkk.funnyplay.view.SignInDialog;
 import com.iejnnnmokkk.funnyplay.view.SignInSuccessDialog;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
@@ -39,9 +40,8 @@ public class GameFragment extends BaseFragment implements IGameView {
     private GameAdapter adapter;
     private GamePresenter presenter;
     private int pageNum = 1;
-    private int mMoney = 0;
 
-    private SignInSuccessDialog dialog;
+    private SignInDialog dialog;
     private OnShoppingClickListener listener;
     private SignInBean.DataBean signData = new SignInBean.DataBean();
 
@@ -58,7 +58,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         View view = inflater.inflate(R.layout.fragment_game, null);
         ButterKnife.bind(this, view);
 
-        dialog = new SignInSuccessDialog(context, R.style.myDialog);
+        dialog = new SignInDialog(activity, R.style.myDialog);
         presenter = new GamePresenter(context, this);
         initRefreshLayout(rlGame);
         adapter = new GameAdapter(activity);
@@ -78,10 +78,12 @@ public class GameFragment extends BaseFragment implements IGameView {
             }
 
             @Override
-            public void onSignInClick(String id, int money) {
-//                签到
-                mMoney = money;
-                presenter.signIn(id);
+            public void onSignInClick() {
+                dialog.show();
+                dialog.setData(signData);
+                dialog.setListener((id, money) -> {
+                    presenter.signIn(id);
+                });
             }
         });
         initData();
@@ -176,8 +178,7 @@ public class GameFragment extends BaseFragment implements IGameView {
     public void signIn(SignInBean bean) {
         LoadingUtil.hideLoading();
         if (bean.getCode() == 200) {
-            dialog.show();
-            dialog.setMoney(mMoney);
+            dialog.dismiss();
             signData.setDayli_flag(1);
             adapter.notifyDataSetChanged();
         } else {
