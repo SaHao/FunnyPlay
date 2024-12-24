@@ -1,0 +1,303 @@
+{
+    "code":200,
+    "msg":"成功",
+    "data":{
+    // title
+        "name":"Connect The Bubbles",
+        "type":18,
+        "no":"241024155209598649",
+        // Obtained
+        "reward":3256501,
+        "currency":"5",
+        "first_download_flag":1,
+        "fa_num":666666,
+        "js_task_count":0,
+        "ok_time":60,
+        "now_time":1734682910,
+        "app_url":"https:\/\/game.mtlclothes.com\/games\/connectthebubbles\/",
+        "search_word":"ad_callback",
+        "step_one_title":null,
+        "step_one_button":"",
+        "step_one_desc":"",
+        "keyword":null,
+        "app_name":"Connectthe Bubbles",
+        "package_name":"h5",
+        "icon":"https:\/\/d.dcweek.xyz\/image\/article\/20231030\/16\/15473908.png",
+        "cp_flag":0,
+        "cp_content":"666666",
+        "full_time":0,
+        "red":2,
+        "img_num":0,
+        "img_example":[
+
+        ],
+        "img_example_url":[
+
+        ],
+        "comment":"",
+        "step":{
+            "ad_callback":[
+                {
+                    "server_name":"arena",
+                    "data":[
+                        {
+                            "title":"Mainkan selama 1 menit",
+                            "condition":1,
+                            "reward":3500,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 2 menit",
+                            "condition":2,
+                            "reward":5000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 5 menit",
+                            "condition":3,
+                            "reward":7000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 8 menit",
+                            "condition":4,
+                            "reward":9000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 10 menit",
+                            "condition":5,
+                            "reward":10000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 15 menit",
+                            "condition":7,
+                            "reward":12000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 20 menit",
+                            "condition":10,
+                            "reward":15000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 30 menit",
+                            "condition":15,
+                            "reward":20000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 60 menit",
+                            "condition":20,
+                            "reward":30000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 80 menit",
+                            "condition":25,
+                            "reward":50000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 100 menit",
+                            "condition":30,
+                            "reward":75000,
+                            "status":1
+                        },
+                        {
+                            "title":"Mainkan selama 200 menit",
+                            "condition":45,
+                            "reward":100000,
+                            "status":0
+                        },
+                        {
+                            "title":"Mainkan selama 500 menit",
+                            "condition":60,
+                            "reward":120000,
+                            "status":0
+                        },
+                        {
+                            "title":"Mainkan selama 1000 menit",
+                            "condition":100,
+                            "reward":200000,
+                            "status":0
+                        },
+                        {
+                            "title":"Mainkan selama 2000 menit",
+                            "condition":200,
+                            "reward":450000,
+                            "status":0
+                        },
+                        {
+                            "title":"Mainkan selama 3000 menit",
+                            "condition":350,
+                            "reward":625000,
+                            "status":0
+                        },
+                        {
+                            "title":"Mainkan selama 5000 menit",
+                            "condition":500,
+                            "reward":1525001,
+                            "status":0
+                        }
+                    ]
+                }
+            ]
+        },
+        "watas":"+447831772737",
+        "customerService":"https:\/\/t.me\/+KHi_GFk_7CQyODQ8",
+        "start_time":1729699200,
+        "limit_time":1734672357,
+        "task_time":1734883200,
+        "game_role_info":null,
+        "h5game_text":"Selesaikan tujuan dan dapatkan hadiah",
+        "touxiang":[
+            "https:\/\/d.dcweek.xyz\/uploads\/touxiang\/20231105\/15552693.png",
+            "https:\/\/d.dcweek.xyz\/uploads\/touxiang\/20231105\/15552407.png",
+            "https:\/\/d.dcweek.xyz\/uploads\/touxiang\/20231105\/15550087.png"
+        ],
+        "local_money":"Rp325650",
+        "check_id":"",
+        "is_get":1,
+        "reward_pertukaran_balance":"Rp3256501",
+        // rewards
+        "all":[
+            {
+                "server_name":"arena",
+                "data":[
+                    {
+                        "title":"Mainkan selama 1 menit",
+                        "condition":1,
+                        "reward":3500,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 2 menit",
+                        "condition":2,
+                        "reward":5000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 5 menit",
+                        "condition":3,
+                        "reward":7000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 8 menit",
+                        "condition":4,
+                        "reward":9000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 10 menit",
+                        "condition":5,
+                        "reward":10000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 15 menit",
+                        "condition":7,
+                        "reward":12000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 20 menit",
+                        "condition":10,
+                        "reward":15000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 30 menit",
+                        "condition":15,
+                        "reward":20000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 60 menit",
+                        "condition":20,
+                        "reward":30000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 80 menit",
+                        "condition":25,
+                        "reward":50000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 100 menit",
+                        "condition":30,
+                        "reward":75000,
+                        "status":1,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 200 menit",
+                        "condition":45,
+                        "reward":100000,
+                        "status":0,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 500 menit",
+                        "condition":60,
+                        "reward":120000,
+                        "status":0,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 1000 menit",
+                        "condition":100,
+                        "reward":200000,
+                        "status":0,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 2000 menit",
+                        "condition":200,
+                        "reward":450000,
+                        "status":0,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 3000 menit",
+                        "condition":350,
+                        "reward":625000,
+                        "status":0,
+                        "action":"ad_callback"
+                    },
+                    {
+                        "title":"Mainkan selama 5000 menit",
+                        "condition":500,
+                        "reward":1525001,
+                        "status":0,
+                        "action":"ad_callback"
+                    }
+                ]
+            }
+        ],
+        "total_reward":236500,
+        "jumpFlag":1,
+        "user_total_reward":75000,
+        "task_reward":0,
+        "success_conditions":0,
+        "completion_conditions":0,
+        "money":0,
+        "offer_id":"999999",
+        "ad_identification":""
+    },
+    "count":0
+}

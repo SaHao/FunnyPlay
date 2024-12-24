@@ -3,8 +3,6 @@ package com.iejnnnmokkk.funnyplay.spl;
 import android.content.Context;
 
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
-import com.iejnnnmokkk.common.http.HttpUtils;
-import com.iejnnnmokkk.common.http.RequestCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
@@ -13,9 +11,7 @@ import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
 import com.zhouyou.http.model.HttpParams;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 /**
  * @author Sun
@@ -29,7 +25,7 @@ public class SplModel {
         String url = "https://api.keepad.xyz/daily_reward/daily_send_new_user_coins";
         HttpParams params = new HttpParams();
         params.put("is_vpn", ParamUtil.isVpn(context));
-        map.put("channel", ParamUtil.getPlatform());
+        params.put("channel", ParamUtil.getPlatform());
         params.put("version", ParamUtil.getVersionName(context));
         params.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
         params.put("versionCode", ParamUtil.getVersionCode(context) + "");
