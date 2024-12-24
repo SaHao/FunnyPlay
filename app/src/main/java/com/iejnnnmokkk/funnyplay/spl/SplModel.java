@@ -29,10 +29,10 @@ public class SplModel {
         String url = "https://api.keepad.xyz/daily_reward/daily_send_new_user_coins";
         HttpParams params = new HttpParams();
         params.put("is_vpn", ParamUtil.isVpn(context));
-        params.put("channel", "funny_play");
-        params.put("version", "1.0.0");
+        map.put("channel", ParamUtil.getPlatform());
+        params.put("version", ParamUtil.getVersionName(context));
         params.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
-        params.put("versionCode", "1");
+        params.put("versionCode", ParamUtil.getVersionCode(context) + "");
         EasyHttp.post(url)
                 .params(params)
                 .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
@@ -49,14 +49,14 @@ public class SplModel {
                 });
     }
 
-    public void login(Context context,BaseNetworkCallback<LoginBean> callback) {
+    public void login(Context context, BaseNetworkCallback<LoginBean> callback) {
         String url = "https://api.keepad.xyz/funny_play/daily_login";
         HttpParams params = new HttpParams();
         params.put("is_vpn", ParamUtil.isVpn(context));
-        params.put("channel", "funny_play");
-        params.put("version", "1.0.0");
+        params.put("channel", ParamUtil.getPlatform());
+        params.put("version", ParamUtil.getVersionName(context));
         params.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
-        params.put("versionCode", "1");
+        params.put("versionCode", ParamUtil.getVersionCode(context) + "");
         params.put("deviceId", ParamUtil.getDeviceId(context));
         params.put("language", Locale.getDefault().getLanguage());
         EasyHttp.post(url)

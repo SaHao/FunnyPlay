@@ -33,7 +33,7 @@ public class LoginBean extends BaseBean {
         private String token;
         private int type;
         private String nickname;
-        private int uuid;
+        private String uuid;
         private int proxy_t;
         private String touxiang;
         private boolean bind_goog_flag;
@@ -63,11 +63,11 @@ public class LoginBean extends BaseBean {
             this.nickname = nickname;
         }
 
-        public int getUuid() {
+        public String getUuid() {
             return uuid;
         }
 
-        public void setUuid(int uuid) {
+        public void setUuid(String uuid) {
             this.uuid = uuid;
         }
 

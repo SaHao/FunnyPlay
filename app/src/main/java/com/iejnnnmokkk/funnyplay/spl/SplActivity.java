@@ -97,6 +97,7 @@ public class SplActivity extends BaseActivity implements SplView {
     public void onLogin(LoginBean bean) {
         LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
+            sharedPreferencesUtil.saveValue("uuid", bean.getData().getUuid());
             sharedPreferencesUtil.saveValue("isSignInFirst", "1");
             sharedPreferencesUtil.saveValue("token", getNull(bean.getData().getToken()));
         }
@@ -105,7 +106,7 @@ public class SplActivity extends BaseActivity implements SplView {
     @Override
     public void onAchieve(SplBean bean) {
         LoadingUtil.hideLoading();
-        if(bean.getCode() == 200) {
+        if (bean.getCode() == 200) {
             ToastUtils.showShort(context, "领取成功");
             sharedPreferencesUtil.saveValue("agree", "1");
             startActivity(new Intent(context, MainActivity.class));
@@ -118,13 +119,14 @@ public class SplActivity extends BaseActivity implements SplView {
         LoadingUtil.hideLoading();
         ToastUtils.showShort(context, msg);
     }
+
     private String fetchAndStoreGAID() {
         while (true) {
             try {
                 AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(this);
                 String gaid = adInfo.getId();
                 if (gaid != null && !gaid.isEmpty()) {
-                    SharedPreferencesUtil.getInstance(getApplicationContext()).saveValue("gaid",gaid);
+                    SharedPreferencesUtil.getInstance(getApplicationContext()).saveValue("gaid", gaid);
                     return gaid;
                 }
             } catch (IOException | GooglePlayServicesNotAvailableException |
