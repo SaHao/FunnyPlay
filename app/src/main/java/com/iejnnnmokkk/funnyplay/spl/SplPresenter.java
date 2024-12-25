@@ -3,6 +3,7 @@ package com.iejnnnmokkk.funnyplay.spl;
 import android.content.Context;
 
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 
 /**
  * @author Sun
@@ -39,6 +40,20 @@ public class SplPresenter {
             @Override
             public void onSuccess(LoginBean bean) {
                 view.onLogin(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getUserInfo(Context context) {
+        model.getUserInfo(context, new BaseNetworkCallback<UserInfoBean>() {
+            @Override
+            public void onSuccess(UserInfoBean bean) {
+                view.getUserInfo(bean);
             }
 
             @Override

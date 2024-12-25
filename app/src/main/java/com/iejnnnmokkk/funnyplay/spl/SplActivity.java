@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.spl;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.MainActivity;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 
 import java.io.IOException;
@@ -43,8 +45,11 @@ public class SplActivity extends BaseActivity implements SplView {
 
     @BindView(R.id.tv_achieve)
     TextView tv_achieve;
+    @BindView(R.id.tv_money)
+    TextView tvMoney;
 
     private SplPresenter presenter;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class SplActivity extends BaseActivity implements SplView {
 
     @Override
     protected void initData() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         presenter = new SplPresenter(this);
         if (getNull(sharedPreferencesUtil.getValue("agree")).equals("1")) {
             startActivity(new Intent(context, MainActivity.class));
@@ -61,9 +67,9 @@ public class SplActivity extends BaseActivity implements SplView {
         } else {
             LoadingUtil.showLoading(activity);
             Observable.create((ObservableOnSubscribe<String>) emitter -> {
-                String gaid = fetchAndStoreGAID();
-                emitter.onNext(gaid);
-            }).observeOn(AndroidSchedulers.mainThread())
+                        String gaid = fetchAndStoreGAID();
+                        emitter.onNext(gaid);
+                    }).observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(s -> {
                         LoadingUtil.showLoading(activity);
@@ -83,6 +89,9 @@ public class SplActivity extends BaseActivity implements SplView {
                 } else {
                     LoadingUtil.showLoading(activity);
                     presenter.achieve(context);
+                    if (mediaPlayer != null) {
+                        mediaPlayer.start();
+                    }
                 }
                 break;
         }
@@ -90,11 +99,13 @@ public class SplActivity extends BaseActivity implements SplView {
 
     @Override
     public void onLogin(LoginBean bean) {
-        LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
             sharedPreferencesUtil.saveValue("uuid", bean.getData().getUuid());
             sharedPreferencesUtil.saveValue("isSignInFirst", "1");
             sharedPreferencesUtil.saveValue("token", getNull(bean.getData().getToken()));
+            presenter.getUserInfo(context);
+        } else {
+            LoadingUtil.hideLoading();
         }
     }
 
@@ -106,6 +117,14 @@ public class SplActivity extends BaseActivity implements SplView {
             sharedPreferencesUtil.saveValue("agree", "1");
             startActivity(new Intent(context, MainActivity.class));
             finish();
+        }
+    }
+
+    @Override
+    public void getUserInfo(UserInfoBean bean) {
+        LoadingUtil.hideLoading();
+        if (bean != null && bean.getData() != null) {
+            tvMoney.setText("+" + bean.getData().getNew_user_local_money());
         }
     }
 
@@ -127,6 +146,15 @@ public class SplActivity extends BaseActivity implements SplView {
             } catch (Exception e) {
                 LogUtils.e(e.toString());
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
     }
 }

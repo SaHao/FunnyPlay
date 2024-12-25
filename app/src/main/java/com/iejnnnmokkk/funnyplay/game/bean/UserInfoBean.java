@@ -162,7 +162,7 @@ public class UserInfoBean extends BaseBean {
         private String device_warning_flag;
         private MjbBean mjb;
         private String five_star_task_num;
-        private String my_task_count;
+        private int my_task_count;
         private String smail_reward;
         private String new_user_coin_reward;
         private String smail_pay_flag;
@@ -1239,11 +1239,11 @@ public class UserInfoBean extends BaseBean {
             this.five_star_task_num = five_star_task_num;
         }
 
-        public String getMy_task_count() {
+        public int getMy_task_count() {
             return my_task_count;
         }
 
-        public void setMy_task_count(String my_task_count) {
+        public void setMy_task_count(int my_task_count) {
             this.my_task_count = my_task_count;
         }
 

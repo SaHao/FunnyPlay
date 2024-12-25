@@ -102,8 +102,8 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
-            ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getWelfare_5_star_reward() + "");
-            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getWelfare_5_star_reward() == 0 ? View.GONE : View.VISIBLE);
+            ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getMy_task_count() + "");
+            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getMy_task_count() == 0 ? View.GONE : View.VISIBLE);
 
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {

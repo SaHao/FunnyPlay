@@ -30,20 +30,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:background="@drawable/shape_spl_blue"
+        android:background="@drawable/shape_spl_money_back"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="26dp"
-        android:paddingTop="21dp"
+        android:paddingTop="15dp"
         android:paddingEnd="26dp"
-        android:paddingBottom="21dp"
+        android:paddingBottom="15dp"
         android:src="@mipmap/icon_spl_money"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView0">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_spl_money"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/icon_blue_diamond" />
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:textColor="#FF4E42"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_achieve"
