@@ -18,10 +18,17 @@ pluginManagement {
         google()
         maven { url 'https://jitpack.io' }
         maven { url 'https://artifacts.applovin.com/android' }
-        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads/" }
-        maven { url "https://android-sdk.is.com" }
-        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
+//Anythink(Core)
+        maven { url "https://jfrog.anythinktech.com/artifactory/overseas_sdk" }
+//Ironsource
+        maven { url "https://android-sdk.is.com/" }
+//Pangle
         maven { url "https://artifact.bytedance.com/repository/pangle" }
+//Mintegral
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
+//Chartboost
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads" }
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-mediation"}
 
     }
 }
@@ -39,13 +46,24 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://artifacts.applovin.com/android' }
-        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads/" }
-        maven { url "https://android-sdk.is.com" }
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
         maven { url "https://artifact.bytedance.com/repository/pangle" }
+        maven { url 'https://jitpack.io' }
+//Anythink(Core)
+        maven { url "https://jfrog.anythinktech.com/artifactory/overseas_sdk" }
+//Ironsource
+        maven { url "https://android-sdk.is.com/" }
+//Pangle
+        maven { url "https://artifact.bytedance.com/repository/pangle" }
+//Mintegral
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" }
+//Chartboost
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-ads" }
+        maven { url "https://cboost.jfrog.io/artifactory/chartboost-mediation"}
     }
 }
 
 rootProject.name = "FunnyPlay"
 include ':app'
 include ':common'
+include ':TopOnLibrary'

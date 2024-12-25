@@ -5,4 +5,5 @@
     <color name="progressCircle">#F09292</color>
     <color name="signIn">#FF4E42</color>
     <color name="notSignIn">#979797</color>
+    <color name="main_bg">#221616</color>
 </resources>

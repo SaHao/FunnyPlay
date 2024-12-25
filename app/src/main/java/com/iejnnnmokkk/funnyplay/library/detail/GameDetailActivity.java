@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.iejnnnmokkk.common.base.BaseActivity;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.play.GamePlayActivity;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
@@ -121,7 +122,7 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
             case R.id.tv_play:
                 if (!TextUtils.isEmpty(bean.getPackage_name())) {
                     if (bean.getPackage_name().equalsIgnoreCase("h5")) {
-
+                        GamePlayActivity.playGame(GameDetailActivity.this,bean.getNo(),bean.getApp_url());
                     } else {
                         launchAppByPackageName(context, getNull(bean.getApp_url()));
                     }

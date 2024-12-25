@@ -42,11 +42,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.iejnnnmokkk.funnyplay.MainActivity" />
-        <activity android:name="com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity" />
-        <activity android:name="com.iejnnnmokkk.funnyplay.library.GameLibraryActivity" />
-        <activity android:name="com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity" />
-        <activity android:name="com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".personal.history.HistoryActivity" />
+        <activity android:name=".library.GameLibraryActivity" />
+        <activity android:name=".library.detail.GameDetailActivity" />
+        <activity android:name=".personal.library.MyGameActivity" />
+        <activity android:name=".play.GamePlayActivity" />
     </application>
 
 </manifest>

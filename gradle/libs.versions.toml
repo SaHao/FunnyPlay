@@ -31,6 +31,7 @@ squareupAdapterRxjava2 = "2.9.0"
 squareupConverterGson = "2.11.0"
 squareupRetrofit = "2.11.0"
 githubRefreshLayoutKernelVersion = "3.0.0-alpha"
+kotlin = "2.1.0"
 
 [libraries]
 android-installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrerVersion" }
@@ -73,4 +74,5 @@ squareup-adapter-rxjava2 = { module = "com.squareup.retrofit2:adapter-rxjava2", 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

@@ -100,7 +100,6 @@ public class SplActivity extends BaseActivity implements SplView {
     @Override
     public void onLogin(LoginBean bean) {
         if (bean != null && bean.getData() != null) {
-            sharedPreferencesUtil.saveValue("uuid", bean.getData().getUuid());
             sharedPreferencesUtil.saveValue("isSignInFirst", "1");
             sharedPreferencesUtil.saveValue("token", getNull(bean.getData().getToken()));
             presenter.getUserInfo(context);
