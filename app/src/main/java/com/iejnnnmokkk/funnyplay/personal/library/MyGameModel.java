@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+import com.iejnnnmokkk.funnyplay.R;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -36,7 +37,7 @@ public class MyGameModel {
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
-                        callback.onFailure("获取失败");
+                        callback.onFailure(context.getResources().getString(R.string.error));
                     }
 
                     @Override

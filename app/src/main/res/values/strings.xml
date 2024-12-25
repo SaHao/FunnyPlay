@@ -1,23 +1,23 @@
 <resources>
     <string name="app_name">FunnyPlay</string>
 
-<!--    欢迎-->
+    <!--    欢迎-->
     <string name="splTile">Complete simple tasks and get generous rewards</string>
     <string name="Great">Great</string>
     <string name="splContent1">By continuing, you accept our </string>
     <string name="splContent2">privacy policy</string>
-<!--    首页-->
+    <!--    首页-->
     <string name="FavoriteGames">Favorite Games</string>
     <string name="TheMostRewarding">The Most Rewarding</string>
     <string name="NewlyLaunched">Newly launched</string>
     <string name="ALL">ALL>></string>
     <string name="Play">Play</string>
 
-<!--    商店-->
+    <!--    商店-->
     <string name="Avatar">Avatar</string>
     <string name="AvatarFrame">Avatar Frame</string>
 
-<!--    个人-->
+    <!--    个人-->
     <string name="RecentlyPlayed">Recently Played</string>
     <string name="FAQ">FAQ</string>
     <string name="GiveUsScore">Give us score</string>
@@ -29,13 +29,13 @@
     <string name="cancel">cancel</string>
     <string name="change">change</string>
 
-<!--    提现记录-->
+    <!--    提现记录-->
     <string name="Diamonds">Diamonds</string>
 
-<!--    签到-->
+    <!--    签到-->
     <string name="checkIn">—— Check in ——</string>
 
-<!--    游戏中心-->
+    <!--    游戏中心-->
     <string name="GameCenter">Game Center</string>
     <string name="GameTitle">Game Title</string>
     <string name="EarningRate">Earning Rate</string>
@@ -44,12 +44,12 @@
     <string name="Rewards">Rewards</string>
     <string name="PlayNow">Play Now</string>
 
-<!--    我的任务-->
+    <!--    我的任务-->
     <string name="Review">Review</string>
     <string name="Completed">Completed</string>
     <string name="lnProgress">ln progress</string>
-    
-<!--    签到-->
+
+    <!--    签到-->
     <string name="day1">Day1</string>
     <string name="day2">Day2</string>
     <string name="day3">Day3</string>
@@ -61,6 +61,10 @@
     <string name="Tomorrow">Tomorrow</string>
     <string name="RewardsArrive">Rewards arrive</string>
     <string name="OK">OK</string>
+
+    <string name="error">Failed to retrieve data.</string>
+    <string name="getSuccess">Successfully claimed.</string>
+    <string name="loginFailed">Login failed, retrying...</string>
 
 
 </resources>

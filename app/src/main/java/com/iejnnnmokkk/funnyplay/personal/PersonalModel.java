@@ -6,6 +6,7 @@ import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.library.GameLibraryBean;
 import com.zhouyou.http.EasyHttp;
@@ -32,7 +33,7 @@ public class PersonalModel {
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
-                        callback.onFailure("获取失败");
+                        callback.onFailure(context.getResources().getString(R.string.error));
                     }
 
                     @Override

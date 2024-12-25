@@ -83,7 +83,7 @@ public class SplActivity extends BaseActivity implements SplView {
         switch (view.getId()) {
             case R.id.tv_achieve:
                 if (TextUtils.isEmpty(sharedPreferencesUtil.getValue("token"))) {
-                    ToastUtils.showShort(context, "登录失败，正在重新登录...");
+                    ToastUtils.showShort(context, context.getResources().getString(R.string.loginFailed));
                     LoadingUtil.showLoading(activity);
                     presenter.login(activity);
                 } else {
@@ -113,10 +113,12 @@ public class SplActivity extends BaseActivity implements SplView {
     public void onAchieve(SplBean bean) {
         LoadingUtil.hideLoading();
         if (bean.getCode() == 200) {
-            ToastUtils.showShort(context, "领取成功");
+            ToastUtils.showShort(context, context.getResources().getString(R.string.getSuccess));
             sharedPreferencesUtil.saveValue("agree", "1");
             startActivity(new Intent(context, MainActivity.class));
             finish();
+        } else {
+            ToastUtils.showShort(context, bean.getMsg());
         }
     }
 

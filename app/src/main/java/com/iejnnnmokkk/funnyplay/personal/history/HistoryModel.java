@@ -6,6 +6,7 @@ import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
+import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
@@ -32,7 +33,7 @@ public class HistoryModel {
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
-                        callback.onFailure("获取失败");
+                        callback.onFailure(context.getResources().getString(R.string.error));
                     }
 
                     @Override
