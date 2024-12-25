@@ -42,10 +42,9 @@ public class MostGameAdapter extends BaseAdapter<GameBean.DataBean, MostGameAdap
         holder.tvNum.setText(data.get(position).getReward() + "");
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
         holder.itemView.setOnClickListener(v -> {
-            context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
-        });
-        holder.tvPlay.setOnClickListener(v -> {
-
+            if(data.get(position).getType() == 18) {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            }
         });
     }
 

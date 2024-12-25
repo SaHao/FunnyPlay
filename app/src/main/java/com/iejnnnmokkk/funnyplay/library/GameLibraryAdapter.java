@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.library;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
@@ -31,6 +33,12 @@ public class GameLibraryAdapter extends BaseAdapter<GameLibraryBean.DataBean, Ga
     protected void onBindHolder(@NonNull GameLibraryAdapter.ViewHolder holder, int position) {
         holder.tvName.setText(getNull(data.get(position).getApp_name()));
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivPhoto);
+
+        holder.itemView.setOnClickListener(v -> {
+            if(data.get(position).getType() == 18) {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

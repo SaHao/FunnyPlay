@@ -43,7 +43,9 @@ public class FavouriteAdapter extends BaseAdapter<GameBean.DataBean, FavouriteAd
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
 
         holder.itemView.setOnClickListener(v -> {
-            context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            if(data.get(position).getType() == 18) {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            }
         });
     }
 

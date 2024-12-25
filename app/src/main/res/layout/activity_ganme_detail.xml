@@ -24,9 +24,9 @@
             android:id="@+id/rv_task"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:clipToPadding="false"
-            android:padding="8dp" />
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
     <ImageView

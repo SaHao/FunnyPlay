@@ -12,6 +12,7 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.iejnnnmokkk.common.base.BaseActivity;
+import com.iejnnnmokkk.common.utils.LogUtils;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.MainActivity;
@@ -59,20 +60,14 @@ public class SplActivity extends BaseActivity implements SplView {
             finish();
         } else {
             LoadingUtil.showLoading(activity);
-            Observable.create(new ObservableOnSubscribe<String>() {
-                        @Override
-                        public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                            String gaid = fetchAndStoreGAID();
-                            emitter.onNext(gaid);
-                        }
-                    }).observeOn(AndroidSchedulers.mainThread())
+            Observable.create((ObservableOnSubscribe<String>) emitter -> {
+                String gaid = fetchAndStoreGAID();
+                emitter.onNext(gaid);
+            }).observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Consumer<String>() {
-                        @Override
-                        public void accept(String s) throws Exception {
-                            LoadingUtil.showLoading(activity);
-                            presenter.login(activity);
-                        }
+                    .subscribe(s -> {
+                        LoadingUtil.showLoading(activity);
+                        presenter.login(activity);
                     });
         }
     }
@@ -129,13 +124,8 @@ public class SplActivity extends BaseActivity implements SplView {
                     SharedPreferencesUtil.getInstance(getApplicationContext()).saveValue("gaid", gaid);
                     return gaid;
                 }
-            } catch (IOException | GooglePlayServicesNotAvailableException |
-                     GooglePlayServicesRepairableException e) {
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException interruptedException) {
-                    Thread.currentThread().interrupt();
-                }
+            } catch (Exception e) {
+                LogUtils.e(e.toString());
             }
         }
     }

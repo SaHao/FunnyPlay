@@ -6,11 +6,6 @@ import java.util.List;
 
 public class GameDetailBean extends BaseBean {
 
-    /**
-     * data : {"name":"Connect The Bubbles","type":18,"no":"241120173419444088","reward":1950000,"currency":"5","first_download_flag":1,"fa_num":666666,"js_task_count":0,"ok_time":60,"cpl_step2_flag":0,"cpa_step3_flag":0,"now_time":1734790209,"app_url":"https://api.cxbwm.com/api/link?url=aHR0cHM6Ly9nYW1lLmNoaWNtZW5zLmNvbS9nYW1lcy9jb25uZWN0dGhlYnViYmxlcy8=&is_vpn=false&channel=funny_play&version=1.0.11&gaid=&fields=&versionCode=11&deviceId=d2203031a5e3d0cd&language=en&no=241120173419444088&limit=20&page=1&area=1&app_channel=MiniPlay&token=a302d7b4c25bbef22b0960558e0c0d78&uid=11531057","search_word":"ad_callback","step_one_title":null,"keyword":null,"app_name":"bubbles","step_one_desc":null,"step_one_button":null,"package_name":"h5","icon":"https://cdn.cxbwm.com/image/article/20231213/17/16054641.png","step_two_title":null,"step_two_desc":null,"step_two_button":null,"step_three_title":null,"step_three_desc":null,"step_three_button":null,"step_four_title":null,"step_four_desc":null,"step_four_button":null,"cp_flag":0,"cp_content":"666666","full_time":0,"step_one_reward":0,"step_two_reward":0,"step_three_reward":0,"img_num":null,"step1_callback_flag":0,"step1_callback_time":7200,"gif1":"https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif","gif2":"https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif","gif3":"https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif","img_example":[],"auto_task_flag":2,"step2_img_example":[],"comment":"","touxiang":["https://cdn.cxbwm.com/uploads/touxiang/20231105/15552516.jpg","https://cdn.cxbwm.com/uploads/touxiang/20231105/15551842.png","https://cdn.cxbwm.com/uploads/touxiang/20231105/15551744.png"],"pay_money":0,"reset_pay_task_step4_flag":0,"channel_task_type":1,"local_money":"\u20b919500.00","local_money_no_symbol":"19500.00","get_task_sum":3541,"watas":"","customerService":"https://t.me/+mgpA9uwDViJmZWJl","start_time":1732032000,"is_get":-1,"guide_task_type":0,"img_example_url":[],"jumpFlag":"1"}
-     * count : 0
-     */
-
     private DataBean data;
     private int count;
 
@@ -31,69 +26,6 @@ public class GameDetailBean extends BaseBean {
     }
 
     public static class DataBean {
-        /**
-         * name : Connect The Bubbles
-         * type : 18
-         * no : 241120173419444088
-         * reward : 1950000
-         * currency : 5
-         * first_download_flag : 1
-         * fa_num : 666666
-         * js_task_count : 0
-         * ok_time : 60
-         * cpl_step2_flag : 0
-         * cpa_step3_flag : 0
-         * now_time : 1734790209
-         * app_url : https://api.cxbwm.com/api/link?url=aHR0cHM6Ly9nYW1lLmNoaWNtZW5zLmNvbS9nYW1lcy9jb25uZWN0dGhlYnViYmxlcy8=&is_vpn=false&channel=funny_play&version=1.0.11&gaid=&fields=&versionCode=11&deviceId=d2203031a5e3d0cd&language=en&no=241120173419444088&limit=20&page=1&area=1&app_channel=MiniPlay&token=a302d7b4c25bbef22b0960558e0c0d78&uid=11531057
-         * search_word : ad_callback
-         * step_one_title : null
-         * keyword : null
-         * app_name : bubbles
-         * step_one_desc : null
-         * step_one_button : null
-         * package_name : h5
-         * icon : https://cdn.cxbwm.com/image/article/20231213/17/16054641.png
-         * step_two_title : null
-         * step_two_desc : null
-         * step_two_button : null
-         * step_three_title : null
-         * step_three_desc : null
-         * step_three_button : null
-         * step_four_title : null
-         * step_four_desc : null
-         * step_four_button : null
-         * cp_flag : 0
-         * cp_content : 666666
-         * full_time : 0
-         * step_one_reward : 0
-         * step_two_reward : 0
-         * step_three_reward : 0
-         * img_num : null
-         * step1_callback_flag : 0
-         * step1_callback_time : 7200
-         * gif1 : https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif
-         * gif2 : https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif
-         * gif3 : https://bcp-bz.oss-cn-hongkong.aliyuncs.com/ez/yd1.gif
-         * img_example : []
-         * auto_task_flag : 2
-         * step2_img_example : []
-         * comment :
-         * touxiang : ["https://cdn.cxbwm.com/uploads/touxiang/20231105/15552516.jpg","https://cdn.cxbwm.com/uploads/touxiang/20231105/15551842.png","https://cdn.cxbwm.com/uploads/touxiang/20231105/15551744.png"]
-         * pay_money : 0
-         * reset_pay_task_step4_flag : 0
-         * channel_task_type : 1
-         * local_money : ₹19500.00
-         * local_money_no_symbol : 19500.00
-         * get_task_sum : 3541
-         * watas :
-         * customerService : https://t.me/+mgpA9uwDViJmZWJl
-         * start_time : 1732032000
-         * is_get : -1
-         * guide_task_type : 0
-         * img_example_url : []
-         * jumpFlag : 1
-         */
-
         private String name;
         private int type;
         private String no;
@@ -103,57 +35,46 @@ public class GameDetailBean extends BaseBean {
         private int fa_num;
         private int js_task_count;
         private int ok_time;
-        private int cpl_step2_flag;
-        private int cpa_step3_flag;
         private int now_time;
         private String app_url;
         private String search_word;
         private Object step_one_title;
+        private String step_one_button;
+        private String step_one_desc;
         private Object keyword;
         private String app_name;
-        private Object step_one_desc;
-        private Object step_one_button;
         private String package_name;
         private String icon;
-        private Object step_two_title;
-        private Object step_two_desc;
-        private Object step_two_button;
-        private Object step_three_title;
-        private Object step_three_desc;
-        private Object step_three_button;
-        private Object step_four_title;
-        private Object step_four_desc;
-        private Object step_four_button;
         private int cp_flag;
         private String cp_content;
         private int full_time;
-        private int step_one_reward;
-        private int step_two_reward;
-        private int step_three_reward;
-        private Object img_num;
-        private int step1_callback_flag;
-        private int step1_callback_time;
-        private String gif1;
-        private String gif2;
-        private String gif3;
-        private int auto_task_flag;
+        private int red;
+        private int img_num;
+        private List<?> img_example;
+        private List<?> img_example_url;
         private String comment;
-        private int pay_money;
-        private int reset_pay_task_step4_flag;
-        private int channel_task_type;
-        private String local_money;
-        private String local_money_no_symbol;
-        private int get_task_sum;
         private String watas;
         private String customerService;
         private int start_time;
-        private int is_get;
-        private int guide_task_type;
-        private String jumpFlag;
-        private List<?> img_example;
-        private List<?> step2_img_example;
+        private int limit_time;
+        private int task_time;
+        private Object game_role_info;
+        private String h5game_text;
         private List<String> touxiang;
-        private List<?> img_example_url;
+        private String local_money;
+        private String check_id;
+        private int is_get;
+        private String reward_pertukaran_balance;
+        private List<AllBean> all;
+        private int total_reward;
+        private int jumpFlag;
+        private int user_total_reward;
+        private int task_reward;
+        private int success_conditions;
+        private int completion_conditions;
+        private int money;
+        private String offer_id;
+        private String ad_identification;
 
         public String getName() {
             return name;
@@ -227,22 +148,6 @@ public class GameDetailBean extends BaseBean {
             this.ok_time = ok_time;
         }
 
-        public int getCpl_step2_flag() {
-            return cpl_step2_flag;
-        }
-
-        public void setCpl_step2_flag(int cpl_step2_flag) {
-            this.cpl_step2_flag = cpl_step2_flag;
-        }
-
-        public int getCpa_step3_flag() {
-            return cpa_step3_flag;
-        }
-
-        public void setCpa_step3_flag(int cpa_step3_flag) {
-            this.cpa_step3_flag = cpa_step3_flag;
-        }
-
         public int getNow_time() {
             return now_time;
         }
@@ -275,6 +180,22 @@ public class GameDetailBean extends BaseBean {
             this.step_one_title = step_one_title;
         }
 
+        public String getStep_one_button() {
+            return step_one_button;
+        }
+
+        public void setStep_one_button(String step_one_button) {
+            this.step_one_button = step_one_button;
+        }
+
+        public String getStep_one_desc() {
+            return step_one_desc;
+        }
+
+        public void setStep_one_desc(String step_one_desc) {
+            this.step_one_desc = step_one_desc;
+        }
+
         public Object getKeyword() {
             return keyword;
         }
@@ -291,22 +212,6 @@ public class GameDetailBean extends BaseBean {
             this.app_name = app_name;
         }
 
-        public Object getStep_one_desc() {
-            return step_one_desc;
-        }
-
-        public void setStep_one_desc(Object step_one_desc) {
-            this.step_one_desc = step_one_desc;
-        }
-
-        public Object getStep_one_button() {
-            return step_one_button;
-        }
-
-        public void setStep_one_button(Object step_one_button) {
-            this.step_one_button = step_one_button;
-        }
-
         public String getPackage_name() {
             return package_name;
         }
@@ -321,78 +226,6 @@ public class GameDetailBean extends BaseBean {
 
         public void setIcon(String icon) {
             this.icon = icon;
-        }
-
-        public Object getStep_two_title() {
-            return step_two_title;
-        }
-
-        public void setStep_two_title(Object step_two_title) {
-            this.step_two_title = step_two_title;
-        }
-
-        public Object getStep_two_desc() {
-            return step_two_desc;
-        }
-
-        public void setStep_two_desc(Object step_two_desc) {
-            this.step_two_desc = step_two_desc;
-        }
-
-        public Object getStep_two_button() {
-            return step_two_button;
-        }
-
-        public void setStep_two_button(Object step_two_button) {
-            this.step_two_button = step_two_button;
-        }
-
-        public Object getStep_three_title() {
-            return step_three_title;
-        }
-
-        public void setStep_three_title(Object step_three_title) {
-            this.step_three_title = step_three_title;
-        }
-
-        public Object getStep_three_desc() {
-            return step_three_desc;
-        }
-
-        public void setStep_three_desc(Object step_three_desc) {
-            this.step_three_desc = step_three_desc;
-        }
-
-        public Object getStep_three_button() {
-            return step_three_button;
-        }
-
-        public void setStep_three_button(Object step_three_button) {
-            this.step_three_button = step_three_button;
-        }
-
-        public Object getStep_four_title() {
-            return step_four_title;
-        }
-
-        public void setStep_four_title(Object step_four_title) {
-            this.step_four_title = step_four_title;
-        }
-
-        public Object getStep_four_desc() {
-            return step_four_desc;
-        }
-
-        public void setStep_four_desc(Object step_four_desc) {
-            this.step_four_desc = step_four_desc;
-        }
-
-        public Object getStep_four_button() {
-            return step_four_button;
-        }
-
-        public void setStep_four_button(Object step_four_button) {
-            this.step_four_button = step_four_button;
         }
 
         public int getCp_flag() {
@@ -419,84 +252,36 @@ public class GameDetailBean extends BaseBean {
             this.full_time = full_time;
         }
 
-        public int getStep_one_reward() {
-            return step_one_reward;
+        public int getRed() {
+            return red;
         }
 
-        public void setStep_one_reward(int step_one_reward) {
-            this.step_one_reward = step_one_reward;
+        public void setRed(int red) {
+            this.red = red;
         }
 
-        public int getStep_two_reward() {
-            return step_two_reward;
-        }
-
-        public void setStep_two_reward(int step_two_reward) {
-            this.step_two_reward = step_two_reward;
-        }
-
-        public int getStep_three_reward() {
-            return step_three_reward;
-        }
-
-        public void setStep_three_reward(int step_three_reward) {
-            this.step_three_reward = step_three_reward;
-        }
-
-        public Object getImg_num() {
+        public int getImg_num() {
             return img_num;
         }
 
-        public void setImg_num(Object img_num) {
+        public void setImg_num(int img_num) {
             this.img_num = img_num;
         }
 
-        public int getStep1_callback_flag() {
-            return step1_callback_flag;
+        public List<?> getImg_example() {
+            return img_example;
         }
 
-        public void setStep1_callback_flag(int step1_callback_flag) {
-            this.step1_callback_flag = step1_callback_flag;
+        public void setImg_example(List<?> img_example) {
+            this.img_example = img_example;
         }
 
-        public int getStep1_callback_time() {
-            return step1_callback_time;
+        public List<?> getImg_example_url() {
+            return img_example_url;
         }
 
-        public void setStep1_callback_time(int step1_callback_time) {
-            this.step1_callback_time = step1_callback_time;
-        }
-
-        public String getGif1() {
-            return gif1;
-        }
-
-        public void setGif1(String gif1) {
-            this.gif1 = gif1;
-        }
-
-        public String getGif2() {
-            return gif2;
-        }
-
-        public void setGif2(String gif2) {
-            this.gif2 = gif2;
-        }
-
-        public String getGif3() {
-            return gif3;
-        }
-
-        public void setGif3(String gif3) {
-            this.gif3 = gif3;
-        }
-
-        public int getAuto_task_flag() {
-            return auto_task_flag;
-        }
-
-        public void setAuto_task_flag(int auto_task_flag) {
-            this.auto_task_flag = auto_task_flag;
+        public void setImg_example_url(List<?> img_example_url) {
+            this.img_example_url = img_example_url;
         }
 
         public String getComment() {
@@ -505,54 +290,6 @@ public class GameDetailBean extends BaseBean {
 
         public void setComment(String comment) {
             this.comment = comment;
-        }
-
-        public int getPay_money() {
-            return pay_money;
-        }
-
-        public void setPay_money(int pay_money) {
-            this.pay_money = pay_money;
-        }
-
-        public int getReset_pay_task_step4_flag() {
-            return reset_pay_task_step4_flag;
-        }
-
-        public void setReset_pay_task_step4_flag(int reset_pay_task_step4_flag) {
-            this.reset_pay_task_step4_flag = reset_pay_task_step4_flag;
-        }
-
-        public int getChannel_task_type() {
-            return channel_task_type;
-        }
-
-        public void setChannel_task_type(int channel_task_type) {
-            this.channel_task_type = channel_task_type;
-        }
-
-        public String getLocal_money() {
-            return local_money;
-        }
-
-        public void setLocal_money(String local_money) {
-            this.local_money = local_money;
-        }
-
-        public String getLocal_money_no_symbol() {
-            return local_money_no_symbol;
-        }
-
-        public void setLocal_money_no_symbol(String local_money_no_symbol) {
-            this.local_money_no_symbol = local_money_no_symbol;
-        }
-
-        public int getGet_task_sum() {
-            return get_task_sum;
-        }
-
-        public void setGet_task_sum(int get_task_sum) {
-            this.get_task_sum = get_task_sum;
         }
 
         public String getWatas() {
@@ -579,44 +316,36 @@ public class GameDetailBean extends BaseBean {
             this.start_time = start_time;
         }
 
-        public int getIs_get() {
-            return is_get;
+        public int getLimit_time() {
+            return limit_time;
         }
 
-        public void setIs_get(int is_get) {
-            this.is_get = is_get;
+        public void setLimit_time(int limit_time) {
+            this.limit_time = limit_time;
         }
 
-        public int getGuide_task_type() {
-            return guide_task_type;
+        public int getTask_time() {
+            return task_time;
         }
 
-        public void setGuide_task_type(int guide_task_type) {
-            this.guide_task_type = guide_task_type;
+        public void setTask_time(int task_time) {
+            this.task_time = task_time;
         }
 
-        public String getJumpFlag() {
-            return jumpFlag;
+        public Object getGame_role_info() {
+            return game_role_info;
         }
 
-        public void setJumpFlag(String jumpFlag) {
-            this.jumpFlag = jumpFlag;
+        public void setGame_role_info(Object game_role_info) {
+            this.game_role_info = game_role_info;
         }
 
-        public List<?> getImg_example() {
-            return img_example;
+        public String getH5game_text() {
+            return h5game_text;
         }
 
-        public void setImg_example(List<?> img_example) {
-            this.img_example = img_example;
-        }
-
-        public List<?> getStep2_img_example() {
-            return step2_img_example;
-        }
-
-        public void setStep2_img_example(List<?> step2_img_example) {
-            this.step2_img_example = step2_img_example;
+        public void setH5game_text(String h5game_text) {
+            this.h5game_text = h5game_text;
         }
 
         public List<String> getTouxiang() {
@@ -627,12 +356,186 @@ public class GameDetailBean extends BaseBean {
             this.touxiang = touxiang;
         }
 
-        public List<?> getImg_example_url() {
-            return img_example_url;
+        public String getLocal_money() {
+            return local_money;
         }
 
-        public void setImg_example_url(List<?> img_example_url) {
-            this.img_example_url = img_example_url;
+        public void setLocal_money(String local_money) {
+            this.local_money = local_money;
+        }
+
+        public String getCheck_id() {
+            return check_id;
+        }
+
+        public void setCheck_id(String check_id) {
+            this.check_id = check_id;
+        }
+
+        public int getIs_get() {
+            return is_get;
+        }
+
+        public void setIs_get(int is_get) {
+            this.is_get = is_get;
+        }
+
+        public String getReward_pertukaran_balance() {
+            return reward_pertukaran_balance;
+        }
+
+        public void setReward_pertukaran_balance(String reward_pertukaran_balance) {
+            this.reward_pertukaran_balance = reward_pertukaran_balance;
+        }
+
+        public List<AllBean> getAll() {
+            return all;
+        }
+
+        public void setAll(List<AllBean> all) {
+            this.all = all;
+        }
+
+        public int getTotal_reward() {
+            return total_reward;
+        }
+
+        public void setTotal_reward(int total_reward) {
+            this.total_reward = total_reward;
+        }
+
+        public int getJumpFlag() {
+            return jumpFlag;
+        }
+
+        public void setJumpFlag(int jumpFlag) {
+            this.jumpFlag = jumpFlag;
+        }
+
+        public int getUser_total_reward() {
+            return user_total_reward;
+        }
+
+        public void setUser_total_reward(int user_total_reward) {
+            this.user_total_reward = user_total_reward;
+        }
+
+        public int getTask_reward() {
+            return task_reward;
+        }
+
+        public void setTask_reward(int task_reward) {
+            this.task_reward = task_reward;
+        }
+
+        public int getSuccess_conditions() {
+            return success_conditions;
+        }
+
+        public void setSuccess_conditions(int success_conditions) {
+            this.success_conditions = success_conditions;
+        }
+
+        public int getCompletion_conditions() {
+            return completion_conditions;
+        }
+
+        public void setCompletion_conditions(int completion_conditions) {
+            this.completion_conditions = completion_conditions;
+        }
+
+        public int getMoney() {
+            return money;
+        }
+
+        public void setMoney(int money) {
+            this.money = money;
+        }
+
+        public String getOffer_id() {
+            return offer_id;
+        }
+
+        public void setOffer_id(String offer_id) {
+            this.offer_id = offer_id;
+        }
+
+        public String getAd_identification() {
+            return ad_identification;
+        }
+
+        public void setAd_identification(String ad_identification) {
+            this.ad_identification = ad_identification;
+        }
+
+
+        public static class AllBean {
+            private String server_name;
+            private List<AllDataBean> data;
+
+            public String getServer_name() {
+                return server_name;
+            }
+
+            public void setServer_name(String server_name) {
+                this.server_name = server_name;
+            }
+
+            public List<AllDataBean> getData() {
+                return data;
+            }
+
+            public void setData(List<AllDataBean> data) {
+                this.data = data;
+            }
+
+            public static class AllDataBean {
+                private String title;
+                private int condition;
+                private int reward;
+                private int status;
+                private String action;
+
+                public String getTitle() {
+                    return title;
+                }
+
+                public void setTitle(String title) {
+                    this.title = title;
+                }
+
+                public int getCondition() {
+                    return condition;
+                }
+
+                public void setCondition(int condition) {
+                    this.condition = condition;
+                }
+
+                public int getReward() {
+                    return reward;
+                }
+
+                public void setReward(int reward) {
+                    this.reward = reward;
+                }
+
+                public int getStatus() {
+                    return status;
+                }
+
+                public void setStatus(int status) {
+                    this.status = status;
+                }
+
+                public String getAction() {
+                    return action;
+                }
+
+                public void setAction(String action) {
+                    this.action = action;
+                }
+            }
         }
     }
 }
