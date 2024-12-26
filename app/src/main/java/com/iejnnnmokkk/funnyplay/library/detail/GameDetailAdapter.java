@@ -52,6 +52,7 @@ public class GameDetailAdapter extends BaseAdapter<GameDetailBean.DataBean.AllBe
             ((ViewHolder) holder).tvLevel.setText(getNull(data.get(index).getTitle()));
             ((ViewHolder) holder).tvMoney.setText(data.get(index).getReward() + "");
             ((ViewHolder) holder).ivLogo.setImageResource(data.get(index).getStatus() == 1 ? R.mipmap.icon_task_complete : R.mipmap.icon_task_progress);
+            ((ViewHolder) holder).tvMoney.setTextColor(data.get(index).getStatus() == 1 ? context.getResources().getColor(R.color.gameComplete) : context.getResources().getColor(R.color.gameProgress));
         }
     }
 

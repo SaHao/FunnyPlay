@@ -6,4 +6,6 @@
     <color name="signIn">#FF4E42</color>
     <color name="notSignIn">#979797</color>
     <color name="main_bg">#221616</color>
+    <color name="gameProgress">#A5A4A3</color>
+    <color name="gameComplete">#FF6B23</color>
 </resources>
