@@ -24,7 +24,7 @@ public class GameDetailModel {
     }
 
     public void getData(int pageNum, String id, BaseNetworkCallback<GameDetailBean> callback) {
-        String url = "https://api.keepad.xyz/funny_play/daily_offer_info";
+        String url = "https://api.keepad.xyz/daily_reward/daily_gamecpl_task_info";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", ParamUtil.isVpn(context));
         map.put("channel", ParamUtil.getPlatform());
