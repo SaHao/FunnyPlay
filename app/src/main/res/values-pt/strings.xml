@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FunnyPlay</string>
+
+    <!--    Bem-vindo-->
+    <string name="splTile">Complete tarefas simples e ganhe grandes recompensas</string>
+    <string name="Great">Ótimo</string>
+    <string name="splContent1">Ao continuar, você aceita nossa </string>
+    <string name="splContent2">política de privacidade</string>
+    <!--    Página inicial-->
+    <string name="FavoriteGames">Jogos Favoritos</string>
+    <string name="TheMostRewarding">Os Mais Recompensadores</string>
+    <string name="NewlyLaunched">Recém-Lançados</string>
+    <string name="ALL">TODOS>></string>
+    <string name="Play">Jogar</string>
+
+    <!--    Loja-->
+    <string name="Avatar">Avatar</string>
+    <string name="AvatarFrame">Moldura do Avatar</string>
+
+    <!--    Perfil-->
+    <string name="RecentlyPlayed">Jogados Recentemente</string>
+    <string name="FAQ">FAQ</string>
+    <string name="GiveUsScore">Nos avalie</string>
+    <string name="PrivacyPolicy">Política de Privacidade</string>
+
+    <string name="warning">Aviso</string>
+    <string name="confirm">Confirmar gasto</string>
+    <string name="redeem">para resgatar este item</string>
+    <string name="cancel">Cancelar</string>
+    <string name="change">Alterar</string>
+
+    <!--    Histórico de saque-->
+    <string name="Diamonds">Diamantes</string>
+
+    <!--    Check-in-->
+    <string name="checkIn">—— Check-in ——</string>
+
+    <!--    Centro de Jogos-->
+    <string name="GameCenter">Centro de Jogos</string>
+    <string name="GameTitle">Título do Jogo</string>
+    <string name="EarningRate">Taxa de Ganhos</string>
+    <string name="Speed">Velocidade</string>
+    <string name="Obtained">Obtido</string>
+    <string name="Rewards">Recompensas</string>
+    <string name="PlayNow">Jogar Agora</string>
+
+    <!--    Minhas Tarefas-->
+    <string name="Review">Revisar</string>
+    <string name="Completed">Concluído</string>
+    <string name="lnProgress">Em progresso</string>
+
+    <!--    Check-in-->
+    <string name="day1">Dia1</string>
+    <string name="day2">Dia2</string>
+    <string name="day3">Dia3</string>
+    <string name="day4">Dia4</string>
+    <string name="day5">Dia5</string>
+    <string name="day6">Dia6</string>
+    <string name="day7">Dia7</string>
+    <string name="WatchVideos">Assistir vídeos</string>
+    <string name="Tomorrow">Amanhã</string>
+    <string name="RewardsArrive">Recompensas chegaram</string>
+    <string name="OK">OK</string>
+
+    <string name="error">Falha ao recuperar dados.</string>
+    <string name="getSuccess">Resgatado com sucesso.</string>
+    <string name="loginFailed">Falha no login, tentando novamente...</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FunnyPlay</string>
+
+    <!--    Selamat datang-->
+    <string name="splTile">Selesaikan tugas sederhana dan dapatkan hadiah besar</string>
+    <string name="Great">Bagus</string>
+    <string name="splContent1">Dengan melanjutkan, Anda menerima </string>
+    <string name="splContent2">kebijakan privasi kami</string>
+    <!--    Beranda-->
+    <string name="FavoriteGames">Permainan Favorit</string>
+    <string name="TheMostRewarding">Yang Paling Menguntungkan</string>
+    <string name="NewlyLaunched">Baru Diluncurkan</string>
+    <string name="ALL">SEMUA>></string>
+    <string name="Play">Main</string>
+
+    <!--    Toko-->
+    <string name="Avatar">Avatar</string>
+    <string name="AvatarFrame">Bingkai Avatar</string>
+
+    <!--    Profil-->
+    <string name="RecentlyPlayed">Baru Saja Dimainkan</string>
+    <string name="FAQ">FAQ</string>
+    <string name="GiveUsScore">Beri kami nilai</string>
+    <string name="PrivacyPolicy">Kebijakan Privasi</string>
+
+    <string name="warning">Peringatan</string>
+    <string name="confirm">Konfirmasi pengeluaran</string>
+    <string name="redeem">untuk menukarkan item ini</string>
+    <string name="cancel">Batal</string>
+    <string name="change">Ubah</string>
+
+    <!--    Riwayat Penarikan-->
+    <string name="Diamonds">Berlian</string>
+
+    <!--    Check-in-->
+    <string name="checkIn">—— Check-in ——</string>
+
+    <!--    Pusat Game-->
+    <string name="GameCenter">Pusat Game</string>
+    <string name="GameTitle">Judul Game</string>
+    <string name="EarningRate">Tingkat Pendapatan</string>
+    <string name="Speed">Kecepatan</string>
+    <string name="Obtained">Diperoleh</string>
+    <string name="Rewards">Hadiah</string>
+    <string name="PlayNow">Main Sekarang</string>
+
+    <!--    Tugas Saya-->
+    <string name="Review">Tinjau</string>
+    <string name="Completed">Selesai</string>
+    <string name="lnProgress">Dalam proses</string>
+
+    <!--    Check-in-->
+    <string name="day1">Hari1</string>
+    <string name="day2">Hari2</string>
+    <string name="day3">Hari3</string>
+    <string name="day4">Hari4</string>
+    <string name="day5">Hari5</string>
+    <string name="day6">Hari6</string>
+    <string name="day7">Hari7</string>
+    <string name="WatchVideos">Tonton video</string>
+    <string name="Tomorrow">Besok</string>
+    <string name="RewardsArrive">Hadiah tiba</string>
+    <string name="OK">OK</string>
+
+    <string name="error">Gagal mengambil data.</string>
+    <string name="getSuccess">Berhasil diklaim.</string>
+    <string name="loginFailed">Gagal masuk, mencoba lagi...</string>
+</resources>

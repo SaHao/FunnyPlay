@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FunnyPlay</string>
+
+    <!--    ยินดีต้อนรับ-->
+    <string name="splTile">ทำภารกิจง่ายๆ และรับรางวัลมากมาย</string>
+    <string name="Great">ยอดเยี่ยม</string>
+    <string name="splContent1">เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ </string>
+    <string name="splContent2">นโยบายความเป็นส่วนตัว</string>
+    <!--    หน้าแรก-->
+    <string name="FavoriteGames">เกมโปรด</string>
+    <string name="TheMostRewarding">เกมที่ให้รางวัลมากที่สุด</string>
+    <string name="NewlyLaunched">เกมใหม่</string>
+    <string name="ALL">ทั้งหมด>></string>
+    <string name="Play">เล่น</string>
+
+    <!--    ร้านค้า-->
+    <string name="Avatar">อวาตาร์</string>
+    <string name="AvatarFrame">กรอบอวาตาร์</string>
+
+    <!--    โปรไฟล์-->
+    <string name="RecentlyPlayed">เล่นล่าสุด</string>
+    <string name="FAQ">คำถามที่พบบ่อย</string>
+    <string name="GiveUsScore">ให้คะแนนเรา</string>
+    <string name="PrivacyPolicy">นโยบายความเป็นส่วนตัว</string>
+
+    <string name="warning">คำเตือน</string>
+    <string name="confirm">ยืนยันการใช้จ่าย</string>
+    <string name="redeem">เพื่อแลกรายการนี้</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="change">เปลี่ยน</string>
+
+    <!--    ประวัติการถอนเงิน-->
+    <string name="Diamonds">เพชร</string>
+
+    <!--    เช็คอิน-->
+    <string name="checkIn">—— เช็คอิน ——</string>
+
+    <!--    ศูนย์เกม-->
+    <string name="GameCenter">ศูนย์เกม</string>
+    <string name="GameTitle">ชื่อเกม</string>
+    <string name="EarningRate">อัตราการได้รับ</string>
+    <string name="Speed">ความเร็ว</string>
+    <string name="Obtained">ได้รับ</string>
+    <string name="Rewards">รางวัล</string>
+    <string name="PlayNow">เล่นตอนนี้</string>
+
+    <!--    ภารกิจของฉัน-->
+    <string name="Review">ตรวจสอบ</string>
+    <string name="Completed">เสร็จสิ้น</string>
+    <string name="lnProgress">กำลังดำเนินการ</string>
+
+    <!--    เช็คอิน-->
+    <string name="day1">วัน1</string>
+    <string name="day2">วัน2</string>
+    <string name="day3">วัน3</string>
+    <string name="day4">วัน4</string>
+    <string name="day5">วัน5</string>
+    <string name="day6">วัน6</string>
+    <string name="day7">วัน7</string>
+    <string name="WatchVideos">ดูวิดีโอ</string>
+    <string name="Tomorrow">พรุ่งนี้</string>
+    <string name="RewardsArrive">รางวัลมาถึงแล้ว</string>
+    <string name="OK">ตกลง</string>
+
+    <string name="error">ไม่สามารถดึงข้อมูลได้</string>
+    <string name="getSuccess">รับสำเร็จแล้ว</string>
+    <string name="loginFailed">เข้าสู่ระบบล้มเหลว กำลังลองอีกครั้ง...</string>
+</resources>
