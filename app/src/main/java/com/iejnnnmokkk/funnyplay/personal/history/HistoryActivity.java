@@ -1,6 +1,7 @@
 package com.iejnnnmokkk.funnyplay.personal.history;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,9 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseActivity;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
@@ -55,6 +59,14 @@ public class HistoryActivity extends BaseActivity implements IHistoryView {
     protected void initData() {
         LoadingUtil.showLoading(activity);
         presenter.getData(context, pageNum);
+
+        String user = sharedPreferencesUtil.getValue("user");
+        if (!TextUtils.isEmpty(user)) {
+            UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
+            if (bean != null && bean.getData() != null) {
+                tvMoney.setText(bean.getData().getBalance());
+            }
+        }
 
         setLoadingListener(new OnLoadingClickListener() {
             @Override

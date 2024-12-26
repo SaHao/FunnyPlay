@@ -165,7 +165,9 @@ public class SignInDialog extends Dialog {
 //                }
                 break;
             case R.id.tv_Watch:
+                if (bean.getDayli_flag() == 0) {
 //                看广告
+                }
                 break;
         }
     }
@@ -185,9 +187,9 @@ public class SignInDialog extends Dialog {
             tvDay6Num.setText(bean.getRes().getReward_6() + "");
             tvDay7Num.setText(bean.getRes().getReward_7() + "");
         }
-        if(bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
+        if (bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
             updateViews(0);
-        } else if(bean.getDayli_num() > 1 && bean.getDayli_flag() == 0) {
+        } else if (bean.getDayli_num() > 1 && bean.getDayli_flag() == 0) {
             updateViews(bean.getDayli_num() - 1);
         } else {
             updateViews(bean.getDayli_num());
