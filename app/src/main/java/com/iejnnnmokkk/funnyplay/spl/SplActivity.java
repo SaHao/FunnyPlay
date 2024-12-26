@@ -125,6 +125,7 @@ public class SplActivity extends BaseActivity implements SplView {
     public void getUserInfo(UserInfoBean bean) {
         LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
+            sharedPreferencesUtil.saveValue("uuid", getNull(bean.getData().getUid()));
             tvMoney.setText("+" + bean.getData().getNew_user_local_money());
         }
     }
