@@ -180,6 +180,7 @@ public class GameFragment extends BaseFragment implements IGameView {
         LoadingUtil.hideLoading();
         if (bean.getCode() == 200) {
             dialog.dismiss();
+            presenter.getUserInfo(context);
             sharedPreferencesUtil.saveValue("isSignInFirst", "0");
             signData.setDayli_flag(1);
             adapter.notifyDataSetChanged();

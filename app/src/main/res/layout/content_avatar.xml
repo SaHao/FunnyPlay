@@ -21,6 +21,7 @@
         android:id="@+id/iv_select"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:visibility="gone"
         android:src="@mipmap/icon_avatar_select"
         app:layout_constraintEnd_toEndOf="@+id/iv_logo"
         app:layout_constraintTop_toTopOf="@+id/iv_logo" />
@@ -35,6 +36,7 @@
         android:orientation="horizontal"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/iv_logo"
         app:layout_constraintStart_toStartOf="@+id/iv_logo"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo">
@@ -56,10 +58,12 @@
 
     <TextView
         android:id="@+id/tv_use"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="29dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/shape_shop_use"
+        android:gravity="center"
+        android:text="@string/Use"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:visibility="gone"
@@ -69,10 +73,12 @@
 
     <TextView
         android:id="@+id/tv_inUse"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="29dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/shape_shop_in_use"
+        android:gravity="center"
+        android:text="@string/InUse"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:visibility="gone"

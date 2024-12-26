@@ -16,6 +16,8 @@
     <!--    商店-->
     <string name="Avatar">Avatar</string>
     <string name="AvatarFrame">Avatar Frame</string>
+    <string name="Use">Use</string>
+    <string name="InUse">In use</string>
 
     <!--    个人-->
     <string name="RecentlyPlayed">Recently Played</string>

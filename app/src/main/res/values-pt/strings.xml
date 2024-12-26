@@ -17,6 +17,8 @@
     <!--    Loja-->
     <string name="Avatar">Avatar</string>
     <string name="AvatarFrame">Moldura do Avatar</string>
+    <string name="Use">Usar</string>
+    <string name="InUse">Em uso</string>
 
     <!--    Perfil-->
     <string name="RecentlyPlayed">Jogados Recentemente</string>

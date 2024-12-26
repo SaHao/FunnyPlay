@@ -17,6 +17,8 @@
     <!--    Toko-->
     <string name="Avatar">Avatar</string>
     <string name="AvatarFrame">Bingkai Avatar</string>
+    <string name="Use">Gunakan</string>
+    <string name="InUse">Sedang digunakan</string>
 
     <!--    Profil-->
     <string name="RecentlyPlayed">Baru Saja Dimainkan</string>

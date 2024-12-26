@@ -17,6 +17,8 @@
     <!--    ร้านค้า-->
     <string name="Avatar">อวาตาร์</string>
     <string name="AvatarFrame">กรอบอวาตาร์</string>
+    <string name="Use">ใช้</string>
+    <string name="InUse">กำลังใช้งาน</string>
 
     <!--    โปรไฟล์-->
     <string name="RecentlyPlayed">เล่นล่าสุด</string>

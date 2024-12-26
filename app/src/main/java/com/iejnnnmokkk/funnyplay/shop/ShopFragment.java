@@ -91,20 +91,22 @@ public class ShopFragment extends BaseFragment implements IShopView {
             if (bean != null && bean.getData() != null) {
 //                setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //                tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-                Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
-                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
                 tvMoney.setText(bean.getData().getBalance());
             }
         }
 
         frameAdapter.setListener((bean, type) -> {
             if (type.equals("use")) {
+                LoadingUtil.showLoading(activity);
                 presenter.use(bean.getGid());
             } else if (type.equals("buy")) {
                 dialog.show();
                 dialog.setMoney(bean.getCoins() + "");
                 dialog.setListener(index -> {
                     if (index == 1) {
+                        LoadingUtil.showLoading(activity);
                         presenter.buy(bean.getGid());
                     }
                 });
@@ -113,12 +115,14 @@ public class ShopFragment extends BaseFragment implements IShopView {
 
         avatarAdapter.setListener((bean, type) -> {
             if (type.equals("use")) {
+                LoadingUtil.showLoading(activity);
                 presenter.use(bean.getGid());
             } else if (type.equals("buy")) {
                 dialog.show();
                 dialog.setMoney(bean.getCoins() + "");
                 dialog.setListener(index -> {
                     if (index == 1) {
+                        LoadingUtil.showLoading(activity);
                         presenter.buy(bean.getGid());
                     }
                 });
@@ -145,6 +149,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
 
     @Override
     public void buy(ShopBean bean) {
+        LoadingUtil.hideLoading();
         if (bean.getCode() == 200) {
             presenter.getData();
         } else {
@@ -167,11 +172,12 @@ public class ShopFragment extends BaseFragment implements IShopView {
 
     @Override
     public void getUserInfo(UserInfoBean bean) {
+        LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
 //            setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //            tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-            Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
-            Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhotoBack);
+            Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
+            Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
             tvMoney.setText(bean.getData().getBalance());
         }
     }
