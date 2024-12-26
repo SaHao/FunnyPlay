@@ -28,7 +28,7 @@
     <string name="confirm">Confirmar gasto</string>
     <string name="redeem">para resgatar este item</string>
     <string name="cancel">Cancelar</string>
-    <string name="change">Alterar</string>
+    <string name="change">confirmar</string>
 
     <!--    Histórico de saque-->
     <string name="Diamonds">Diamantes</string>

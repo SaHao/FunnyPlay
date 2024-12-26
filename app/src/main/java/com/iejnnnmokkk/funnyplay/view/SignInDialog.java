@@ -116,6 +116,11 @@ public class SignInDialog extends Dialog {
         imageViews = new ImageView[]{ivDay1, ivDay2, ivDay3, ivDay4, ivDay5, ivDay6, ivDay7};
         logos = new ImageView[]{ivSignLogo1, ivSignLogo2, ivSignLogo3, ivSignLogo4, ivSignLogo5, ivSignLogo6, ivSignLogo7};
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         tvWatch.setVisibility(SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1") ? View.GONE : View.VISIBLE);
     }
 

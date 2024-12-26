@@ -75,6 +75,7 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     protected void onResume() {
         super.onResume();
         if (isGet) {
+            LoadingUtil.showLoading(activity);
             pageNum = 1;
             presenter.getData(pageNum, id);
         }

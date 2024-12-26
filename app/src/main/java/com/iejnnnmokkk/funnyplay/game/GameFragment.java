@@ -81,6 +81,7 @@ public class GameFragment extends BaseFragment implements IGameView {
                 dialog.show();
                 dialog.setData(signData);
                 dialog.setListener((id, money) -> {
+                    LoadingUtil.showLoading(activity);
                     presenter.signIn(id);
                 });
             }

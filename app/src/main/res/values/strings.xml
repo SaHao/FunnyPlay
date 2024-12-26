@@ -27,7 +27,7 @@
     <string name="confirm">Confirm spending</string>
     <string name="redeem">to redeem this item</string>
     <string name="cancel">cancel</string>
-    <string name="change">change</string>
+    <string name="change">comfirm</string>
 
     <!--    提现记录-->
     <string name="Diamonds">Diamonds</string>
