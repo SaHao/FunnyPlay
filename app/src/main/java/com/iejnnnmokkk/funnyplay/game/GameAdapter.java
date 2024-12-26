@@ -99,7 +99,7 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
 //            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
 //            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
-            Glide.with(context).load(getNull(userInfo.getTouxiang())).into(((HeaderViewHolder) holder).ivPhoto);
+            Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getFrame())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
             ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getMy_task_count() + "");

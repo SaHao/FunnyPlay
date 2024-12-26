@@ -91,7 +91,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
             if (bean != null && bean.getData() != null) {
 //                setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //                tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-                Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
                 tvMoney.setText(bean.getData().getBalance());
             }
@@ -176,7 +176,7 @@ public class ShopFragment extends BaseFragment implements IShopView {
         if (bean != null && bean.getData() != null) {
 //            setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //            tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-            Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
+            Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
             Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
             tvMoney.setText(bean.getData().getBalance());
         }

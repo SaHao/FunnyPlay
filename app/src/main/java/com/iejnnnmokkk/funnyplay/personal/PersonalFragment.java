@@ -73,7 +73,7 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         if (!TextUtils.isEmpty(user)) {
             UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
             if (bean != null && bean.getData() != null) {
-                Glide.with(context).load(getNull(bean.getData().getTouxiang())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
                 tvName.setText(getNull(bean.getData().getNickname()));
             }
@@ -98,6 +98,7 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         LoadingUtil.hideLoading();
         if (bean != null && bean.getData() != null) {
             adapter.setData(bean.getData(), true);
+            llTask.setVisibility(View.VISIBLE);
         } else {
             llTask.setVisibility(View.GONE);
         }
