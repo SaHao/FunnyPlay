@@ -52,6 +52,7 @@ dependencies {
     api libs.rxeasyhttp
 //    圆角
     api libs.com.makeramen.roundedimageview
+    implementation project(':TopOnLibrary')
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

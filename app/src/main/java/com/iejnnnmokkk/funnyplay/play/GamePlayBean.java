@@ -1,10 +1,10 @@
-package com.iejnnnmokkk.funnyplay.library.detail;
+package com.iejnnnmokkk.funnyplay.play;
 
 import com.iejnnnmokkk.common.http.bean.BaseBean;
 
 import java.util.List;
 
-public class GameDetailBean extends BaseBean {
+public class GamePlayBean extends BaseBean {
 
     private DataBean data;
     private int count;
@@ -25,7 +25,7 @@ public class GameDetailBean extends BaseBean {
         this.count = count;
     }
 
-    public static class DataBean {
+   public static class DataBean {
         private String name;
         private int type;
         private String no;
@@ -469,7 +469,7 @@ public class GameDetailBean extends BaseBean {
         }
     }
 
-    static class Step {
+    public static class Step {
         private List<AdCallback> ad_callback;
 
         // Getters and Setters
@@ -477,7 +477,7 @@ public class GameDetailBean extends BaseBean {
         public void setAd_callback(List<AdCallback> ad_callback) { this.ad_callback = ad_callback; }
     }
 
-    static class AdCallback {
+   public static class AdCallback {
         private String server_name;
         private List<AdCallbackData> data;
 

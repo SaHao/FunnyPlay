@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.iejnnnmokkk.funnyplay"
-        minSdk 23
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
@@ -52,6 +52,7 @@ dependencies {
     implementation libs.github.glide
     annotationProcessor libs.glide.compiler
     implementation(project(":common"))
+    implementation(project(":TopOnLibrary"))
     implementation 'org.greenrobot:eventbus:3.2.0'
 //    testImplementation libs.junit
 //    androidTestImplementation libs.ext.junit

@@ -29,6 +29,8 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import io.iaa.topon.library.TopOnManager;
+
 /**
  * @author Sun
  * @Demo class BaseApplication
@@ -49,17 +51,11 @@ public class BaseApplication extends Application {
         initAD();
     }
     private void initAD() {
-        String environment = AdjustConfig.ENVIRONMENT_PRODUCTION;
-        AdjustConfig config = new AdjustConfig(this, "91uofrt1znr4", environment);
-        config.enableSendingInBackground();
-        config.setOnAttributionChangedListener(new OnAttributionChangedListener() {
-            @Override
-            public void onAttributionChanged(AdjustAttribution attribution) {
-                String string = attribution.toString();
-            }
-        });
-        Adjust.initSdk(config);
-        registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());
+        TopOnManager.getInstance(this)
+                .setEnabledLog(true)
+                .setEnvironment(true)
+                .initAdjust("1f4ixw19lt0g")
+                .initTopOn("h675ba24fea676","a5f0fff6f479ba52f2eaf3970fdb4be26");
     }
 
     private static final class AdjustLifecycleCallbacks implements ActivityLifecycleCallbacks {

@@ -67,6 +67,7 @@
     <string name="error">Failed to retrieve data.</string>
     <string name="getSuccess">Successfully claimed.</string>
     <string name="loginFailed">Login failed, retrying...</string>
+    <string name="mission_complete" translatable="false">Mission Complete</string>
 
 
 </resources>

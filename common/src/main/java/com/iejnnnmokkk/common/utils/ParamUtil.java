@@ -17,6 +17,7 @@ import com.makeramen.roundedimageview.BuildConfig;
 import java.io.IOException;
 
 public class ParamUtil {
+    public static final String GAME_PLAY_TIME_KEY="588d7c648196df853ba365b13abfd65d";
     public static String getAdId(Context context) {
         String gaid = "";
         try {

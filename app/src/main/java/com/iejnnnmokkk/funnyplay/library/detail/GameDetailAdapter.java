@@ -18,7 +18,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GameDetailAdapter extends BaseAdapter<GameDetailBean.DataBean.AllBean.AllDataBean, RecyclerView.ViewHolder> {
+public class GameDetailAdapter extends BaseAdapter<GameDetailBean.AllDataBean, RecyclerView.ViewHolder> {
 
     private static final int HEADER = 0;
     private static final int CONTENT = 1;

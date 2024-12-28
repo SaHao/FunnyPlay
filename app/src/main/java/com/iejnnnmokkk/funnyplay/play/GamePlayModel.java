@@ -1,8 +1,7 @@
-package com.iejnnnmokkk.funnyplay.library.detail;
+package com.iejnnnmokkk.funnyplay.play;
 
 import android.content.Context;
 
-import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
@@ -15,15 +14,15 @@ import com.zhouyou.http.exception.ApiException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GameDetailModel {
+public class GamePlayModel {
 
     private Context context;
 
-    public GameDetailModel(Context context) {
+    public GamePlayModel(Context context) {
         this.context = context;
     }
 
-    public void getData(int pageNum, String id, BaseNetworkCallback<GameDetailBean> callback) {
+    public void getData(int pageNum, String id, BaseNetworkCallback<GamePlayBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_gamecpl_task_info";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", ParamUtil.isVpn(context));
@@ -47,14 +46,14 @@ public class GameDetailModel {
                     @Override
                     public void onSuccess(String response) {
                         try {
-                            callback.onSuccess(GsonUtils.fromJson(response, GameDetailBean.class));
+                            callback.onSuccess(GsonUtils.fromJson(response, GamePlayBean.class));
                         } catch (Exception e) {
-                            callback.onSuccess(new GameDetailBean());
+                            callback.onSuccess(new GamePlayBean());
                         }
                     }
                 });
     }
-    public void getTask(String id, BaseNetworkCallback<GameDetailBean> callback) {
+    public void getTask(String id, BaseNetworkCallback<GamePlayBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_task_start";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", ParamUtil.isVpn(context));
@@ -76,9 +75,9 @@ public class GameDetailModel {
                     @Override
                     public void onSuccess(String response) {
                         try {
-                            callback.onSuccess(GsonUtils.fromJson(response, GameDetailBean.class));
+                            callback.onSuccess(GsonUtils.fromJson(response, GamePlayBean.class));
                         } catch (Exception e) {
-                            callback.onSuccess(new GameDetailBean());
+                            callback.onSuccess(new GamePlayBean());
                         }
                     }
                 });

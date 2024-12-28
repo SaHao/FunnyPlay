@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -17,11 +18,25 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.anythink.core.api.ATAdInfo;
+import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseActivity;
 import com.iejnnnmokkk.funnyplay.databinding.ActivityGamePlayBinding;
+import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayData;
+import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayVideoAds;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
+import java.util.Objects;
+
+import io.iaa.topon.library.TopOnAds;
+import io.iaa.topon.library.TopOnEvent;
+import io.iaa.topon.library.TopOnRewardedAdsListener;
 
 
 public class GamePlayActivity extends BaseActivity {
@@ -37,11 +52,11 @@ public class GamePlayActivity extends BaseActivity {
     private String no;
     private String gameUrl;
     private int targetAdsNumber;
-    private GameInfoDetails details;
-
+    private GamePlayViewModel gamePlayViewModel;
+    private GamePlayBean.DataBean details = new GamePlayBean.DataBean();
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
-//        gamePlayViewModel = new ViewModelProvider(this).get(GamePlayViewModel.class);
+        gamePlayViewModel = new ViewModelProvider(this).get(GamePlayViewModel.class);
         binding = ActivityGamePlayBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.close.setOnClickListener(view->{
@@ -54,13 +69,13 @@ public class GamePlayActivity extends BaseActivity {
         no = getIntent().getStringExtra("no");
         gameUrl = getIntent().getStringExtra("gameUrl");
         initWebView();
-//        gamePlayViewModel.gameInfo.observe(this, gameInfoDetails -> {
-//            if(null!=gameInfoDetails){
-//                details = gameInfoDetails;
-//                setDetailsData(gameInfoDetails);
-//            }
-//        });
-//        gamePlayViewModel.getGameInfoDetails(no);
+        gamePlayViewModel.gameInfo.observe(this, gameInfoDetails -> {
+            if(null!=gameInfoDetails){
+                details = gameInfoDetails;
+                setDetailsData(gameInfoDetails);
+            }
+        });
+        gamePlayViewModel.getGameInfoDetails(no);
     }
 
     @Override
@@ -127,24 +142,37 @@ public class GamePlayActivity extends BaseActivity {
         binding.webView.loadUrl(gameUrl);
     }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onEvent(GamePlayVideoAds event) { //视频开始播放回调
-//        TapOnManager.loadVideoAds(activity, status -> {
-//            if(status==1){
-//                dismiss();
-//                binding.webView.evaluateJavascript("showAdsStatus();", null);
-//            }else if(status==2){
-//                dismiss();
-//                receiveGameReward(event.getAction());
-//            }else if(status==-1){
-//                dismiss();
-//                evaluateJavascript(0,event.getAction());
-//            }
-//        });
-//    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(GamePlayVideoAds event) { //视频开始播放回调
+        TopOnAds.loadRewardAd(activity, "n675ba286f407f", "", new TopOnRewardedAdsListener() {
+            @Override
+            public void onAdLoadShow() {
+                TopOnEvent.logEventADorFA(activity,"acloiyxa","ad_show");
+                binding.webView.evaluateJavascript("showAdsStatus();", null);
+            }
+            @Override
+            public void onAdHidden(ATAdInfo adInfo) {
+                TopOnEvent.logEventADorFA(activity,"acloiyxa","ad_hidden");
+                evaluateJavascript(0,event.getAction());
+            }
+            @Override
+            public void onUserRewarded(ATAdInfo adInfo) {
+                TopOnEvent.logEventADorFA(activity,"acloiyxa","ad_reward");
+                receiveGameReward(event.getAction());
+            }
+            @Override
+            public void onAdClicked(ATAdInfo adInfo) {
+                TopOnEvent.logEventADorFA(activity,"acloiyxa","ads_click");
+            }
+            @Override
+            public void onAdLoadFailed(String s) {
+                TopOnEvent.logEventADorFA(activity,"acloiyxa","ad_failed");
+            }
+        });
+    }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onEvent(GamePlayData event) { //游戏数据返回
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(GamePlayData event) { //游戏数据返回
 //        String json = event.getJson();
 //        String searchWord = details.getSearch_word();
 //        if(TextUtils.isEmpty(searchWord))return;
@@ -166,9 +194,9 @@ public class GamePlayActivity extends BaseActivity {
 //            if (split.length >= 2) {
 //                e2 = getEventStr(split[1], checkpoint, timeD);
 //            }
-////            MiniLog.e("签名前sign = "+(no + e1 + e2 + timeMillis + Constants.OLD_KEY));
+//            MiniLog.e("签名前sign = "+(no + e1 + e2 + timeMillis + Constants.OLD_KEY));
 //            String sign = Tools.Companion.getMD5Sign(no + e1 + e2 + timeMillis + Constants.OLD_KEY);
-////            MiniLog.e("签名后sign = "+sign);
+//            MiniLog.e("签名后sign = "+sign);
 //            if(isLevel||isDeposit||isAdCallback||isScore||isCoins){
 //                MiniLog.e("达到目标>>>上报服务器>>>receiveOldGameReward");
 //                gamePlayViewModel.receiveOldGameReward(no, timeMillis,e1,e2,sign);
@@ -184,34 +212,33 @@ public class GamePlayActivity extends BaseActivity {
 //            newGameData.setSignature(signature);
 //            gamePlayViewModel.receiveNewGameReward(newGameData);
 //        }
-//
-//    }
 
-//    public void setDetailsData(GameInfoDetails data) {
-//        List<DetailsContent> contentList = Objects.requireNonNull(data.getAll()).get(0).getData();
-//        DetailsContent taskTarget = getTargetCoin(contentList);
-//        if(null!=taskTarget){
-//            binding.tvTargetTitle.setText(taskTarget.getTitle());
-//            binding.tvTargetCoin.setText(String.valueOf(taskTarget.getReward()));
-//            targetAdsNumber = taskTarget.getCondition();
-//        }
-//        if(data.getTask_reward()>0){ //有奖励可以领取
-//            binding.tvReward.setText(String.valueOf(data.getTask_reward()));
-//            binding.llReward.setVisibility(View.VISIBLE);
-//            binding.llReward.postDelayed(()->{
-//                binding.llReward.setVisibility(View.GONE);
-//            },2500);
-////            SoundTools.play(this);
-//            EventBus.getDefault().post(new GamePlayRewardNotify(data.getTask_reward()));//通知详情页面弹窗
-//            binding.llReward.postDelayed(()->{
-//                //延迟1秒去刷新用户信息
+    }
+
+    public void setDetailsData(GamePlayBean.DataBean data) {
+        List<GamePlayBean.AllDataBean> contentList = Objects.requireNonNull(data.getAll()).get(0).getData();
+        GamePlayBean.AllDataBean taskTarget = getTargetCoin(contentList);
+        if(null!=taskTarget){
+            binding.tvTargetTitle.setText(taskTarget.getTitle());
+            binding.tvTargetCoin.setText(String.valueOf(taskTarget.getReward()));
+            targetAdsNumber = taskTarget.getCondition();
+        }
+        if(data.getTask_reward()>0){ //有奖励可以领取
+            binding.tvReward.setText(String.valueOf(data.getTask_reward()));
+            binding.llReward.setVisibility(View.VISIBLE);
+            binding.llReward.postDelayed(()->{
+                binding.llReward.setVisibility(View.GONE);
+            },2500);
+//            SoundTools.play(this);
+            binding.llReward.postDelayed(()->{
+                //延迟1秒去刷新用户信息
 //                Net.INSTANCE.getUserData(true);//刷新用户信息
-//            },1000);
-//        }
-//    }
-    private DetailsContent getTargetCoin(List<DetailsContent> contentList) {
-        DetailsContent eventContent = null; //下一次领取的奖励
-        for (DetailsContent dc: contentList) {
+            },1000);
+        }
+    }
+    private GamePlayBean.AllDataBean getTargetCoin(List<GamePlayBean.AllDataBean> contentList) {
+        GamePlayBean.AllDataBean eventContent = null; //下一次领取的奖励
+        for (GamePlayBean.AllDataBean dc: contentList) {
             if (dc.getStatus() == 0) {
                 eventContent = dc;
                 break;
@@ -225,47 +252,47 @@ public class GamePlayActivity extends BaseActivity {
 
     private boolean isLevel,isDeposit,isAdCallback,isScore,isCoins;
     private long currentTime;
-//    private String getEventStr(String eventStr, String checkpoint, long timeD) {
+    private String getEventStr(String eventStr, String checkpoint, long timeD) {
 //        if ("add_level".equals(eventStr)) {//等级
-//            List<DetailsContent> data = details.getStep().getAdd_level().get(0).getData();
-//            DetailsContent targetCoin = getTargetCoin(data);
+//            List<GamePlayBean.AllDataBean> data = details.getStep().getAdd_level().get(0).getData();
+//            GamePlayBean.AllDataBean targetCoin = getTargetCoin(data);
 //            MiniLog.e("getEventStr>>>add_level = "+checkpoint+",scoreNum = "+targetCoin.getCondition());
 //            isLevel = Integer.parseInt(checkpoint)>=targetCoin.getCondition();
 //            return checkpoint;
 //        }
 //        if ("deposit".equals(eventStr)) {//deposit
-//            List<DetailsContent> data = details.getStep().getDeposit().get(0).getData();
-//            DetailsContent targetCoin = getTargetCoin(data);
+//            List<GamePlayBean.AllDataBean> data = details.getStep().getDeposit().get(0).getData();
+//            GamePlayBean.AllDataBean targetCoin = getTargetCoin(data);
 //            MiniLog.e("getEventStr>>>deposit = "+timeD+",depositNum = "+targetCoin.getCondition());
 //            isDeposit = timeD >= targetCoin.getCondition();
 //            return String.valueOf(timeD);
 //        }
 //        if ("ad_callback".equals(eventStr)) {//ad_callback
-//            List<DetailsContent> data = details.getStep().getAd_callback().get(0).getData();
-//            DetailsContent targetCoin = getTargetCoin(data);
+//            List<GamePlayBean.AdCallbackData> data = details.getStep().getAd_callback().get(0).getData();
+//            GamePlayBean.AllDataBean targetCoin = getTargetCoin(data);
 //            MiniLog.e("getEventStr>>>ad_callback = "+currAdsNum+",adCallbackNum = "+targetCoin.getCondition());
 //            isAdCallback = currAdsNum >= targetCoin.getCondition();
 //            return String.valueOf(currAdsNum);
 //        }
 //        if ("score".equals(eventStr)) {//score
-//            List<DetailsContent> data = details.getStep().getScore().get(0).getData();
-//            DetailsContent targetCoin = getTargetCoin(data);
+//            List<GamePlayBean.AllDataBean> data = details.getStep().getScore().get(0).getData();
+//            GamePlayBean.AllDataBean targetCoin = getTargetCoin(data);
 //            MiniLog.e("getEventStr>>>score = "+checkpoint+",scoreNum = "+targetCoin.getCondition());
 //            isScore = Integer.parseInt(checkpoint)>=targetCoin.getCondition();
 //            return checkpoint;
 //        }
-//        if ("coins".equals(eventStr)) {//coins
-////            List<DetailsContent> data = details.getStep().getCoins().get(0).getData();
-////            DetailsContent targetCoin = getTargetCoin(data);
-////            MiniLog.e("getEventStr>>>coins = "+checkpoint+",coinsNum = "+targetCoin.getCondition());
-////            isCoins = Integer.parseInt(checkpoint)>=targetCoin.getCondition();
-//            return checkpoint;
-//        }
-//        return "";
-//    }
+        if ("coins".equals(eventStr)) {//coins
+//            List<GamePlayBean.AllDataBean> data = details.getStep().getCoins().get(0).getData();
+//            GamePlayBean.AllDataBean targetCoin = getTargetCoin(data);
+//            MiniLog.e("getEventStr>>>coins = "+checkpoint+",coinsNum = "+targetCoin.getCondition());
+//            isCoins = Integer.parseInt(checkpoint)>=targetCoin.getCondition();
+            return checkpoint;
+        }
+        return "";
+    }
 
     private int currAdsNum;
-//    public void receiveGameReward(String action) { //视频播放完成回调
+    public void receiveGameReward(String action) { //视频播放完成回调
 //        evaluateJavascript(1,action);
 //        currAdsNum = (int) MiniPlayApp.getApplication().getValue(Constants.GAME_PLAY_ADS_NUMBER+no, 0);
 //        currAdsNum = currAdsNum+1;
@@ -284,7 +311,7 @@ public class GamePlayActivity extends BaseActivity {
 //                gamePlayViewModel.receiveNewGameReward(no,timeMillis,action,String.valueOf(currAdsNum),signature);
 //            }
 //        }
-//    }
+    }
 
     private void evaluateJavascript(int i,String action) {
         String js;

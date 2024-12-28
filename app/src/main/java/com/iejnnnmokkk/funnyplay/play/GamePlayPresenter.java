@@ -1,23 +1,23 @@
-package com.iejnnnmokkk.funnyplay.library.detail;
+package com.iejnnnmokkk.funnyplay.play;
 
 import android.content.Context;
 
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 
-public class GameDetailPresenter {
+public class GamePlayPresenter {
 
-    private IGameDetailView view;
-    private GameDetailModel model;
+    private IGamePlayView view;
+    private GamePlayModel model;
 
-    public GameDetailPresenter(Context context, IGameDetailView view) {
+    public GamePlayPresenter(Context context, IGamePlayView view) {
         this.view = view;
-        model = new GameDetailModel(context);
+        model = new GamePlayModel(context);
     }
 
     public void getData(int pageNum, String id) {
-        model.getData(pageNum, id, new BaseNetworkCallback<GameDetailBean>() {
+        model.getData(pageNum, id, new BaseNetworkCallback<GamePlayBean>() {
             @Override
-            public void onSuccess(GameDetailBean bean) {
+            public void onSuccess(GamePlayBean bean) {
                 view.getData(bean);
             }
 
@@ -28,9 +28,9 @@ public class GameDetailPresenter {
         });
     }
     public void getTask(String id) {
-        model.getTask(id, new BaseNetworkCallback<GameDetailBean>() {
+        model.getTask(id, new BaseNetworkCallback<GamePlayBean>() {
             @Override
-            public void onSuccess(GameDetailBean bean) {
+            public void onSuccess(GamePlayBean bean) {
                 view.getData(bean);
             }
 

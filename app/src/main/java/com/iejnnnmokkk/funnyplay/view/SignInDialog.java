@@ -11,12 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.anythink.core.api.ATAdInfo;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.iaa.topon.library.TopOnAds;
+import io.iaa.topon.library.TopOnEvent;
+import io.iaa.topon.library.TopOnRewardedAdsListener;
 
 /**
  * @author Sun
@@ -136,37 +140,58 @@ public class SignInDialog extends Dialog {
                 break;
             case R.id.cl_day2:
 //                if(bean.getDayli_num() == 2 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_2());
 //                }
                 break;
             case R.id.cl_day3:
 //                if(bean.getDayli_num() == 3 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_3());
 //                }
                 break;
             case R.id.cl_day4:
 //                if(bean.getDayli_num() == 4 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_4());
 //                }
                 break;
             case R.id.cl_day5:
 //                if(bean.getDayli_num() == 5 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_5());
 //                }
                 break;
             case R.id.cl_day6:
 //                if(bean.getDayli_num() == 6 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_6());
 //                }
                 break;
             case R.id.cl_day7:
 //                if(bean.getDayli_num() == 7 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id);
+//                    listener.onSignInClick(id,bean.getRes().getReward_7());
 //                }
                 break;
             case R.id.tv_Watch:
                 if (bean.getDayli_flag() == 0) {
-//                看广告
+                    TopOnAds.loadRewardAd(context, "n675ba286f407f", "n676a5e9419689", new TopOnRewardedAdsListener() {
+                        @Override
+                        public void onAdLoadShow() {
+                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_show");
+                        }
+                        @Override
+                        public void onAdHidden(ATAdInfo adInfo) {
+                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_hidden");
+                        }
+                        @Override
+                        public void onUserRewarded(ATAdInfo adInfo) {
+                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_reward");
+                        }
+                        @Override
+                        public void onAdClicked(ATAdInfo adInfo) {
+                            TopOnEvent.logEventADorFA(context,"acloiyxa","ads_click");
+                        }
+                        @Override
+                        public void onAdLoadFailed(String s) {
+                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_failed");
+                        }
+                    });
                 }
                 break;
         }

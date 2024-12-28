@@ -122,8 +122,11 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
                 break;
             case R.id.tv_play:
                 if (!TextUtils.isEmpty(bean.getPackage_name())) {
+                    if (bean.getIs_get() != 1) {
+                        presenter.getTask(id);
+                    }
                     if (bean.getPackage_name().equalsIgnoreCase("h5")) {
-                        GamePlayActivity.playGame(GameDetailActivity.this,bean.getNo(),bean.getApp_url());
+                        GamePlayActivity.playGame(GameDetailActivity.this, bean.getNo(), bean.getApp_url());
                     } else {
                         launchAppByPackageName(context, getNull(bean.getApp_url()));
                     }

@@ -40,7 +40,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@mipmap/icon_gift"/>
+                    android:src="@mipmap/coin"/>
                 <TextView
                     android:id="@+id/tvTargetCoin"
                     android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
             android:layout_height="27dp"
             android:padding="5dp"
             android:layout_marginEnd="10dp"
-            android:src="@mipmap/icon_back"
+            android:src="@drawable/close"
             android:adjustViewBounds="true" />
 
     </LinearLayout>
@@ -70,7 +70,7 @@
         android:progress="0"
         android:visibility="gone"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:progressTint="@color/notSignIn"/>
+        android:progressTint="@color/main_bg"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,25 +90,26 @@
             android:visibility="gone"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="7dp"
+            android:background="@drawable/game_reward_bg"
             android:gravity="center_vertical">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                />
+                android:src="@drawable/game_info_yes"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_marginStart="5dp"
-                android:text="关卡结束"/>
+                android:text="@string/mission_complete"/>
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="11dp"
-                android:src="@mipmap/icon_gift"/>
+                android:src="@mipmap/coin"/>
 
             <TextView
                 android:id="@+id/tvReward"
