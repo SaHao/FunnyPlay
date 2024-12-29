@@ -1,13 +1,16 @@
 package com.iejnnnmokkk.funnyplay.play;
+
+import android.content.Context;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.AppContext;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.R;
-import com.iejnnnmokkk.funnyplay.library.detail.GameDetailBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -26,7 +29,7 @@ public class GamePlayViewModel extends ViewModel {
         receiveSuccess = new MutableLiveData<>();
     }
 
-    public void getGameInfoDetails(String no){
+    public void getGameInfoDetails(Context context, String no, BaseNetworkCallback<GamePlayBean.DataBean> callback){
         String url = "https://api.keepad.xyz/daily_reward/daily_gamecpl_task_info";
         Map<String, String> map = new HashMap<>();
         map.put("is_vpn", ParamUtil.isVpn(AppContext.getContext()));
@@ -42,6 +45,7 @@ public class GamePlayViewModel extends ViewModel {
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onError(ApiException e) {
+                        callback.onFailure(context.getResources().getString(R.string.error));
                     }
 
                     @Override
@@ -49,6 +53,7 @@ public class GamePlayViewModel extends ViewModel {
                         try {
                             GamePlayBean.DataBean data = GsonUtils.fromJson(response, GamePlayBean.class).getData();
                             gameInfo.setValue(data);
+                            callback.onSuccess(data);
                         } catch (Exception e) {
                         }
                     }

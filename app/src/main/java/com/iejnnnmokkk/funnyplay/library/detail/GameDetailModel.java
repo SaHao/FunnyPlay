@@ -2,7 +2,6 @@ package com.iejnnnmokkk.funnyplay.library.detail;
 
 import android.content.Context;
 
-import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
 import com.iejnnnmokkk.common.utils.ParamUtil;
@@ -29,7 +28,7 @@ public class GameDetailModel {
         map.put("is_vpn", ParamUtil.isVpn(context));
         map.put("channel", ParamUtil.getPlatform());
         map.put("version", ParamUtil.getVersionName(context));
-        map.put("limit", "20");
+        map.put("limit", "2000");
         map.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
         map.put("versionCode", ParamUtil.getVersionCode(context) + "");
         map.put("page", pageNum + "");

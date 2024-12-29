@@ -27,6 +27,7 @@ public class GamePlayPresenter {
             }
         });
     }
+
     public void getTask(String id) {
         model.getTask(id, new BaseNetworkCallback<GamePlayBean>() {
             @Override

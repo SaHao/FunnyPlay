@@ -1,7 +1,5 @@
 package com.iejnnnmokkk.funnyplay.play;
 
-import static android.app.ProgressDialog.show;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -21,13 +18,13 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.anythink.core.api.ATAdInfo;
-import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseActivity;
+import com.iejnnnmokkk.common.http.BaseNetworkCallback;
+import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.databinding.ActivityGamePlayBinding;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayData;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayVideoAds;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -39,7 +36,7 @@ import io.iaa.topon.library.TopOnEvent;
 import io.iaa.topon.library.TopOnRewardedAdsListener;
 
 
-public class GamePlayActivity extends BaseActivity {
+public class GamePlayActivity extends BaseActivity implements IGamePlayView {
 
     public static void playGame(Activity activity, String no, String gameUrl) {
         Intent intent = new Intent(activity, GamePlayActivity.class);
@@ -54,6 +51,7 @@ public class GamePlayActivity extends BaseActivity {
     private int targetAdsNumber;
     private GamePlayViewModel gamePlayViewModel;
     private GamePlayBean.DataBean details = new GamePlayBean.DataBean();
+
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
         gamePlayViewModel = new ViewModelProvider(this).get(GamePlayViewModel.class);
@@ -75,7 +73,17 @@ public class GamePlayActivity extends BaseActivity {
                 setDetailsData(gameInfoDetails);
             }
         });
-        gamePlayViewModel.getGameInfoDetails(no);
+        gamePlayViewModel.getGameInfoDetails(context, no, new BaseNetworkCallback<GamePlayBean.DataBean>() {
+            @Override
+            public void onSuccess(GamePlayBean.DataBean bean) {
+
+            }
+
+            @Override
+            public void onFailure(String error) {
+                ToastUtils.showShort(context, error);
+            }
+        });
     }
 
     @Override
@@ -332,5 +340,15 @@ public class GamePlayActivity extends BaseActivity {
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+
+    @Override
+    public void getData(GamePlayBean bean) {
+
+    }
+
+    @Override
+    public void onFailed(String msg) {
+
     }
 }

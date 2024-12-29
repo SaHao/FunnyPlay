@@ -65,8 +65,7 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
 
             @Override
             public void onLoadMoreData() {
-                pageNum += 1;
-                presenter.getData(pageNum, id);
+                refreshLayout.finishLoadMoreWithNoMoreData();
             }
         });
     }
@@ -74,11 +73,9 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     @Override
     protected void onResume() {
         super.onResume();
-//        if (isGet) {
             LoadingUtil.showLoading(activity);
             pageNum = 1;
             presenter.getData(pageNum, id);
-//        }
     }
 
     @Override

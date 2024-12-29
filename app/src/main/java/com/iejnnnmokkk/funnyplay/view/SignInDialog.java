@@ -181,6 +181,7 @@ public class SignInDialog extends Dialog {
                         }
                         @Override
                         public void onUserRewarded(ATAdInfo adInfo) {
+                            listener.onSignInClick(id, bean.getRes().getReward_1());
                             TopOnEvent.logEventADorFA(context,"acloiyxa","ad_reward");
                         }
                         @Override
