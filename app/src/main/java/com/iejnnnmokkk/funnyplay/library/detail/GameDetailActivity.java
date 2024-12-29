@@ -74,11 +74,11 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     @Override
     protected void onResume() {
         super.onResume();
-        if (isGet) {
+//        if (isGet) {
             LoadingUtil.showLoading(activity);
             pageNum = 1;
             presenter.getData(pageNum, id);
-        }
+//        }
     }
 
     @Override
@@ -97,7 +97,22 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
                 adapter.setData(bean.getData().getAll().get(0).getData(), pageNum == 1);
             }
             adapter.setHeaderBean(bean.getData());
-            isGet = bean.getData().getIs_get() == 1;
+            isGet = bean.getData().getIs_get() != 1;
+        }
+    }
+
+    @Override
+    public void getTask(GameDetailBean data) {
+        if (data != null && data.getCode() == 200) {
+            if (!TextUtils.isEmpty(bean.getPackage_name())) {
+                if (bean.getPackage_name().equalsIgnoreCase("h5")) {
+                    GamePlayActivity.playGame(GameDetailActivity.this, bean.getNo(), bean.getApp_url());
+                } else {
+                    launchAppByPackageName(context, getNull(bean.getApp_url()));
+                }
+            }
+        } else {
+            ToastUtils.showShort(context, context.getResources().getString(R.string.taskFailed));
         }
     }
 
@@ -121,14 +136,15 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
                 finish();
                 break;
             case R.id.tv_play:
-                if (!TextUtils.isEmpty(bean.getPackage_name())) {
-                    if (bean.getIs_get() != 1) {
-                        presenter.getTask(id);
-                    }
-                    if (bean.getPackage_name().equalsIgnoreCase("h5")) {
-                        GamePlayActivity.playGame(GameDetailActivity.this, bean.getNo(), bean.getApp_url());
-                    } else {
-                        launchAppByPackageName(context, getNull(bean.getApp_url()));
+                if (bean.getIs_get() != 1) {
+                    presenter.getTask(id);
+                } else {
+                    if (!TextUtils.isEmpty(bean.getPackage_name())) {
+                        if (bean.getPackage_name().equalsIgnoreCase("h5")) {
+                            GamePlayActivity.playGame(GameDetailActivity.this, bean.getNo(), bean.getApp_url());
+                        } else {
+                            launchAppByPackageName(context, getNull(bean.getApp_url()));
+                        }
                     }
                 }
                 break;

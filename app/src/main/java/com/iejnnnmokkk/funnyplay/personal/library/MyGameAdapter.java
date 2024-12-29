@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
-import com.iejnnnmokkk.common.utils.DateUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -32,7 +31,7 @@ public class MyGameAdapter extends BaseAdapter<MyGameBean.DataBean, MyGameAdapte
     protected void onBindHolder(@NonNull MyGameAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
         holder.tvName.setText(getNull(data.get(position).getName()));
-        holder.tvDate.setText(DateUtils.timestampToDate(data.get(position).getTask_time(), "yyyy-MM-dd"));
+        holder.tvDate.setText(getNull(data.get(position).getDate_time()));
         holder.tvMoney.setText(data.get(position).getReward() + "");
         if (data.get(position).getStatus() == 0) {
             holder.tvProgress.setVisibility(View.VISIBLE);

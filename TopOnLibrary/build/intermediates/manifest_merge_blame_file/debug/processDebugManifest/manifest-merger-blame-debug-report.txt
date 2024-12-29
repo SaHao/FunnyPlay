@@ -1,0 +1,44 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="io.iaa.topon.library" >
+5
+6    <uses-sdk android:minSdkVersion="24" />
+7
+8    <uses-permission android:name="android.permission.INTERNET" />
+8-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:4:5-67
+8-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:4:22-64
+9    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+9-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:5:5-79
+9-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:5:22-76
+10    <uses-permission android:name="android.permission.WAKE_LOCK" />
+10-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:6:5-68
+10-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:6:22-65
+11
+12    <application>
+12-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:8:5-18:19
+13        <uses-library
+13-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:9-87
+14            android:name="org.apache.http.legacy"
+14-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:23-60
+15            android:required="false" />
+15-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:61-85
+16        <!-- google -->
+17        <meta-data
+17-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:11:9-13:36
+18            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+18-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:12:13-69
+19            android:value="true" />
+19-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:13:13-33
+20
+21        <property
+21-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:14:9-17:47
+22            android:name="android.adservices.AD_SERVICES_CONFIG"
+22-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:15:13-65
+23            android:resource="@xml/ga_ad_services_config"
+23-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:16:13-58
+24            tools:replace="android:resource" />
+24-->I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:17:13-45
+25    </application>
+26
+27</manifest>

@@ -31,7 +31,7 @@ public class GameDetailPresenter {
         model.getTask(id, new BaseNetworkCallback<GameDetailBean>() {
             @Override
             public void onSuccess(GameDetailBean bean) {
-                view.getData(bean);
+                view.getTask(bean);
             }
 
             @Override

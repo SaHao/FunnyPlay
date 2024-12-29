@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.iejnnnmokkk.common.base.BaseActivity;
-import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.game.GameFragment;
 import com.iejnnnmokkk.funnyplay.gift.GiftFragment;
 import com.iejnnnmokkk.funnyplay.personal.PersonalFragment;
@@ -21,7 +20,6 @@ import com.iejnnnmokkk.funnyplay.shop.ShopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,13 +47,13 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void initData() {
         initFragment();
-        defaultFragment(0);
+        defaultFragment();
     }
 
-    private void defaultFragment(int index) {
+    private void defaultFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fl_content, fragments.get(index));
+        transaction.replace(R.id.fl_content, fragments.get(0));
         transaction.commit();
     }
 

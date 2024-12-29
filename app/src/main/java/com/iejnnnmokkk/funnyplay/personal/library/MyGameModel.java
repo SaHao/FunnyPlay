@@ -5,6 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.common.utils.GsonUtils;
+import com.iejnnnmokkk.common.utils.ParamUtil;
 import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.R;
 import com.zhouyou.http.EasyHttp;
@@ -25,11 +26,12 @@ public class MyGameModel {
     public void getData(BaseNetworkCallback<MyGameBean> callback) {
         String url = "https://api.keepad.xyz/daily_reward/daily_my_task_list_v1";
         Map<String, String> map = new HashMap<>();
-        map.put("is_vpn", "false");
-        map.put("channel", "jfq_2_offer");
-        map.put("version", "1.0.11");
-        map.put("versionCode", "");
-        map.put("gaid", "");
+        map.put("is_vpn", ParamUtil.isVpn(context));
+        map.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
+        map.put("channel", ParamUtil.getPlatform());
+        map.put("limit", "20");
+        map.put("version", ParamUtil.getVersionName(context));
+        map.put("versionCode", ParamUtil.getVersionCode(context) + "");
         String json = new Gson().toJson(map);
         EasyHttp.post(url)
                 .params(map)

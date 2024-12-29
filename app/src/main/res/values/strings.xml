@@ -69,5 +69,5 @@
     <string name="loginFailed">Login failed, retrying...</string>
     <string name="mission_complete" translatable="false">Mission Complete</string>
 
-
+    <string name="taskFailed">Collection failed</string>
 </resources>

@@ -1,0 +1,52 @@
+-- Merging decision tree log ---
+manifest
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:2:1-20:12
+	package
+		INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:3:5-51
+	xmlns:android
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:6:5-68
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:6:22-65
+application
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:8:5-18:19
+uses-library#org.apache.http.legacy
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:9-87
+	android:required
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:61-85
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:9:23-60
+meta-data#com.google.android.gms.ads.AD_MANAGER_APP
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:11:9-13:36
+	android:value
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:13:13-33
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:12:13-69
+property#android.adservices.AD_SERVICES_CONFIG
+ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:14:9-17:47
+	android:resource
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:16:13-58
+	tools:replace
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:17:13-45
+	android:name
+		ADDED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml:15:13-65
+uses-sdk
+INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml
+INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from I:\workspace\Android\Example\FunnyPlay\TopOnLibrary\src\main\AndroidManifest.xml

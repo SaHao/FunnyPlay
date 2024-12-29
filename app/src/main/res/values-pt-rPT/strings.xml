@@ -69,4 +69,6 @@
     <string name="getSuccess">Resgatado com sucesso.</string>
     <string name="loginFailed">Falha no login, tentando novamente...</string>
     <string name="mission_complete" translatable="false">Mission Complete</string>
+
+    <string name="taskFailed">Falha na recuperação</string>
 </resources>
