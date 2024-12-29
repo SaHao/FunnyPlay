@@ -68,7 +68,8 @@
     <string name="error">Gagal mengambil data.</string>
     <string name="getSuccess">Berhasil diklaim.</string>
     <string name="loginFailed">Gagal masuk, mencoba lagi...</string>
-    <string name="mission_complete" translatable="false">Mission Complete</string>
+    <string name="mission_complete" translatable="false">Misi Selesai</string>
 
     <string name="taskFailed">Pengambilan gagal</string>
+    <string name="checked">" Diperiksa!"</string>
 </resources>

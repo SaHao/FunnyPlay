@@ -68,7 +68,8 @@
     <string name="error">ไม่สามารถดึงข้อมูลได้</string>
     <string name="getSuccess">รับสำเร็จแล้ว</string>
     <string name="loginFailed">เข้าสู่ระบบล้มเหลว กำลังลองอีกครั้ง...</string>
-    <string name="mission_complete" translatable="false">Mission Complete</string>
+    <string name="mission_complete" translatable="false">" ภารกิจเสร็จสิ้น"</string>
 
     <string name="taskFailed">ล้มเหลวในการรับ</string>
+    <string name="checked">ตรวจสอบแล้ว!</string>
 </resources>

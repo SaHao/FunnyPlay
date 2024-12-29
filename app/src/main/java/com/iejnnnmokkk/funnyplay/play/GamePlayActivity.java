@@ -16,12 +16,15 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.work.impl.utils.PreferenceUtils;
 
 import com.anythink.core.api.ATAdInfo;
 import com.iejnnnmokkk.common.base.BaseActivity;
+import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.databinding.ActivityGamePlayBinding;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayData;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayVideoAds;
+import com.iejnnnmokkk.funnyplay.tools.LanguageUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -43,7 +46,6 @@ public class GamePlayActivity extends BaseActivity implements IGamePlayView {
         activity.startActivity(intent);
     }
     private ActivityGamePlayBinding binding;
-//    private GamePlayViewModel gamePlayViewModel;
     private String no;
     private String gameUrl;
     private int targetAdsNumber;
@@ -289,24 +291,22 @@ public class GamePlayActivity extends BaseActivity implements IGamePlayView {
 
     private int currAdsNum;
     public void receiveGameReward(String action) { //视频播放完成回调
-//        evaluateJavascript(1,action);
-//        currAdsNum = (int) MiniPlayApp.getApplication().getValue(Constants.GAME_PLAY_ADS_NUMBER+no, 0);
-//        currAdsNum = currAdsNum+1;
-//        MiniPlayApp.getApplication().setValue(Constants.GAME_PLAY_ADS_NUMBER+no,currAdsNum);
-//        if(currAdsNum>=targetAdsNumber){
-//            long timeMillis = System.currentTimeMillis();
-//            if(details.getRed()==2){
-//                String e1 = "";
-//                String e2 = String.valueOf(currAdsNum);
-//                String sign = Tools.Companion.getMD5Sign(no + e1 + e2 + timeMillis + Constants.OLD_KEY);
-//                MiniLog.e("准备上报老游戏广告数据："+sign);
-//                gamePlayViewModel.receiveOldGameReward(no, timeMillis,e1,e2,sign);
-//            }else{
-//                String signature = Tools.Companion.getMD5Sign(no + currAdsNum + Constants.TOKEN + Constants.NEW_KEY + timeMillis);
-//                MiniLog.e("准备上报新游戏广告数据："+signature);
-//                gamePlayViewModel.receiveNewGameReward(no,timeMillis,action,String.valueOf(currAdsNum),signature);
-//            }
-//        }
+        evaluateJavascript(1,action);
+        currAdsNum = SharedPreferencesUtil.getInstance(context).getInt("AdsNum"+no);
+        currAdsNum = currAdsNum+1;
+        SharedPreferencesUtil.getInstance(context).saveInt("AdsNum"+no,currAdsNum);
+        if(currAdsNum>=targetAdsNumber){
+            long timeMillis = System.currentTimeMillis();
+            if(details.getRed()==2){
+                String e1 = "";
+                String e2 = String.valueOf(currAdsNum);
+                String sign = LanguageUtils.getMD5(no + e1 + e2 + timeMillis + LanguageUtils.GAME_PLAY_TIME_KEY);
+                gamePlayViewModel.receiveOldGameReward(no, timeMillis,e1,e2,sign);
+            }else{
+                String signature =  LanguageUtils.getMD5(no + currAdsNum + SharedPreferencesUtil.getInstance(context).getValue("token") + LanguageUtils.GAME_PLAY_TIME_KEY+ timeMillis);
+                gamePlayViewModel.receiveNewGameReward(no,timeMillis,action,String.valueOf(currAdsNum),signature);
+            }
+        }
     }
 
     private void evaluateJavascript(int i,String action) {

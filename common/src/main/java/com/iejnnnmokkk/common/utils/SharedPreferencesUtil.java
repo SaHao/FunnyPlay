@@ -47,6 +47,14 @@ public class SharedPreferencesUtil {
         return sharedPreferences.getString(key, "");
     }
 
+    public int getInt(String key) {
+        return sharedPreferences.getInt(key, 0);
+    }
+    public void saveInt(String key, int num) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, num);
+        editor.apply();
+    }
     /**
      * 清除数据
      */
