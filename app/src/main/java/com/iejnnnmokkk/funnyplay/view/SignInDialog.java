@@ -173,24 +173,28 @@ public class SignInDialog extends Dialog {
                     TopOnAds.loadRewardAd(context, "n675ba286f407f", "n676a5e9419689", new TopOnRewardedAdsListener() {
                         @Override
                         public void onAdLoadShow() {
-                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_show");
+                            TopOnEvent.logEventADorFA(context, "acloiyxa", "ad_show");
                         }
+
                         @Override
                         public void onAdHidden(ATAdInfo adInfo) {
-                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_hidden");
+                            TopOnEvent.logEventADorFA(context, "acloiyxa", "ad_hidden");
                         }
+
                         @Override
                         public void onUserRewarded(ATAdInfo adInfo) {
-                            listener.onSignInClick(id, bean.getRes().getReward_1());
-                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_reward");
+                            onClickListener();
+                            TopOnEvent.logEventADorFA(context, "acloiyxa", "ad_reward");
                         }
+
                         @Override
                         public void onAdClicked(ATAdInfo adInfo) {
-                            TopOnEvent.logEventADorFA(context,"acloiyxa","ads_click");
+                            TopOnEvent.logEventADorFA(context, "acloiyxa", "ads_click");
                         }
+
                         @Override
                         public void onAdLoadFailed(String s) {
-                            TopOnEvent.logEventADorFA(context,"acloiyxa","ad_failed");
+                            TopOnEvent.logEventADorFA(context, "acloiyxa", "ad_failed");
                         }
                     });
                 }
@@ -219,6 +223,22 @@ public class SignInDialog extends Dialog {
             updateViews(bean.getDayli_num() - 1);
         } else {
             updateViews(bean.getDayli_num());
+        }
+    }
+
+    public void onClickListener() {
+        if (bean.getDayli_num() == 2) {
+            listener.onSignInClick(id, bean.getRes().getReward_2());
+        } else if (bean.getDayli_num() == 3) {
+            listener.onSignInClick(id, bean.getRes().getReward_3());
+        } else if (bean.getDayli_num() == 4) {
+            listener.onSignInClick(id, bean.getRes().getReward_4());
+        } else if (bean.getDayli_num() == 5) {
+            listener.onSignInClick(id, bean.getRes().getReward_5());
+        } else if (bean.getDayli_num() == 6) {
+            listener.onSignInClick(id, bean.getRes().getReward_6());
+        } else if (bean.getDayli_num() == 7) {
+            listener.onSignInClick(id, bean.getRes().getReward_7());
         }
     }
 
