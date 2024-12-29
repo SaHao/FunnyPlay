@@ -19,8 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.anythink.core.api.ATAdInfo;
 import com.iejnnnmokkk.common.base.BaseActivity;
-import com.iejnnnmokkk.common.http.BaseNetworkCallback;
-import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.databinding.ActivityGamePlayBinding;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayData;
 import com.iejnnnmokkk.funnyplay.play.eventBean.GamePlayVideoAds;
@@ -73,17 +71,7 @@ public class GamePlayActivity extends BaseActivity implements IGamePlayView {
                 setDetailsData(gameInfoDetails);
             }
         });
-        gamePlayViewModel.getGameInfoDetails(context, no, new BaseNetworkCallback<GamePlayBean.DataBean>() {
-            @Override
-            public void onSuccess(GamePlayBean.DataBean bean) {
-
-            }
-
-            @Override
-            public void onFailure(String error) {
-                ToastUtils.showShort(context, error);
-            }
-        });
+        gamePlayViewModel.getGameInfoDetails(no);
     }
 
     @Override
