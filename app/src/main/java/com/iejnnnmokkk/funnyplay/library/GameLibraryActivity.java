@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.iejnnnmokkk.common.base.BaseActivity;
-import com.iejnnnmokkk.common.base.BaseFragment;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
@@ -67,6 +66,7 @@ public class GameLibraryActivity extends BaseActivity implements IGameLibraryVie
             }
         });
 
+        LoadingUtil.showLoading(activity);
         pageNum = 1;
         presenter.getData(pageNum, type);
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.iejnnnmokkk.common.http.BaseNetworkCallback;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+import com.iejnnnmokkk.funnyplay.personal.PersonalBean;
 import com.iejnnnmokkk.funnyplay.view.SignInBean;
 
 /**
@@ -98,6 +99,20 @@ public class GamePresenter {
             @Override
             public void onSuccess(SignInBean bean) {
                 view.signIn(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getRecentlyData() {
+        model.getRecentlyData(new BaseNetworkCallback<PersonalBean>() {
+            @Override
+            public void onSuccess(PersonalBean bean) {
+                view.getRecentlyData(bean);
             }
 
             @Override

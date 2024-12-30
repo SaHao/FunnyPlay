@@ -24,6 +24,8 @@ import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
 import com.iejnnnmokkk.funnyplay.library.GameLibraryActivity;
 import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
+import com.iejnnnmokkk.funnyplay.personal.PersonalAdapter;
+import com.iejnnnmokkk.funnyplay.personal.PersonalBean;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
 import com.iejnnnmokkk.funnyplay.view.CircleWaveProgressView;
@@ -56,12 +58,14 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private List<GameBean.DataBean> mostData = new ArrayList<>();
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
     private SignInBean.DataBean signInData = new SignInBean.DataBean();
+    private List<PersonalBean.DataBean> list = new ArrayList<>();
+    private PersonalAdapter personalAdapter;
 
     public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
-
+        personalAdapter = new PersonalAdapter(context);
     }
 
     @Override
@@ -79,31 +83,35 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((ViewHolder) holder).tvNum.setText(data.get(position - 1).getReward() + "");
             Glide.with(context).load(getNull(data.get(position - 1).getIcon())).into(((ViewHolder) holder).ivLogo);
             holder.itemView.setOnClickListener(v -> {
-                if(data.get(position - 1).getType() == 18) {
+                if (data.get(position - 1).getType() == 18) {
                     context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position - 1).getNo())));
                 }
             });
         } else if (holder instanceof HeaderViewHolder) {
-            LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-            ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(layoutManager);
+            ((HeaderViewHolder) holder).rvFavourite.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             ((HeaderViewHolder) holder).rvFavourite.setAdapter(favouriteAdapter);
 
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false);
-            ((HeaderViewHolder) holder).rvMost.setLayoutManager(gridLayoutManager);
+            ((HeaderViewHolder) holder).rvMost.setLayoutManager(new GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false));
             ((HeaderViewHolder) holder).rvMost.setAdapter(mostGameAdapter);
 
+            ((HeaderViewHolder) holder).rvRecently.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+            ((HeaderViewHolder) holder).rvRecently.setAdapter(personalAdapter);
+
+            ((HeaderViewHolder) holder).clRecently.setVisibility(list.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
-
+            ((HeaderViewHolder) holder).llSignIn.setVisibility(signInData.getDayli_flag() == 0 ? View.VISIBLE : View.GONE);
+            ((HeaderViewHolder) holder).tvTomorrow.setVisibility(signInData.getDayli_flag() == 0 ? View.GONE : View.VISIBLE);
+            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getMy_task_count() == 0 ? View.GONE : View.VISIBLE);
 
 //            setProgressBar(((HeaderViewHolder) holder).cpTask, userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum());
 //            ((HeaderViewHolder) holder).tvTaskNum.setText(setPercent(userInfo.getWelfare_5_star_reward(), userInfo.getWelfare_5_star_reward() + userInfo.getWelfare_complete_sum()));
-            Glide.with(context).load(getNull(userInfo.getAvatar())).into(((HeaderViewHolder) holder).ivPhoto);
+            Glide.with(context).load(getNull(userInfo.getAvatar())).placeholder(R.mipmap.icon_default_photo)
+                    .error(R.mipmap.icon_default_photo).into(((HeaderViewHolder) holder).ivPhoto);
             Glide.with(context).load(getNull(userInfo.getFrame())).into(((HeaderViewHolder) holder).ivPhotoBack);
             ((HeaderViewHolder) holder).tvMoney.setText(userInfo.getBalance());
             ((HeaderViewHolder) holder).tvGameNum.setText(userInfo.getMy_task_count() + "");
-            ((HeaderViewHolder) holder).tvGameNum.setVisibility(userInfo.getMy_task_count() == 0 ? View.GONE : View.VISIBLE);
 
 
             ((HeaderViewHolder) holder).ivShop.setOnClickListener(v -> {
@@ -117,13 +125,20 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).tvFavouriteAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "26"));
             });
+
             ((HeaderViewHolder) holder).tvMostAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "27"));
             });
+
             ((HeaderViewHolder) holder).tvNewAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, GameLibraryActivity.class).putExtra("type", "28"));
             });
+
             ((HeaderViewHolder) holder).ivGame.setOnClickListener(v -> {
+                context.startActivity(new Intent(context, MyGameActivity.class));
+            });
+
+            ((HeaderViewHolder) holder).tvRecentlyAll.setOnClickListener(v -> {
                 context.startActivity(new Intent(context, MyGameActivity.class));
             });
 
@@ -161,9 +176,6 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
                     default:
                         break;
                 }
-                ((HeaderViewHolder) holder).llSignIn.setVisibility(signInData.getDayli_flag() == 0 ? View.VISIBLE : View.GONE);
-                ((HeaderViewHolder) holder).tvTomorrow.setVisibility(signInData.getDayli_flag() == 0 ? View.GONE : View.VISIBLE);
-
             }
 
         }
@@ -198,6 +210,12 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
 
     public void setSignInData(SignInBean.DataBean signInData) {
         this.signInData = signInData;
+        notifyDataSetChanged();
+    }
+
+    public void setPersonalBean(List<PersonalBean.DataBean> list) {
+        this.list = list;
+        personalAdapter.setData(list, true);
         notifyDataSetChanged();
     }
 
@@ -253,6 +271,12 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
         public RecyclerView rvFavourite;
         @BindView(R.id.rv_most)
         public RecyclerView rvMost;
+        @BindView(R.id.tv_recentlyAll)
+        TextView tvRecentlyAll;
+        @BindView(R.id.rv_recently)
+        RecyclerView rvRecently;
+        @BindView(R.id.cl_recently)
+        ConstraintLayout clRecently;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);

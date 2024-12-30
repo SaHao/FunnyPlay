@@ -121,12 +121,14 @@
             android:id="@+id/iv_sgnIn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="29dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="18dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_sign_in"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_game"
             app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
         <ImageView
@@ -147,9 +149,10 @@
             android:layout_height="48dp"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
+            android:layout_marginEnd="55dp"
             android:src="@mipmap/icon_game_shop"
             app:layout_constraintBottom_toBottomOf="@+id/iv_sgnIn"
-            app:layout_constraintEnd_toStartOf="@+id/iv_personal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_game"
             app:layout_constraintTop_toTopOf="@+id/iv_sgnIn" />
 
@@ -158,6 +161,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="29dp"
+            android:visibility="gone"
             android:background="@drawable/shape_game_btn_back"
             android:padding="15dp"
             android:src="@mipmap/icon_game_add_friend"
@@ -236,6 +240,7 @@
             android:orientation="horizontal"
             android:paddingStart="10dp"
             android:paddingTop="3dp"
+            android:visibility="gone"
             android:paddingEnd="10dp"
             android:paddingBottom="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_personal"
@@ -257,10 +262,49 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_favourite"
+        android:id="@+id/cl_recently"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/arial_black"
+            android:text="@string/RecentlyPlayed"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_recentlyAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/ALL"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recently"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_favourite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/textView0"

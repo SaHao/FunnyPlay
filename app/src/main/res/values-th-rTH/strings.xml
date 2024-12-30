@@ -73,4 +73,5 @@
 
     <string name="taskFailed">ล้มเหลวในการรับ</string>
     <string name="checked">ตรวจสอบแล้ว!</string>
+    <string name="copySuccess">การคัดลอกสำเร็จ</string>
 </resources>

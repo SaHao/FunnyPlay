@@ -129,9 +129,12 @@ public class SignInDialog extends Dialog {
         tvWatch.setVisibility(SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1") ? View.GONE : View.VISIBLE);
     }
 
-    @OnClick({R.id.cl_day1, R.id.cl_day2, R.id.cl_day3, R.id.cl_day5, R.id.cl_day6, R.id.cl_day7, R.id.tv_Watch, R.id.cl_day4})
+    @OnClick({R.id.iv_deleted, R.id.cl_day1, R.id.cl_day2, R.id.cl_day3, R.id.cl_day5, R.id.cl_day6, R.id.cl_day7, R.id.tv_Watch, R.id.cl_day4})
     public void onBindClick(View view) {
         switch (view.getId()) {
+            case R.id.iv_deleted:
+                dismiss();
+                break;
             case R.id.cl_day1:
                 if (bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
                     if (SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1")) {

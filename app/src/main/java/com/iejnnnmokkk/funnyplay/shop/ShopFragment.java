@@ -19,8 +19,6 @@ import com.google.gson.Gson;
 import com.iejnnnmokkk.common.base.BaseFragment;
 import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
-import com.iejnnnmokkk.funnyplay.game.GameAdapter;
-import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
@@ -91,7 +89,8 @@ public class ShopFragment extends BaseFragment implements IShopView {
             if (bean != null && bean.getData() != null) {
 //                setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //                tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).placeholder(R.mipmap.icon_default_photo)
+                        .error(R.mipmap.icon_default_photo).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
                 tvMoney.setText(bean.getData().getBalance());
             }
@@ -176,7 +175,8 @@ public class ShopFragment extends BaseFragment implements IShopView {
         if (bean != null && bean.getData() != null) {
 //            setProgressBar(cpTask, bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum());
 //            tvTaskNum.setText(setPercent(bean.getData().getWelfare_5_star_reward(), bean.getData().getWelfare_5_star_reward() + bean.getData().getWelfare_complete_sum()));
-            Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
+            Glide.with(context).load(getNull(bean.getData().getAvatar())).placeholder(R.mipmap.icon_default_photo)
+                    .error(R.mipmap.icon_default_photo).into(ivPhoto);
             Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
             tvMoney.setText(bean.getData().getBalance());
         }

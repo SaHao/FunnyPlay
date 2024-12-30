@@ -73,4 +73,5 @@
 
     <string name="taskFailed">Pengambilan gagal</string>
     <string name="checked">" Diperiksa!"</string>
+    <string name="copySuccess">Salin sukses.</string>
 </resources>

@@ -40,6 +40,7 @@
             android:layout_weight="1"
             android:background="@drawable/sel_menu_back"
             android:button="@null"
+            android:visibility="gone"
             android:drawableTop="@drawable/sel_gift"
             android:paddingTop="20dp" />
 

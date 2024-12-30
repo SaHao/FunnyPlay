@@ -15,27 +15,24 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TaskCompleteDialog extends Dialog {
+public class SignInSuccessDialog extends Dialog {
 
     @BindView(R.id.tv_money)
     TextView tvMoney;
-    @BindView(R.id.tv_otherMoney)
-    TextView tvOtherMoney;
 
     private Context context;
-    private OnVideoClickListener listener;
 
-    public TaskCompleteDialog(@NonNull Context context) {
+    public SignInSuccessDialog(@NonNull Context context) {
         super(context);
         this.context = context;
     }
 
-    public TaskCompleteDialog(@NonNull Context context, int themeResId) {
+    public SignInSuccessDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
         this.context = context;
     }
 
-    protected TaskCompleteDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+    protected SignInSuccessDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         this.context = context;
     }
@@ -43,34 +40,20 @@ public class TaskCompleteDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_task_completed);
+        setContentView(R.layout.view_sign_in_success);
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tv_ok, R.id.ll_video})
+    @OnClick({R.id.tv_ok})
     public void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.tv_ok:
                 dismiss();
                 break;
-            case R.id.ll_video:
-//                看视频
-//                完成视频回调
-                listener.onVideoClick();
-                break;
         }
     }
 
-    public void setListener(OnVideoClickListener listener) {
-        this.listener = listener;
-    }
-
-    public void setMoney(int money, int otherMoney) {
+    public void setMoney(int money) {
         tvMoney.setText(money + "");
-        tvOtherMoney.setText(otherMoney + "");
-    }
-
-    public interface OnVideoClickListener {
-        void onVideoClick();
     }
 }

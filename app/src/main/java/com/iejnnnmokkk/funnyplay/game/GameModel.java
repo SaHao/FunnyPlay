@@ -10,6 +10,7 @@ import com.iejnnnmokkk.common.utils.SharedPreferencesUtil;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
+import com.iejnnnmokkk.funnyplay.personal.PersonalBean;
 import com.iejnnnmokkk.funnyplay.view.SignInBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
@@ -45,7 +46,7 @@ public class GameModel {
         map.put("task_type_conf_id", type);
         map.put("is_vpn", ParamUtil.isVpn(context));
         map.put("task_type_id", "10,18,22");
-        map.put("limit", "20");
+        map.put("limit", type == 28 ? "20" : "2000");
         map.put("randomUUID", SharedPreferencesUtil.getInstance(context).getValue("uuid"));
         map.put("page", pageNum);
         map.put("game_flag", "4");
@@ -144,6 +145,35 @@ public class GameModel {
                     @Override
                     public void onSuccess(String response) {
                         callback.onSuccess(GsonUtils.fromJson(response, SignInBean.class));
+                    }
+                });
+    }
+
+    public void getRecentlyData(BaseNetworkCallback<PersonalBean> callback) {
+        String url = "https://api.keepad.xyz/daily_reward/daily_my_task_list_v1";
+        Map<String, String> map = new HashMap<>();
+        map.put("is_vpn", ParamUtil.isVpn(context));
+        map.put("channel", ParamUtil.getPlatform());
+        map.put("version", ParamUtil.getVersionName(context));
+        map.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
+        map.put("versionCode", ParamUtil.getVersionCode(context) + "");
+
+        EasyHttp.post(url)
+                .headers("token", SharedPreferencesUtil.getInstance(context).getValue("token"))
+                .params(map)
+                .execute(new SimpleCallBack<String>() {
+                    @Override
+                    public void onError(ApiException e) {
+                        callback.onFailure(context.getResources().getString(R.string.error));
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        try {
+                            callback.onSuccess(GsonUtils.fromJson(response, PersonalBean.class));
+                        } catch (Exception e) {
+                            callback.onSuccess(new PersonalBean());
+                        }
                     }
                 });
     }

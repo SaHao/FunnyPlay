@@ -93,7 +93,7 @@ public class UserInfoBean extends BaseBean {
         private String bind_google_reward;
         private String youtobe_url;
         private String fly_url;
-        private double new_user_local_money;
+        private int new_user_local_money;
         private String task_start_rewards;
         private String cps_url;
         private String new_reward;
@@ -687,11 +687,11 @@ public class UserInfoBean extends BaseBean {
             this.fly_url = fly_url;
         }
 
-        public double getNew_user_local_money() {
+        public int getNew_user_local_money() {
             return new_user_local_money;
         }
 
-        public void setNew_user_local_money(double new_user_local_money) {
+        public void setNew_user_local_money(int new_user_local_money) {
             this.new_user_local_money = new_user_local_money;
         }
 

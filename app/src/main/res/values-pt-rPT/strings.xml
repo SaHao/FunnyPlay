@@ -73,4 +73,5 @@
 
     <string name="taskFailed">Falha na recuperação</string>
     <string name="checked">Verificado!</string>
+    <string name="copySuccess">Cópia bem sucedida.</string>
 </resources>

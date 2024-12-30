@@ -1,6 +1,9 @@
 package com.iejnnnmokkk.funnyplay.personal;
 
-import android.content.Context;
+import static android.content.Context.CLIPBOARD_SERVICE;
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,14 +75,15 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
         if (!TextUtils.isEmpty(user)) {
             UserInfoBean bean = new Gson().fromJson(user, UserInfoBean.class);
             if (bean != null && bean.getData() != null) {
-                Glide.with(context).load(getNull(bean.getData().getAvatar())).into(ivPhoto);
+                Glide.with(context).load(getNull(bean.getData().getAvatar())).placeholder(R.mipmap.icon_default_photo)
+                        .error(R.mipmap.icon_default_photo).into(ivPhoto);
                 Glide.with(context).load(getNull(bean.getData().getFrame())).into(ivPhotoBack);
                 tvName.setText(getNull(bean.getData().getNickname()));
             }
         }
     }
 
-    @OnClick({R.id.cl_faq, R.id.cl_score, R.id.cl_policy})
+    @OnClick({R.id.cl_faq, R.id.cl_score, R.id.cl_policy, R.id.iv_copy})
     public void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.cl_faq:
@@ -89,6 +92,9 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
                 openGooglePlay();
                 break;
             case R.id.cl_policy:
+                break;
+            case R.id.iv_copy:
+                copyText();
                 break;
         }
     }
@@ -123,6 +129,13 @@ public class PersonalFragment extends BaseFragment implements IPersonalView {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+    }
+
+    private void copyText() {
+        ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("", tvName.getText().toString());
+        clipboardManager.setPrimaryClip(clip);
+        ToastUtils.showShort(context, context.getResources().getString(R.string.copySuccess));
     }
 
 }
