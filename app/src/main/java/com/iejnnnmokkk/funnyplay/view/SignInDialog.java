@@ -136,44 +136,18 @@ public class SignInDialog extends Dialog {
                 if (bean.getDayli_num() == 1 && bean.getDayli_flag() == 0) {
                     if (SharedPreferencesUtil.getInstance(context).getValue("isSignInFirst").equals("1")) {
                         listener.onSignInClick(id, bean.getRes().getReward_1());
+                    } else {
+                        ToastUtils.showShort(context, context.getResources().getString(R.string.pleaseWatch));
                     }
                 }
                 break;
             case R.id.cl_day2:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 2 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_2());
-//                }
-                break;
             case R.id.cl_day3:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 3 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_3());
-//                }
-                break;
             case R.id.cl_day4:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 4 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_4());
-//                }
-                break;
             case R.id.cl_day5:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 5 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_5());
-//                }
-                break;
             case R.id.cl_day6:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 6 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_6());
-//                }
-                break;
             case R.id.cl_day7:
-                ToastUtils.showShort(context,"Please click the button below");
-//                if(bean.getDayli_num() == 7 && bean.getDayli_flag() == 0) {
-//                    listener.onSignInClick(id,bean.getRes().getReward_7());
-//                }
+                ToastUtils.showShort(context, context.getResources().getString(R.string.pleaseWatch));
                 break;
             case R.id.tv_Watch:
                 if (bean.getDayli_flag() == 0) {
@@ -204,8 +178,8 @@ public class SignInDialog extends Dialog {
                             TopOnEvent.logEventADorFA(context, "acloiyxa", "ad_failed");
                         }
                     });
-                }else {
-                    ToastUtils.showShort(context,context.getResources().getString(R.string.checked));
+                } else {
+                    ToastUtils.showShort(context, context.getResources().getString(R.string.checked));
                 }
                 break;
         }
