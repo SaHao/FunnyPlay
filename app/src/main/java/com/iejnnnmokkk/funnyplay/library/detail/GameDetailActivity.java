@@ -101,7 +101,7 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
             if (bean.getData().getTask_reward() != 0 && isGet) {
 //                领奖
                 dialog.show();
-                dialog.setMoney(bean.getData().getTotal_reward(), bean.getData().getReward());
+                dialog.setMoney(bean.getData().getTask_reward(), bean.getData().getTask_reward());
                 dialog.setListener(() -> {
 //                    完成看视频
                     LoadingUtil.showLoading(activity);
@@ -139,7 +139,9 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     @Override
     public void getTaskPrize(TaskPrizeBean bean) {
         LoadingUtil.hideLoading();
-        if (bean != null && bean.getCode() != 200) {
+        if (bean != null && bean.getCode() == 200) {
+            dialog.dismiss();
+        } else if (bean != null) {
             ToastUtils.showShort(context, bean.getMsg());
         }
     }

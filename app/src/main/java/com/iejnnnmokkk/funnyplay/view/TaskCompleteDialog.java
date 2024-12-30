@@ -54,7 +54,6 @@ public class TaskCompleteDialog extends Dialog {
                 dismiss();
                 break;
             case R.id.ll_video:
-                dismiss();
 //                看视频
 //                完成视频回调
                 listener.onVideoClick();

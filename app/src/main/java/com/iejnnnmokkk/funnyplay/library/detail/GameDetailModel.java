@@ -85,14 +85,13 @@ public class GameDetailModel {
     }
 
     public void getTaskPrize(String id, BaseNetworkCallback<TaskPrizeBean> callback) {
-        String url = "https://api.keepad.xyz/funny_play/daily_welfare_reward";
+        String url = "https://api.keepad.xyz/funny_play/news_reward_config";
         Map<String, String> map = new HashMap<>();
-        map.put("is_vpn", ParamUtil.isVpn(context));
         map.put("channel", ParamUtil.getPlatform());
         map.put("version", ParamUtil.getVersionName(context));
-        map.put("gaid", SharedPreferencesUtil.getInstance(context).getValue("gaid"));
         map.put("versionCode", ParamUtil.getVersionCode(context) + "");
-        map.put("id", id);
+        map.put("reward_type", "2");
+        map.put("API_URI", "hub.dcweek.xyz");
 
         EasyHttp.post(url)
                 .params(map)
