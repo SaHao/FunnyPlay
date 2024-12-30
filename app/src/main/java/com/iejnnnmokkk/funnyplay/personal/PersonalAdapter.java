@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.iejnnnmokkk.common.base.BaseAdapter;
 import com.iejnnnmokkk.funnyplay.R;
+import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
@@ -33,6 +34,12 @@ public class PersonalAdapter extends BaseAdapter<PersonalBean.DataBean, Personal
         holder.tvName.setText(getNull(data.get(position).getName()));
 //        holder.tvTask.setText(getNull(data.get(position).getTask_label()));
         Glide.with(context).load(getNull(data.get(position).getIcon())).into(holder.ivLogo);
+
+        holder.itemView.setOnClickListener(v -> {
+            if(data.get(position).getType() == 18) {
+                context.startActivity(new Intent(context, GameDetailActivity.class).putExtra("id", getNull(data.get(position).getNo())));
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

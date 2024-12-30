@@ -27,11 +27,26 @@ public class GameDetailPresenter {
             }
         });
     }
+
     public void getTask(String id) {
         model.getTask(id, new BaseNetworkCallback<GameDetailBean>() {
             @Override
             public void onSuccess(GameDetailBean bean) {
                 view.getTask(bean);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                view.onFailed(error);
+            }
+        });
+    }
+
+    public void getTaskPrize(String id) {
+        model.getTaskPrize(id, new BaseNetworkCallback<TaskPrizeBean>() {
+            @Override
+            public void onSuccess(TaskPrizeBean bean) {
+                view.getTaskPrize(bean);
             }
 
             @Override

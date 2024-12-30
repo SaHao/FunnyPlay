@@ -15,26 +15,27 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignInSuccessDialog extends Dialog {
+public class TaskCompleteDialog extends Dialog {
 
     @BindView(R.id.tv_money)
     TextView tvMoney;
-    @BindView(R.id.tv_ok)
-    TextView tvOk;
+    @BindView(R.id.tv_otherMoney)
+    TextView tvOtherMoney;
 
     private Context context;
+    private OnVideoClickListener listener;
 
-    public SignInSuccessDialog(@NonNull Context context) {
+    public TaskCompleteDialog(@NonNull Context context) {
         super(context);
         this.context = context;
     }
 
-    public SignInSuccessDialog(@NonNull Context context, int themeResId) {
+    public TaskCompleteDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
         this.context = context;
     }
 
-    protected SignInSuccessDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+    protected TaskCompleteDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         this.context = context;
     }
@@ -46,16 +47,31 @@ public class SignInSuccessDialog extends Dialog {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tv_ok})
+    @OnClick({R.id.tv_ok, R.id.ll_video})
     public void onBindClick(View view) {
         switch (view.getId()) {
             case R.id.tv_ok:
                 dismiss();
                 break;
+            case R.id.ll_video:
+                dismiss();
+//                看视频
+//                完成视频回调
+                listener.onVideoClick();
+                break;
         }
     }
 
-    public void setMoney(int money) {
+    public void setListener(OnVideoClickListener listener) {
+        this.listener = listener;
+    }
+
+    public void setMoney(int money, int otherMoney) {
         tvMoney.setText(money + "");
+        tvOtherMoney.setText(otherMoney + "");
+    }
+
+    public interface OnVideoClickListener {
+        void onVideoClick();
     }
 }

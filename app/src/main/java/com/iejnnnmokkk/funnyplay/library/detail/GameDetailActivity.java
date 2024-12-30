@@ -18,6 +18,7 @@ import com.iejnnnmokkk.common.utils.ToastUtils;
 import com.iejnnnmokkk.funnyplay.R;
 import com.iejnnnmokkk.funnyplay.play.GamePlayActivity;
 import com.iejnnnmokkk.funnyplay.tools.LoadingUtil;
+import com.iejnnnmokkk.funnyplay.view.TaskCompleteDialog;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
@@ -40,12 +41,14 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     private GameDetailBean.DataBean bean = new GameDetailBean.DataBean();
 
     private boolean isGet = true;
+    private TaskCompleteDialog dialog;
 
     @Override
     protected void onInitView(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_ganme_detail);
         ButterKnife.bind(this);
 
+        dialog = new TaskCompleteDialog(context, R.style.myDialog);
         presenter = new GameDetailPresenter(context, this);
         id = getIntent().getStringExtra("id");
         initRefreshLayout(rlTask);
@@ -73,9 +76,9 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
     @Override
     protected void onResume() {
         super.onResume();
-            LoadingUtil.showLoading(activity);
-            pageNum = 1;
-            presenter.getData(pageNum, id);
+        LoadingUtil.showLoading(activity);
+        pageNum = 1;
+        presenter.getData(pageNum, id);
     }
 
     @Override
@@ -95,9 +98,24 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
             }
             adapter.setHeaderBean(bean.getData());
             isGet = bean.getData().getIs_get() != 1;
+            if (bean.getData().getTask_reward() != 0 && isGet) {
+//                领奖
+                dialog.show();
+                dialog.setMoney(bean.getData().getTotal_reward(), bean.getData().getReward());
+                dialog.setListener(() -> {
+//                    完成看视频
+                    LoadingUtil.showLoading(activity);
+                    presenter.getTaskPrize(id);
+                });
+            }
         }
     }
 
+    /**
+     * 领取任务
+     *
+     * @param data
+     */
     @Override
     public void getTask(GameDetailBean data) {
         if (data != null && data.getCode() == 200) {
@@ -110,6 +128,19 @@ public class GameDetailActivity extends BaseActivity implements IGameDetailView 
             }
         } else {
             ToastUtils.showShort(context, context.getResources().getString(R.string.taskFailed));
+        }
+    }
+
+    /**
+     * 领奖
+     *
+     * @param bean
+     */
+    @Override
+    public void getTaskPrize(TaskPrizeBean bean) {
+        LoadingUtil.hideLoading();
+        if (bean != null && bean.getCode() != 200) {
+            ToastUtils.showShort(context, bean.getMsg());
         }
     }
 

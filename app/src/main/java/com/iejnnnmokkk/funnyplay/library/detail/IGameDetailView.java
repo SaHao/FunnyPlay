@@ -6,5 +6,7 @@ public interface IGameDetailView {
 
     void getTask(GameDetailBean bean);
 
+    void getTaskPrize(TaskPrizeBean bean);
+
     void onFailed(String msg);
 }
