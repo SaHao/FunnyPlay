@@ -14,7 +14,7 @@
     <RadioGroup
         android:id="@+id/rg_menu"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="77dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
@@ -30,6 +30,10 @@
             android:background="@drawable/sel_menu_back"
             android:button="@null"
             android:checked="true"
+            android:gravity="center"
+            android:textColor="#521E23"
+            android:text="@string/Game"
+            android:textSize="16sp"
             android:drawableTop="@drawable/sel_game"
             android:paddingTop="23dp" />
 
@@ -41,6 +45,8 @@
             android:background="@drawable/sel_menu_back"
             android:button="@null"
             android:visibility="gone"
+            android:gravity="center"
+            android:textSize="16sp"
             android:drawableTop="@drawable/sel_gift"
             android:paddingTop="20dp" />
 
@@ -51,6 +57,10 @@
             android:layout_weight="1"
             android:background="@drawable/sel_menu_back"
             android:button="@null"
+            android:textColor="#7E5358"
+            android:gravity="center"
+            android:text="@string/Shop"
+            android:textSize="16sp"
             android:drawableTop="@drawable/sel_shop"
             android:paddingTop="20dp" />
 
@@ -61,6 +71,10 @@
             android:layout_weight="1"
             android:background="@drawable/sel_menu_back"
             android:button="@null"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#7E5358"
+            android:text="@string/Me"
             android:drawableTop="@drawable/sel_personal"
             android:paddingTop="20dp" />
     </RadioGroup>

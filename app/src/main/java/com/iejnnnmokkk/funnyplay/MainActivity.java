@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -30,6 +31,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public RadioButton rbGame;
     @BindView(R.id.rg_menu)
     public RadioGroup rgMenu;
+    @BindView(R.id.rb_shop)
+    RadioButton rbShop;
+    @BindView(R.id.rb_personal)
+    RadioButton rbPersonal;
 
     private boolean doubleBackToExitPressedOnce = false;
     private static final int DOUBLE_BACK_PRESS_INTERVAL = 3000;
@@ -73,15 +78,18 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (i) {
             case R.id.rb_game:
                 transaction.replace(R.id.fl_content, fragments.get(0));
+                setTextStyle(rbGame, rbShop, rbPersonal);
                 break;
             case R.id.rb_gift:
                 transaction.replace(R.id.fl_content, fragments.get(1));
                 break;
             case R.id.rb_shop:
                 transaction.replace(R.id.fl_content, fragments.get(2));
+                setTextStyle(rbShop, rbGame, rbPersonal);
                 break;
             case R.id.rb_personal:
                 transaction.replace(R.id.fl_content, fragments.get(3));
+                setTextStyle(rbPersonal, rbShop, rbGame);
                 break;
         }
         transaction.commit();
@@ -109,5 +117,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fl_content, fragments.get(2));
         transaction.commit();
+    }
+
+    private void setTextStyle(RadioButton view1, RadioButton... views) {
+        view1.setTextColor(getResources().getColor(R.color.select));
+        for (TextView view : views) {
+            view.setTextColor(getResources().getColor(R.color.notSelect));
+        }
     }
 }

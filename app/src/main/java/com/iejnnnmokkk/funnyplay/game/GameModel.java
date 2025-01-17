@@ -46,7 +46,8 @@ public class GameModel {
         map.put("task_type_conf_id", type);
         map.put("is_vpn", ParamUtil.isVpn(context));
         map.put("task_type_id", "10,18,22");
-        map.put("limit", type == 28 ? "20" : "2000");
+//        map.put("limit", type == 28 ? "20" : "2000");
+        map.put("limit", "20");
         map.put("randomUUID", SharedPreferencesUtil.getInstance(context).getValue("uuid"));
         map.put("page", pageNum);
         map.put("game_flag", "4");

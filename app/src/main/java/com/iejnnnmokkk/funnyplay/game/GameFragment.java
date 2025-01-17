@@ -101,8 +101,8 @@ public class GameFragment extends BaseFragment implements IGameView {
         super.onResume();
         LoadingUtil.showLoading(activity);
         pageNum = 1;
-        presenter.getFavourite(pageNum, 26);
-        presenter.getMost(pageNum, 27);
+//        presenter.getFavourite(pageNum, 26);
+//        presenter.getMost(pageNum, 27);
         presenter.getNew(pageNum, 28);
         presenter.getUserInfo(context);
         presenter.getRecentlyData();
@@ -116,8 +116,8 @@ public class GameFragment extends BaseFragment implements IGameView {
             public void onRefreshData() {
                 refreshLayout.finishRefresh(true);
                 pageNum = 1;
-                presenter.getFavourite(pageNum, 26);
-                presenter.getMost(pageNum, 27);
+//                presenter.getFavourite(pageNum, 26);
+//                presenter.getMost(pageNum, 27);
                 presenter.getNew(pageNum, 28);
                 presenter.getUserInfo(context);
                 presenter.getRecentlyData();

@@ -74,4 +74,8 @@
     <string name="taskFailed">Falha na recuperação</string>
     <string name="checked">Verificado!</string>
     <string name="copySuccess">Cópia bem sucedida.</string>
+
+    <string name="Game">Jogo</string>
+    <string name="Shop">Loja</string>
+    <string name="Me">Eu</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="taskFailed">ล้มเหลวในการรับ</string>
     <string name="checked">ตรวจสอบแล้ว!</string>
     <string name="copySuccess">การคัดลอกสำเร็จ</string>
+
+    <string name="Game">เกม</string>
+    <string name="Shop">ร้านค้า</string>
+    <string name="Me">ฉัน</string>
 </resources>

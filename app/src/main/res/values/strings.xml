@@ -73,4 +73,8 @@
     <string name="taskFailed">Collection failed</string>
     <string name="checked">Checked!</string>
     <string name="copySuccess">Copy successful.</string>
+
+    <string name="Game">Game</string>
+    <string name="Shop">Shop</string>
+    <string name="Me">Me</string>
 </resources>

@@ -51,7 +51,7 @@
             android:maxLength="15"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_photoBack"
             app:layout_constraintStart_toEndOf="@+id/iv_photo"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />

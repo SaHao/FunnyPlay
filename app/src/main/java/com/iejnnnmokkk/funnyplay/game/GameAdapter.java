@@ -22,9 +22,9 @@ import com.iejnnnmokkk.funnyplay.game.bean.GameBean;
 import com.iejnnnmokkk.funnyplay.game.bean.UserInfoBean;
 import com.iejnnnmokkk.funnyplay.game.favourite.FavouriteAdapter;
 import com.iejnnnmokkk.funnyplay.game.most.MostGameAdapter;
+import com.iejnnnmokkk.funnyplay.game.recently.RecentlyAdapter;
 import com.iejnnnmokkk.funnyplay.library.GameLibraryActivity;
 import com.iejnnnmokkk.funnyplay.library.detail.GameDetailActivity;
-import com.iejnnnmokkk.funnyplay.personal.PersonalAdapter;
 import com.iejnnnmokkk.funnyplay.personal.PersonalBean;
 import com.iejnnnmokkk.funnyplay.personal.history.HistoryActivity;
 import com.iejnnnmokkk.funnyplay.personal.library.MyGameActivity;
@@ -59,13 +59,13 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
     private UserInfoBean.DataBean userInfo = new UserInfoBean.DataBean();
     private SignInBean.DataBean signInData = new SignInBean.DataBean();
     private List<PersonalBean.DataBean> list = new ArrayList<>();
-    private PersonalAdapter personalAdapter;
+    private RecentlyAdapter personalAdapter;
 
     public GameAdapter(Activity context) {
         super(context);
         favouriteAdapter = new FavouriteAdapter(context);
         mostGameAdapter = new MostGameAdapter(context);
-        personalAdapter = new PersonalAdapter(context);
+        personalAdapter = new RecentlyAdapter(context);
     }
 
     @Override
@@ -97,9 +97,9 @@ public class GameAdapter extends BaseAdapter<GameBean.DataBean, RecyclerView.Vie
             ((HeaderViewHolder) holder).rvRecently.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             ((HeaderViewHolder) holder).rvRecently.setAdapter(personalAdapter);
 
-            ((HeaderViewHolder) holder).clRecently.setVisibility(list.isEmpty() ? View.GONE : View.VISIBLE);
-            ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
-            ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
+//            ((HeaderViewHolder) holder).clRecently.setVisibility(list.isEmpty() ? View.GONE : View.VISIBLE);
+//            ((HeaderViewHolder) holder).clFavourite.setVisibility(favouriteData.isEmpty() ? View.GONE : View.VISIBLE);
+//            ((HeaderViewHolder) holder).clMost.setVisibility(mostData.isEmpty() ? View.GONE : View.VISIBLE);
             ((HeaderViewHolder) holder).llAddFriends.setVisibility(View.GONE);
             ((HeaderViewHolder) holder).llSignIn.setVisibility(signInData.getDayli_flag() == 0 ? View.VISIBLE : View.GONE);
             ((HeaderViewHolder) holder).tvTomorrow.setVisibility(signInData.getDayli_flag() == 0 ? View.GONE : View.VISIBLE);

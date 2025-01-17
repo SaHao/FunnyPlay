@@ -98,8 +98,8 @@
 
         <ImageView
             android:id="@+id/imageView0"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="15dp"
             android:src="@mipmap/icon_blue_diamond"
             app:layout_constraintBottom_toBottomOf="@+id/iv_photoBack"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView0"
             app:layout_constraintStart_toEndOf="@+id/imageView0"
             app:layout_constraintTop_toTopOf="@+id/imageView0" />
@@ -293,7 +293,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recently"
             android:layout_width="0dp"
-            android:layout_height="130dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -304,6 +304,7 @@
         android:id="@+id/cl_favourite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         android:layout_marginTop="30dp">
 
         <TextView
@@ -334,6 +335,7 @@
             android:layout_width="0dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView0" />
@@ -342,6 +344,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_most"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
@@ -380,6 +383,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginTop="30dp">
 
         <TextView

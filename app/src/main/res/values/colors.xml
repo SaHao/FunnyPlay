@@ -8,4 +8,6 @@
     <color name="main_bg">#221616</color>
     <color name="gameProgress">#A5A4A3</color>
     <color name="gameComplete">#FF6B23</color>
+    <color name="select">#521E23</color>
+    <color name="notSelect">#7E5358</color>
 </resources>
